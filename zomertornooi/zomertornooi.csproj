@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{474E385C-70D0-446B-B8E8-A2F787EE44FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>structures</RootNamespace>
+    <AssemblyName>zomertornooi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.2.9.0.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomAttributes\AttributeReader.cs" />
+    <Compile Include="CustomAttributes\CustomAttributes.cs" />
+    <Compile Include="Factory\ActiveBindingList.cs" />
+    <Compile Include="Factory\StructureSetup.cs" />
+    <Compile Include="logger\ProgramLogger.cs" />
+    <Compile Include="structures\AdministratieReeks.cs" />
+    <Compile Include="structures\Klassement.cs" />
+    <Compile Include="structures\QueStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="structures\QueStatus.Designer.cs">
+      <DependentUpon>QueStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="structures\Reeks.cs" />
+    <Compile Include="structures\ReeksAssignment.cs" />
+    <Compile Include="structures\Structurebase.cs" />
+    <Compile Include="structures\Persoon.cs" />
+    <Compile Include="structures\Terrein.cs" />
+    <Compile Include="structures\Wedstrijd.cs" />
+    <Compile Include="structures\WedstrijdDefinition.cs" />
+    <Compile Include="TournamentCalculation\RoundRobinGenerator.cs" />
+    <Compile Include="UnitHibernateTestDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitHibernateTestDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListAllocation\ListAllocation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ListAllocation\ListAllocation.designer.cs">
+      <DependentUpon>ListAllocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListRefreshEngine\BindingListRefresh.cs" />
+    <Compile Include="Views\UC_PloegOverView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_PloegOverView.Designer.cs">
+      <DependentUpon>UC_PloegOverView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_categoryChanges.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_categoryChanges.Designer.cs">
+      <DependentUpon>UC_categoryChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_reeksAssignment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_reeksAssignment.Designer.cs">
+      <DependentUpon>UC_reeksAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_RoundRobinSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_RoundRobinSetup.Designer.cs">
+      <DependentUpon>UC_RoundRobinSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_TornooiAdministratie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_TornooiAdministratie.Designer.cs">
+      <DependentUpon>UC_TornooiAdministratie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Userview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Userview.Designer.cs">
+      <DependentUpon>UC_Userview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Generics.cs" />
+    <Compile Include="structures\Ploeg.cs" />
+    <Compile Include="structures\Category.cs" />
+    <Compile Include="Views\UC_wedstrijdViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_wedstrijdViewer.Designer.cs">
+      <DependentUpon>UC_wedstrijdViewer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="structures\QueStatus.resx">
+      <DependentUpon>QueStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\baseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListAllocation\ListAllocation.resx">
+      <DependentUpon>ListAllocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_categoryChanges.resx">
+      <DependentUpon>UC_categoryChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_PloegOverView.resx">
+      <DependentUpon>UC_PloegOverView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_reeksAssignment.resx">
+      <DependentUpon>UC_reeksAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_RoundRobinSetup.resx">
+      <DependentUpon>UC_RoundRobinSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_TornooiAdministratie.resx">
+      <DependentUpon>UC_TornooiAdministratie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Userview.resx">
+      <DependentUpon>UC_Userview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\UC_wedstrijdViewer.resx">
+      <DependentUpon>UC_wedstrijdViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="UnitHibernateTestDataSet.xsc">
+      <DependentUpon>UnitHibernateTestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UnitHibernateTestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UnitHibernateTestDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnitHibernateTestDataSet.xss">
+      <DependentUpon>UnitHibernateTestDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\marb\Marb.csproj">
+      <Project>{c1e33691-5248-4bc0-9c67-5f9521fe02a3}</Project>
+      <Name>Marb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NhibernateIntf\NhibernateIntf.csproj">
+      <Project>{e986afc8-1041-4fac-b552-d60a74e1614f}</Project>
+      <Name>NhibernateIntf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="license.txt" />
+    <None Include="Resources\UPload_00.gif" />
+    <EmbeddedResource Include="Printing\printerIcon.png" />
+    <EmbeddedResource Include="Printing\gameSheet.html" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
