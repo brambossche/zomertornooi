@@ -58,13 +58,14 @@
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.99999F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(820, 519);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(615, 422);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgv_Klassement
@@ -74,11 +75,12 @@
             this.dgv_Klassement.AllowUserToResizeRows = false;
             this.dgv_Klassement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Klassement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Klassement.Location = new System.Drawing.Point(167, 3);
+            this.dgv_Klassement.Location = new System.Drawing.Point(125, 2);
+            this.dgv_Klassement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_Klassement.Name = "dgv_Klassement";
             this.dgv_Klassement.ReadOnly = true;
             this.dgv_Klassement.RowTemplate.Height = 24;
-            this.dgv_Klassement.Size = new System.Drawing.Size(650, 233);
+            this.dgv_Klassement.Size = new System.Drawing.Size(488, 191);
             this.dgv_Klassement.TabIndex = 4;
             // 
             // dgv_Wedstrijden
@@ -87,9 +89,10 @@
             this.dgv_Wedstrijden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dgv_Wedstrijden, 2);
             this.dgv_Wedstrijden.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Wedstrijden.Location = new System.Drawing.Point(3, 281);
+            this.dgv_Wedstrijden.Location = new System.Drawing.Point(2, 227);
+            this.dgv_Wedstrijden.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_Wedstrijden.Name = "dgv_Wedstrijden";
-            this.dgv_Wedstrijden.Size = new System.Drawing.Size(814, 235);
+            this.dgv_Wedstrijden.Size = new System.Drawing.Size(611, 193);
             this.dgv_Wedstrijden.TabIndex = 1;
             this.dgv_Wedstrijden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellContentClick);
             this.dgv_Wedstrijden.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellValueChanged);
@@ -104,21 +107,23 @@
             this.tableLayoutPanel2.Controls.Add(this.cmb_ReeksNaam, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.dgv_Terreinen, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(158, 233);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(119, 191);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // btn_lock
             // 
             this.btn_lock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_lock.Location = new System.Drawing.Point(3, 33);
+            this.btn_lock.Location = new System.Drawing.Point(2, 27);
+            this.btn_lock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_lock.Name = "btn_lock";
-            this.btn_lock.Size = new System.Drawing.Size(152, 23);
+            this.btn_lock.Size = new System.Drawing.Size(115, 19);
             this.btn_lock.TabIndex = 1;
             this.btn_lock.Text = "Lock reeks";
             this.btn_lock.UseVisualStyleBackColor = true;
@@ -128,9 +133,10 @@
             // 
             this.cmb_ReeksNaam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmb_ReeksNaam.FormattingEnabled = true;
-            this.cmb_ReeksNaam.Location = new System.Drawing.Point(3, 3);
+            this.cmb_ReeksNaam.Location = new System.Drawing.Point(2, 2);
+            this.cmb_ReeksNaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmb_ReeksNaam.Name = "cmb_ReeksNaam";
-            this.cmb_ReeksNaam.Size = new System.Drawing.Size(152, 24);
+            this.cmb_ReeksNaam.Size = new System.Drawing.Size(115, 21);
             this.cmb_ReeksNaam.TabIndex = 0;
             this.cmb_ReeksNaam.SelectedIndexChanged += new System.EventHandler(this.cmb_ReeksNaam_SelectedIndexChanged);
             // 
@@ -139,12 +145,12 @@
             this.dgv_Terreinen.AllowUserToAddRows = false;
             this.dgv_Terreinen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Terreinen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Terreinen.Location = new System.Drawing.Point(3, 62);
+            this.dgv_Terreinen.Location = new System.Drawing.Point(2, 50);
+            this.dgv_Terreinen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_Terreinen.Name = "dgv_Terreinen";
             this.dgv_Terreinen.RowTemplate.Height = 24;
-            this.dgv_Terreinen.Size = new System.Drawing.Size(152, 168);
+            this.dgv_Terreinen.Size = new System.Drawing.Size(115, 139);
             this.dgv_Terreinen.TabIndex = 2;
-            //this.dgv_Terreinen.DataSourceChanged += new System.EventHandler(this.dgv_Terreinen_DataSourceChanged);
             this.dgv_Terreinen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Terreinen_CellValueChanged);
             // 
             // flowLayoutPanel1
@@ -155,26 +161,29 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_previousRound);
             this.flowLayoutPanel1.Controls.Add(this.btn_nextRound);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 242);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 197);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(814, 33);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(611, 26);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // cmb_Aanvangsuur
             // 
             this.cmb_Aanvangsuur.FormattingEnabled = true;
-            this.cmb_Aanvangsuur.Location = new System.Drawing.Point(3, 3);
+            this.cmb_Aanvangsuur.Location = new System.Drawing.Point(2, 2);
+            this.cmb_Aanvangsuur.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmb_Aanvangsuur.Name = "cmb_Aanvangsuur";
-            this.cmb_Aanvangsuur.Size = new System.Drawing.Size(126, 24);
+            this.cmb_Aanvangsuur.Size = new System.Drawing.Size(96, 21);
             this.cmb_Aanvangsuur.TabIndex = 1;
             this.cmb_Aanvangsuur.SelectedIndexChanged += new System.EventHandler(this.cmb_Aanvangsuur_SelectedIndexChanged);
             // 
             // btn_previousRound
             // 
             this.btn_previousRound.Enabled = false;
-            this.btn_previousRound.Location = new System.Drawing.Point(135, 3);
+            this.btn_previousRound.Location = new System.Drawing.Point(102, 2);
+            this.btn_previousRound.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_previousRound.Name = "btn_previousRound";
-            this.btn_previousRound.Size = new System.Drawing.Size(129, 27);
+            this.btn_previousRound.Size = new System.Drawing.Size(97, 22);
             this.btn_previousRound.TabIndex = 3;
             this.btn_previousRound.Text = "Vorige Ronde";
             this.btn_previousRound.UseVisualStyleBackColor = true;
@@ -182,9 +191,10 @@
             // 
             // btn_nextRound
             // 
-            this.btn_nextRound.Location = new System.Drawing.Point(270, 3);
+            this.btn_nextRound.Location = new System.Drawing.Point(203, 2);
+            this.btn_nextRound.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_nextRound.Name = "btn_nextRound";
-            this.btn_nextRound.Size = new System.Drawing.Size(129, 27);
+            this.btn_nextRound.Size = new System.Drawing.Size(97, 22);
             this.btn_nextRound.TabIndex = 2;
             this.btn_nextRound.Text = "Volgende Ronde";
             this.btn_nextRound.UseVisualStyleBackColor = true;
@@ -192,12 +202,14 @@
             // 
             // UC_TornooiAdministratie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UC_TornooiAdministratie";
-            this.Size = new System.Drawing.Size(820, 519);
+            this.Size = new System.Drawing.Size(615, 422);
             this.Load += new System.EventHandler(this.UC_TornooiAdministratie_Load);
+
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Klassement)).EndInit();

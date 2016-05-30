@@ -39,27 +39,7 @@ namespace structures.Views
 
 
 
-        #region refresh data
 
-        void _BindingListRefresh_ListRefreshed()
-        {
-            RefreshList();
-        }
-
-        private void btn_refreshlist_Click(object sender, EventArgs e)
-        {
-            RefreshList();
-
-        }
-        private void RefreshList()
-        {
-            if (_BindingListRefresh != null)
-            {
-                _BindingListRefresh.RefreshList();
-                dgv_wedstrijden.Refresh();
-                dgv_wedstrijden.Update();
-            }
-        }
 
         private void UC_Enter(object sender, EventArgs e)
         {
@@ -79,7 +59,7 @@ namespace structures.Views
                 _BindingListRefresh.StopRefreshing();
             }
         }
-        #endregion
+
 
     }
 }

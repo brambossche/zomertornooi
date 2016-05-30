@@ -74,7 +74,9 @@ namespace ProgramDefinitions
         /// Debug using the udpappender
         /// http://stackoverflow.com/questions/9946309/nhibernate-3-2-how-to-turn-off-show-sql
         /// </summary>
-        public static IPersistenceConfigurer DB_UnitHibernateTest = MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\data\proj\zomertornooi\Databases\TestDB\UnitHibernateTest.mdf;Integrated Security=True;Connect Timeout=30");
+        /// 
+       // Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Data\proj\zomertornooi\Databases\TestDB\UnitHibernateTest.mdf;Integrated Security = True; Connect Timeout = 30
+        public static IPersistenceConfigurer DB_UnitHibernateTest = MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\data\proj\zomertornooi\Databases\TestDB\UnitHibernateTest.mdf;Integrated Security=True;Connect Timeout=30");
         public static IPersistenceConfigurer DB_ZomerTornooi = MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\data\proj\zomertornooi\Databases\Tornooi\ZomerTornooi.mdf;Integrated Security=True;Connect Timeout=30");
 
         public Databaseconfig()

@@ -19,7 +19,7 @@ namespace structures.Views
     {
 
         private static readonly ILog logger = LogManager.GetLogger(typeof(UC_TornooiAdministratie));
-        protected BindingListRefresh<Wedstrijd> _BindingListRefresh;
+        private  BindingListRefresh<Wedstrijd> _BindingListRefresh;
         
 
         //Wedstrijden
@@ -49,9 +49,33 @@ namespace structures.Views
                 PopulateReeksCombobox();
                 cmb_ReeksNaam.SelectedIndex = 0;
             }
-            
-            
+
+
         }
+
+        private void UC_TornooiAdministratie_Load(object sender, EventArgs e)
+        {
+            if (_WedstrijdList.Count > 0)
+            {
+                DisableRows(0);
+                ChangeRowColor();
+            }
+            UpdateTerreinen();
+
+            _BindingListRefresh = new BindingListRefresh<Wedstrijd>(_WedstrijdList);
+
+            dgv_Terreinen.DoubleBuffered(true);
+            dgv_Klassement.DoubleBuffered(true);
+            dgv_Wedstrijden.DoubleBuffered(true);
+
+            this.Enter += UC_TornooiAdministratie_Enter;
+            this.Leave += UC_TornooiAdministratie_Leave;
+            dgv_Wedstrijden.CellBeginEdit += Dgv_Wedstrijden_CellBeginEdit;
+            dgv_Wedstrijden.CellEndEdit += Dgv_Wedstrijden_CellEndEdit;
+            _BindingListRefresh.ListRefreshed += _BindingListRefresh_ListRefreshed;
+            _BindingListRefresh.StartRefreshing();
+        }
+
 
         void _TerreinList_ListChanged(object sender, ListChangedEventArgs e)
         {
@@ -77,15 +101,7 @@ namespace structures.Views
 
                 }
 
-
-
-
-
             }
-
-
-
-
         }
 
         void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)
@@ -122,46 +138,28 @@ namespace structures.Views
 
 
 
-        private void UC_TornooiAdministratie_Load(object sender, EventArgs e)
-        {
-            if (_WedstrijdList.Count > 0)
-            {
-                DisableRows(0);
-                ChangeRowColor();
-            }
-            UpdateTerreinen();
 
-            dgv_Terreinen.DoubleBuffered(true);
-            dgv_Klassement.DoubleBuffered(true);
-            dgv_Wedstrijden.DoubleBuffered(true);
 
-            this.Enter += UC_TornooiAdministratie_Enter;
-            this.Leave += UC_TornooiAdministratie_Leave;
-        }
-
+        #endregion
 
         #region refresh data
 
-        void extendDataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        private void Dgv_Wedstrijden_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             _BindingListRefresh.StopRefreshing();
         }
 
-        void extendDataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void Dgv_Wedstrijden_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             _BindingListRefresh.StartRefreshing();
         }
+
 
         void _BindingListRefresh_ListRefreshed()
         {
             RefreshList();
         }
 
-        private void btn_refreshlist_Click(object sender, EventArgs e)
-        {
-            RefreshList();
-
-        }
         private void RefreshList()
         {
             if (_BindingListRefresh != null)
@@ -172,7 +170,18 @@ namespace structures.Views
             }
         }
 
-        private void Userview_Enter(object sender, EventArgs e)
+
+       
+
+        void UC_TornooiAdministratie_Leave(object sender, EventArgs e)
+        {
+            if (_BindingListRefresh != null)
+            {
+                _BindingListRefresh.StopRefreshing();
+            }
+        }
+
+        void UC_TornooiAdministratie_Enter(object sender, EventArgs e)
         {
             if (_BindingListRefresh != null)
             {
@@ -182,28 +191,9 @@ namespace structures.Views
                 }
             }
         }
-
-        private void Userview_Leave(object sender, EventArgs e)
-        {
-            if (_BindingListRefresh != null)
-            {
-                _BindingListRefresh.StopRefreshing();
-            }
-        }
         #endregion
 
-        void UC_TornooiAdministratie_Leave(object sender, EventArgs e)
-        {
-           
-        }
-
-        void UC_TornooiAdministratie_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-
-        #endregion
+     
 
         #region Comboboxes
 
@@ -600,24 +590,6 @@ namespace structures.Views
 
         #endregion
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-       
-
-
-
-
-        
-
-
-
-
-
-
-
 
 
         #region Printing
@@ -765,23 +737,6 @@ namespace structures.Views
         }
 
         */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

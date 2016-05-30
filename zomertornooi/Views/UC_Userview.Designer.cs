@@ -73,7 +73,7 @@ namespace Views
         #endregion
         //private System.Windows.Forms.SplitContainer splitContainer1;
         //private System.Windows.Forms.PropertyGrid PG_details;
-        private Marb.ExtendToolboxCtrl.ExtendDataGridView extendDataGridView1;
+        public Marb.ExtendToolboxCtrl.ExtendDataGridView extendDataGridView1;
         private System.Windows.Forms.Button btn_refreshlist;
 
 
