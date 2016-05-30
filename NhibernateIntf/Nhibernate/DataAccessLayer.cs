@@ -21,26 +21,9 @@ namespace NhibernateIntf
     public class DataAccessLayer
     {
         public bool SessionRunning = true;
-        private ISession _session = null;
         private QueueManager _QueueManager;
         private static Semaphore Sem_session = new Semaphore(1,1);
         private Thread QueThreading;
-        public ISession Session
-        {
-            set
-            {
-                try
-                {
-                    _session = value;
-                    
-                }
-                catch (HibernateException e)
-                {
-                    throw new Exception("DataAccesLayer session could not be made", e);
-                }
-            }
-        }
-
 
         public delegate void del_QueItems();
         public event del_QueItems Que_HasItems;
@@ -106,21 +89,21 @@ namespace NhibernateIntf
             }
         }
 
-        public void  AddRecord<T>(T objectdata)
+        public void  AddRecord<T>(T objectdata, ISession Session)
         {
-            _QueueManager.Add(new Action(() => Que_AddRecord(objectdata)));
+            _QueueManager.Add(new Action(() => Que_AddRecord(objectdata, Session)));
         }
 
-        private void Que_AddRecord<T>(T objectdata)
+        private void Que_AddRecord<T>(T objectdata, ISession Session)
         {
             try
             {
                 Sem_session.WaitOne();
-                using (ITransaction transaction = _session.BeginTransaction())
+                using (ITransaction transaction = Session.BeginTransaction())
                 {
                     try
                     {
-                        int reference = (int)_session.Save((T)objectdata);
+                        int reference = (int)Session.Save((T)objectdata);
                         //_session.Flush();
                         transaction.Commit();
                         Sem_session.Release(1);                        
@@ -145,24 +128,24 @@ namespace NhibernateIntf
         /// </summary>
         /// <param name="itemsToDelete">The items to delete.</param>
         /// <typeparam name="T">The type of objects to delete.</typeparam>
-        public void Delete<T>(T item)
+        public void Delete<T>(T item, ISession Session)
         {
-             _QueueManager.Add(new Action(() =>Que_Delete(item)));
+             _QueueManager.Add(new Action(() =>Que_Delete(item, Session)));
         }
 
-        private void Que_Delete<T>(T item)
+        private void Que_Delete<T>(T item, ISession Session)
         {
             try
             {
                 Sem_session.WaitOne();
-                using (ITransaction Transaction = _session.BeginTransaction())
+                using (ITransaction Transaction = Session.BeginTransaction())
                 {
                     try
                     {
 
-                        if (_session.Contains(item))
+                        if (Session.Contains(item))
                         {
-                            _session.Delete(item);
+                            Session.Delete(item);
                         }
                         
                         Transaction.Commit();
@@ -188,22 +171,22 @@ namespace NhibernateIntf
         /// </summary>
         /// <param name="itemsToDelete">The items to delete.</param>
         /// <typeparam name="T">The type of objects to delete.</typeparam>
-        public void DeleteList<T>(IList<T> itemsToDelete)
+        public void DeleteList<T>(IList<T> itemsToDelete, ISession Session)
         {
-            _QueueManager.Add(() => Que_DeleteList<T>(itemsToDelete));
+            _QueueManager.Add(() => Que_DeleteList<T>(itemsToDelete,Session));
         }
-        private void Que_DeleteList<T>(IList<T> itemsToDelete)
+        private void Que_DeleteList<T>(IList<T> itemsToDelete, ISession Session)
         {
             try
             {
                 Sem_session.WaitOne();
-                using (ITransaction Transaction = _session.BeginTransaction())
+                using (ITransaction Transaction = Session.BeginTransaction())
                 {
                     try
                     {
                         foreach (T item in itemsToDelete)
                         {
-                            _session.Delete(item);
+                            Session.Delete(item);
                             //_session.Flush();
                         }
                         Transaction.Commit();
@@ -229,14 +212,15 @@ namespace NhibernateIntf
         /// </summary>
         /// <typeparam name="T">The type of the objects to be retrieved.</typeparam>
         /// <returns>A list of all objects of the specified type.</returns>
-        public IList<T> RetrieveAll<T>()
+        public IList<T> RetrieveAll<T>(ISession Session)
         {
             try
             {
                 Sem_session.WaitOne();
-                //_session.Clear();
+                Session.Flush();
+                Session.Clear();
                 // Retrieve all objects of the type passed in
-                ICriteria targetObjects = _session.CreateCriteria(typeof(T));
+                ICriteria targetObjects = Session.CreateCriteria(typeof(T));
                 IList<T> retrievelist = targetObjects.List<T>();
 
                 Sem_session.Release(1);
@@ -250,14 +234,14 @@ namespace NhibernateIntf
             }
         }
 
-        public IList<T> RefreshAll<T> ()
+        public IList<T> RefreshAll<T> ( ISession Session)
         {
             try
             {
                 Sem_session.WaitOne();
-                _session.Clear();                
+                Session.Clear();                
                 // Retrieve all objects of the type passed in
-                ICriteria targetObjects = _session.CreateCriteria(typeof(T));
+                ICriteria targetObjects = Session.CreateCriteria(typeof(T));
                 IList<T> retrievelist = targetObjects.List<T>();
                 
                 Sem_session.Release(1);
@@ -280,14 +264,14 @@ namespace NhibernateIntf
         /// <param name="propertyName">The name of the property to be tested.</param>
         /// <param name="propertyValue">The value that the named property must hold.</param>
         /// <returns>A list of all objects meeting the specified criteria.</returns>
-        public IList<T> RetrieveEquals<T>(string propertyName, object propertyValue)
+        public IList<T> RetrieveEquals<T>(string propertyName, object propertyValue,  ISession Session)
         {
             try
             {
 
                 Sem_session.WaitOne();
                 // Create a criteria object with the specified criteria
-                ICriteria criteria = _session.CreateCriteria(typeof(T));
+                ICriteria criteria = Session.CreateCriteria(typeof(T));
                 criteria.Add(Expression.Eq(propertyName, propertyValue));
 
                 // Get the matching objects
@@ -310,28 +294,28 @@ namespace NhibernateIntf
         /// <summary>
         /// Saves an object and its persistent children.
         /// </summary>
-        public void Save<T>(T item)
+        public void Save<T>(T item, ISession Session)
         {
-            _QueueManager.Add(new Action(() => Que_Save(item)));
+            _QueueManager.Add(new Action(() => Que_Save(item, Session)));
         }
-        private void Que_Save<T>(T item)
+        private void Que_Save<T>(T item, ISession Session)
         {
             try
             {
                 Sem_session.WaitOne();
-                using (ITransaction Transaction = _session.BeginTransaction())
+                using (ITransaction Transaction = Session.BeginTransaction())
                 {
                     try
                     {
-                        if (_session.Contains(item))
+                        if (Session.Contains(item))
                         {
-                            _session.SaveOrUpdate(item);
+                            Session.SaveOrUpdate(item);
                         }
                         else
                         {
-                            _session.Save(item);                            
+                            Session.Save(item);                            
                         }
-                        _session.Flush();
+                        Session.Flush();
                         Transaction.Commit();
                         Sem_session.Release(1);
                     }
@@ -350,32 +334,32 @@ namespace NhibernateIntf
             }
         }
 
-        public void SaveList<T>(IList<T> items)
+        public void SaveList<T>(IList<T> items, ISession Session)
         {
-            _QueueManager.Add(new Action(() => Que_SaveList(items)));
+            _QueueManager.Add(new Action(() => Que_SaveList(items, Session)));
         }
-        private void Que_SaveList<T>(IList<T> items)
+        private void Que_SaveList<T>(IList<T> items, ISession Session)
         {
             Semaphore sem_items = new Semaphore(1, 1);
             try
             {
                 Sem_session.WaitOne();
-                using (ITransaction Transaction = _session.BeginTransaction())
+                using (ITransaction Transaction = Session.BeginTransaction())
                 {                    
                     try
                     {
-                        _session.Clear();
+                        //Session.Clear();
                         //_session.FlushMode = FlushMode.Commit;
                         foreach (T item in items)
                         {
                             sem_items.WaitOne();
-                            if (_session.Contains(item))
+                            if (Session.Contains(item))
                             {
-                                _session.SaveOrUpdate(item);                                
+                                Session.SaveOrUpdate(item);                                
                             }
                             else
                             {
-                                _session.Save(item);
+                                Session.Save(item);
                             }                            
                             sem_items.Release(1);
                         }                        
@@ -399,25 +383,25 @@ namespace NhibernateIntf
             
         }
 
-        public void CleanUpTable<T>() 
+        public void CleanUpTable<T>( ISession Session) 
         {
-            _QueueManager.Add(new Action(() => Que_CleanUpTable<T>()));
+            _QueueManager.Add(new Action(() => Que_CleanUpTable<T>(Session)));
         }
-        private void Que_CleanUpTable<T>()
+        private void Que_CleanUpTable<T>( ISession Session)
         {
             try
             {
                 //Sem_session.WaitOne();
 
-                using (ITransaction Transaction = _session.BeginTransaction())
+                using (ITransaction Transaction = Session.BeginTransaction())
                 {
                     try
                     {
                         Sem_session.WaitOne();
-                        var metadata = _session.SessionFactory.GetClassMetadata(typeof(T)) as NHibernate.Persister.Entity.AbstractEntityPersister;
+                        var metadata = Session.SessionFactory.GetClassMetadata(typeof(T)) as NHibernate.Persister.Entity.AbstractEntityPersister;
                         string table = metadata.TableName.Replace("[", "").Replace("]", "");
                             string deleteAll = "DELETE FROM " + table;
-                            _session.CreateSQLQuery(deleteAll).ExecuteUpdate();
+                        Session.CreateSQLQuery(deleteAll).ExecuteUpdate();
                             Transaction.Commit();                            
                        
                         Sem_session.Release(1);

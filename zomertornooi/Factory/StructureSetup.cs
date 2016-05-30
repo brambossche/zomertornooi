@@ -103,20 +103,20 @@ namespace Factory
             try
             {
                 ISession NewSessioncreator = _SessionFactory.OpenSession();
-                _DataAccessLayer.Session = NewSessioncreator;
+                
                 _TerreinList = new ActiveBindingList<Terrein>(_DataAccessLayer, NewSessioncreator);
 
 
                 NewSessioncreator = _SessionFactory.OpenSession();
-                _DataAccessLayer.Session = NewSessioncreator;
+                
                 _PersoonList = new ActiveBindingList<Persoon>(_DataAccessLayer, NewSessioncreator);
 
                 NewSessioncreator = _SessionFactory.OpenSession();
-                _DataAccessLayer.Session = NewSessioncreator;
+                
                 _PloegList = new ActiveBindingList<Ploeg>(_DataAccessLayer, NewSessioncreator);
 
                 NewSessioncreator = _SessionFactory.OpenSession();
-                _DataAccessLayer.Session = NewSessioncreator;
+                
                 _WedstrijdList = new ActiveBindingList<Wedstrijd>(_DataAccessLayer, NewSessioncreator);
 
             }

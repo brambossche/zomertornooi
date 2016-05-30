@@ -18,7 +18,7 @@ namespace Factory
         private ISession _BindingSession = null;
 
         public ActiveBindingList(DataAccessLayer DataAcces, ISession BindingSession)
-            : base(DataAcces.RetrieveAll<T>())
+            : base(DataAcces.RetrieveAll<T>(BindingSession))
         {
             _BindingSession = BindingSession;
             _DataAccessLayer = DataAcces;
@@ -42,9 +42,9 @@ namespace Factory
                 Add(item);
             }
 
-            _DataAccessLayer.Session = _BindingSession;
-            _DataAccessLayer.CleanUpTable<T>();
-            _DataAccessLayer.SaveList<T>(NewList);
+           
+            _DataAccessLayer.CleanUpTable<T>(_BindingSession);
+            _DataAccessLayer.SaveList<T>(NewList, _BindingSession);
             RaiseListChangedEvents = true;
             ResetBindings();
         }
@@ -57,8 +57,8 @@ namespace Factory
             {
                 Remove(this.Last());
             }
-            _DataAccessLayer.Session = _BindingSession;
-            List<T> temp = new List<T>(_DataAccessLayer.RetrieveAll<T>());
+            
+            List<T> temp = new List<T>(_DataAccessLayer.RetrieveAll<T>(_BindingSession));
             //List<T> temp = new List<T>(_DataAccessLayer.RefreshAll<T>());
             foreach (T item in temp)
             {
@@ -78,11 +78,11 @@ namespace Factory
                         {
                             try
                             {
-                                _DataAccessLayer.Session = _BindingSession;
-                                _DataAccessLayer.CleanUpTable<T>();                                
+                               
+                                _DataAccessLayer.CleanUpTable<T>(_BindingSession);                                
                                 if (((ActiveBindingList<T>)sender).Count > 0)
                                 {
-                                    _DataAccessLayer.SaveList<T>(((ActiveBindingList<T>)sender).ToList<T>());
+                                    _DataAccessLayer.SaveList<T>(((ActiveBindingList<T>)sender).ToList<T>(),_BindingSession);
                                 }
                             }
                             catch (Exception ee)
@@ -93,21 +93,21 @@ namespace Factory
                         break;
                     case ListChangedType.ItemAdded:
                         {
-                            _DataAccessLayer.Session = _BindingSession;
-                            _DataAccessLayer.Save<T>(this[(int)e.NewIndex]);
+                            
+                            _DataAccessLayer.Save<T>(this[(int)e.NewIndex], _BindingSession);
                         }break;
 
                     case ListChangedType.ItemChanged:
                         {
-                            _DataAccessLayer.Session = _BindingSession;
-                            _DataAccessLayer.Save<T>(this[(int)e.OldIndex]);
+                            
+                            _DataAccessLayer.Save<T>(this[(int)e.OldIndex], _BindingSession);
                         }break;
                     case ListChangedType.ItemDeleted:
                         {
                             //if (((ActiveBindingList<T>)sender).Count > 0)
                             {
-                                _DataAccessLayer.Session = _BindingSession;
-                                _DataAccessLayer.Delete<T>(_Itemwhichwillberemoved);
+                                
+                                _DataAccessLayer.Delete<T>(_Itemwhichwillberemoved, _BindingSession);
                             }
                         }break;
                 }                
