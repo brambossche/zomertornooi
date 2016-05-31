@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CustomAttributes;
 using FluentNHibernate.Mapping;
 using ProgramDefinitions;
+using structures.structures;
 
 namespace structures
 {
@@ -148,13 +149,15 @@ namespace structures
         {
             get { return _Reeksnaam; }
             set { _Reeksnaam = value; this.NotifyPropertyChanged(ID); }
-        } 
-
+        }
 
          public override string ToString()
          {
              return this.Ploegnaam;
          }
+
+
+
 
     }
 

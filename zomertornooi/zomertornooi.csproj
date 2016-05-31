@@ -123,6 +123,12 @@
       <DependentUpon>ListAllocation.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ListRefreshEngine\BindingListRefresh.cs" />
+    <Compile Include="Views\UC_FinalRounds.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_FinalRounds.Designer.cs">
+      <DependentUpon>UC_FinalRounds.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UC_PloegOverView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     </Compile>
     <Compile Include="Views\UC_categoryChanges.Designer.cs">
       <DependentUpon>UC_categoryChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Reader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Reader.Designer.cs">
+      <DependentUpon>UC_Reader.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UC_reeksAssignment.cs">
       <SubType>UserControl</SubType>
@@ -182,8 +194,14 @@
     <EmbeddedResource Include="Views\UC_categoryChanges.resx">
       <DependentUpon>UC_categoryChanges.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_FinalRounds.resx">
+      <DependentUpon>UC_FinalRounds.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_PloegOverView.resx">
       <DependentUpon>UC_PloegOverView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Reader.resx">
+      <DependentUpon>UC_Reader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_reeksAssignment.resx">
       <DependentUpon>UC_reeksAssignment.cs</DependentUpon>

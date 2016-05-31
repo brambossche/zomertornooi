@@ -20,6 +20,12 @@ namespace structures.Views
             InitializeComponent();
             _WedstrijdList = WedstrijdList;
             _WedstrijdList.ListChanged += _WedstrijdList_ListChanged;
+
+            dgv_wedstrijden.DoubleBuffered(true);
+            dgv_wedstrijden.DataSource = _WedstrijdList;
+            dgv_wedstrijden.Refresh();
+            this.Leave += UC_Leave;
+            this.Enter += UC_Enter;
         }
 
         void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)

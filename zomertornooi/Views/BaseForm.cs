@@ -30,7 +30,10 @@ namespace Views
         private NHibernateSessionManager<BaseForm> _NHibernateSessionManager;
         private StructureSetup _StructureSetup;
         private ActiveBindingList<Ploeg> _PloegList;
-        private ExtBindingList<Terrein> _TerreinList;
+        private ActiveBindingList<Terrein> _TerreinList;
+        private ActiveBindingList<Persoon> _PersoonList;
+        private ActiveBindingList<Wedstrijd> _WedstrijdList;
+
         private static readonly ILog logger = LogManager.GetLogger(typeof(BaseForm));
         public static UserLevel _userlevel = UserLevel.Admin;
         private QueStatus _QueStatus;
@@ -72,17 +75,21 @@ namespace Views
 
                 if (_userlevel == UserLevel.Admin)
                 {
+                    _PersoonList = _StructureSetup.PersoonList;
                     _PloegList = _StructureSetup.PloegList;
                     _TerreinList = _StructureSetup.TerreinList;
+                    _WedstrijdList = _StructureSetup.WedstrijdList;
 
-                    Userview<Persoon> _persoonview = new Userview<Persoon>(_StructureSetup.PersoonList,true) { Name = "Persoonview" };
-                    Userview<Terrein> _terreinview = new Userview<Terrein>(_StructureSetup.TerreinList,false) { Name = "Terreinen" };
+                    Userview<Persoon> _persoonview = new Userview<Persoon>(_PersoonList,true) { Name = "Persoonview" };
+                    Userview<Terrein> _terreinview = new Userview<Terrein>(_TerreinList,false) { Name = "Terreinen" };
                     //Userview<Reeks> _reeksen = new Userview<Reeks>(_StructureSetup.ReeksList) { Name = "Reeksen" };
                     UC_reeksAssignment _reeksAssignment = new UC_reeksAssignment(_StructureSetup.PloegList) { Name = "Reeks assignment" };
                     UC_PloegOverView _PloegOverView = new UC_PloegOverView(_PloegList);
-                    UC_RoundRobinSetup _RoundRobinSetup = new UC_RoundRobinSetup(_PloegList, _StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
+                    UC_RoundRobinSetup _RoundRobinSetup = new UC_RoundRobinSetup(_PloegList, _WedstrijdList, _TerreinList);
                     UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
-                    UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
+                    UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_WedstrijdList, _TerreinList);
+                    UC_Reader _Reader = new UC_Reader(_WedstrijdList);
+                    //UC_FinalRounds _Finals = new UC_FinalRounds(_WedstrijdList);
 
                     CreateDockContent(_persoonview, MainDocking);
                     CreateDockContent(_terreinview, MainDocking);
@@ -91,12 +98,22 @@ namespace Views
                     CreateDockContent(_RoundRobinSetup, MainDocking);
                     CreateDockContent(_WedstrijdViewer, MainDocking);
                     CreateDockContent(_TornooiAdministratie, MainDocking);
+                    CreateDockContent(_Reader, MainDocking);
+                    //CreateDockContent(_Finals, MainDocking);
+                    
                 }
                 else if (_userlevel == UserLevel.User)
                 {
                     UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
                     CreateDockContent(_WedstrijdViewer, MainDocking);
                 }
+                else if (_userlevel == UserLevel.Reader)
+                {
+
+                }
+
+
+
             }
             catch (Exception ee)
             {                                

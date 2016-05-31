@@ -58,7 +58,7 @@ namespace structures
             set { _AanvangsuurZon = value; }
         }
 
-        private int _Wedstrijdduur = 50;
+        private int _Wedstrijdduur = 45;
 
         public virtual int Wedstrijdduur
         {

@@ -94,7 +94,9 @@
             this.dgv_Wedstrijden.Name = "dgv_Wedstrijden";
             this.dgv_Wedstrijden.Size = new System.Drawing.Size(611, 193);
             this.dgv_Wedstrijden.TabIndex = 1;
+            this.dgv_Wedstrijden.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellClick);
             this.dgv_Wedstrijden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellContentClick);
+            this.dgv_Wedstrijden.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellDoubleClick);
             this.dgv_Wedstrijden.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellValueChanged);
             this.dgv_Wedstrijden.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_Wedstrijden_RowHeaderMouseClick);
             this.dgv_Wedstrijden.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_Wedstrijden_RowPostPaint);

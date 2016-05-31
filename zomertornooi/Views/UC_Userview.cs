@@ -27,7 +27,7 @@ namespace Views
             {
                 _inputlist = list;
                 _BindingListRefresh = new BindingListRefresh<T>(_inputlist);
-                _BindingListRefresh.ListRefreshed += _BindingListRefresh_ListRefreshed;
+                
                 InitializeComponent();                
             }
             catch (Exception e)
@@ -58,6 +58,7 @@ namespace Views
                 extendDataGridView1.CellBeginEdit += extendDataGridView1_CellBeginEdit;
                 extendDataGridView1.CellEndEdit += extendDataGridView1_CellEndEdit;
                 _inputlist.ListChanged += _inputlist_ListChanged;
+                _BindingListRefresh.ListRefreshed += _BindingListRefresh_ListRefreshed;
                 _BindingListRefresh.StartRefreshing();
 
 
@@ -180,7 +181,6 @@ namespace Views
         {
             if (_BindingListRefresh != null)
             {
-                _BindingListRefresh.RefreshList();
                 extendDataGridView1.Refresh();
                 extendDataGridView1.Update();
             }
