@@ -30,7 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgv_Klassement = new System.Windows.Forms.DataGridView();
-            this.dgv_Wedstrijden = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_lock = new System.Windows.Forms.Button();
             this.cmb_ReeksNaam = new System.Windows.Forms.ComboBox();
@@ -39,12 +38,15 @@
             this.cmb_Aanvangsuur = new System.Windows.Forms.ComboBox();
             this.btn_previousRound = new System.Windows.Forms.Button();
             this.btn_nextRound = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dgv_Wedstrijden = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Klassement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Wedstrijden)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Terreinen)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Wedstrijden)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -53,9 +55,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.Controls.Add(this.dgv_Klassement, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dgv_Wedstrijden, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -80,21 +82,6 @@
             this.dgv_Klassement.RowTemplate.Height = 24;
             this.dgv_Klassement.Size = new System.Drawing.Size(650, 233);
             this.dgv_Klassement.TabIndex = 4;
-            // 
-            // dgv_Wedstrijden
-            // 
-            this.dgv_Wedstrijden.AllowUserToAddRows = false;
-            this.dgv_Wedstrijden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel1.SetColumnSpan(this.dgv_Wedstrijden, 2);
-            this.dgv_Wedstrijden.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Wedstrijden.Location = new System.Drawing.Point(3, 281);
-            this.dgv_Wedstrijden.Name = "dgv_Wedstrijden";
-            this.dgv_Wedstrijden.Size = new System.Drawing.Size(814, 235);
-            this.dgv_Wedstrijden.TabIndex = 1;
-            this.dgv_Wedstrijden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellContentClick);
-            this.dgv_Wedstrijden.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellValueChanged);
-            this.dgv_Wedstrijden.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_Wedstrijden_RowHeaderMouseClick);
-            this.dgv_Wedstrijden.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_Wedstrijden_RowPostPaint);
             // 
             // tableLayoutPanel2
             // 
@@ -144,7 +131,6 @@
             this.dgv_Terreinen.RowTemplate.Height = 24;
             this.dgv_Terreinen.Size = new System.Drawing.Size(152, 168);
             this.dgv_Terreinen.TabIndex = 2;
-            //this.dgv_Terreinen.DataSourceChanged += new System.EventHandler(this.dgv_Terreinen_DataSourceChanged);
             this.dgv_Terreinen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Terreinen_CellValueChanged);
             // 
             // flowLayoutPanel1
@@ -190,6 +176,32 @@
             this.btn_nextRound.UseVisualStyleBackColor = true;
             this.btn_nextRound.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+            this.panel1.Controls.Add(this.dgv_Wedstrijden);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 281);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(814, 235);
+            this.panel1.TabIndex = 5;
+            // 
+            // dgv_Wedstrijden
+            // 
+            this.dgv_Wedstrijden.AllowUserToAddRows = false;
+            this.dgv_Wedstrijden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Wedstrijden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Wedstrijden.Location = new System.Drawing.Point(0, 0);
+            this.dgv_Wedstrijden.Name = "dgv_Wedstrijden";
+            this.dgv_Wedstrijden.Size = new System.Drawing.Size(814, 235);
+            this.dgv_Wedstrijden.TabIndex = 1;
+            this.dgv_Wedstrijden.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellClick);
+            this.dgv_Wedstrijden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellContentClick);
+            this.dgv_Wedstrijden.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellDoubleClick);
+            this.dgv_Wedstrijden.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellValueChanged);
+            this.dgv_Wedstrijden.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_Wedstrijden_RowHeaderMouseClick);
+            this.dgv_Wedstrijden.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_Wedstrijden_RowPostPaint);
+            // 
             // UC_TornooiAdministratie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -198,13 +210,16 @@
             this.Name = "UC_TornooiAdministratie";
             this.Size = new System.Drawing.Size(820, 519);
             this.Load += new System.EventHandler(this.UC_TornooiAdministratie_Load);
+            this.Enter += new System.EventHandler(this.UC_TornooiAdministratie_Enter_1);
+            this.Leave += new System.EventHandler(this.UC_TornooiAdministratie_Leave_1);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Klassement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Wedstrijden)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Terreinen)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Wedstrijden)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,5 +237,6 @@
         private System.Windows.Forms.ComboBox cmb_ReeksNaam;
         private System.Windows.Forms.DataGridView dgv_Terreinen;
         private System.Windows.Forms.Button btn_previousRound;
+        private System.Windows.Forms.Panel panel1;
     }
 }

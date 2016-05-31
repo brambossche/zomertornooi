@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Es.Logging</id>
+    <version>0.0.4</version>
+    <title>easy work | Logging</title>
+    <authors>v.la@Live.cn</authors>
+    <owners>v.la@Live.cn</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/EsWork/Es.Logging</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>C# Logging Factory</description>
+    <summary />
+    <language>en-US</language>
+    <tags>logging log logger</tags>
+  </metadata>
+</package>

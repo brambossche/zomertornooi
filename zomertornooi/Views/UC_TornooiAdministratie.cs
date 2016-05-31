@@ -19,12 +19,13 @@ namespace structures.Views
     {
 
         private static readonly ILog logger = LogManager.GetLogger(typeof(UC_TornooiAdministratie));
-        protected BindingListRefresh<Wedstrijd> _BindingListRefresh;
+        protected BindingListRefresh<Wedstrijd> _BindingListRefreshWedstrijd;
+        //protected BindingList<Wedstrijd> _inputlist;
         
 
         //Wedstrijden
         private ActiveBindingList<Wedstrijd> _WedstrijdList;
-        private ExtBindingList<Terrein> _TerreinList;
+        private ActiveBindingList<Terrein> _TerreinList;
 
         private BindingList<Wedstrijd> _fileteredWedstrijdReekslist;
         private BindingList<Wedstrijd> _fileteredWedstrijdUurlist;
@@ -33,9 +34,11 @@ namespace structures.Views
         //Reeks (ploegen + terreinen)
         private AdministratieReeks Reeks;
 
+        //Datetimepicker 
+        private DateTimePicker dtp;
         #region Constructor & load
 
-        public UC_TornooiAdministratie(ActiveBindingList<Wedstrijd> WedstrijdList, ExtBindingList<Terrein> TerreinList)
+        public UC_TornooiAdministratie(ActiveBindingList<Wedstrijd> WedstrijdList, ActiveBindingList<Terrein> TerreinList)
         {
             InitializeComponent();
             _WedstrijdList = WedstrijdList;
@@ -44,13 +47,57 @@ namespace structures.Views
             _TerreinList.ListChanged += _TerreinList_ListChanged;
 
 
+            _BindingListRefreshWedstrijd = new BindingListRefresh<Wedstrijd>(_WedstrijdList);
+            _BindingListRefreshWedstrijd.ListRefreshed += _BindingListRefreshWedstrijd_ListRefreshed;
+
+
+
             if (_WedstrijdList.Count > 0)
             {
                 PopulateReeksCombobox();
                 cmb_ReeksNaam.SelectedIndex = 0;
             }
             
+            dtp = new DateTimePicker();
             
+            dtp.Validated += dtp_ValueChanged;
+            dtp.KeyPress += dtp_KeyPress;
+
+
+            dtp.Format = DateTimePickerFormat.Time;
+            //dtp.ShowUpDown = true;
+            dtp.Visible = false;
+            panel1.Controls.Add(dtp);
+        }
+
+        void _BindingListRefreshWedstrijd_ListRefreshed()
+        {
+            RefreshList();
+        }
+
+        void dtp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                DateTime OldValue = (DateTime)dgv_Wedstrijden.CurrentCell.Value;
+                DateTime NewValue = dtp.Value;
+                TimeSpan delta = NewValue.Subtract(OldValue);
+
+                dgv_Wedstrijden.CurrentCell.Value = dtp.Value;
+                dtp.Visible = false;
+
+                //Change time of all upcoming games
+                for (int i = dgv_Wedstrijden.CurrentCell.RowIndex + 1; i < dgv_Wedstrijden.Rows.Count; i++)
+                {
+                    DateTime time = (DateTime)dgv_Wedstrijden.Rows[i].Cells[0].Value;
+                    time = time.Add(delta);
+                    dgv_Wedstrijden.Rows[i].Cells[0].Value = time;
+
+                }
+
+                PopulateUurCombobox();
+
+            }
         }
 
         void _TerreinList_ListChanged(object sender, ListChangedEventArgs e)
@@ -93,7 +140,7 @@ namespace structures.Views
 
             if (e.ListChangedType == ListChangedType.ItemChanged)
             {
-
+                ChangeRowColor();
 
             }
             else
@@ -113,8 +160,8 @@ namespace structures.Views
             }
 
 
-
-           UpdateTerreinen();
+            
+          
         }
 
 
@@ -128,15 +175,21 @@ namespace structures.Views
             {
                 DisableRows(0);
                 ChangeRowColor();
+                UpdateTerreinen();
             }
-            UpdateTerreinen();
+            else
+            {
+                dgv_Terreinen.DataSource = null;
+            }
 
             dgv_Terreinen.DoubleBuffered(true);
             dgv_Klassement.DoubleBuffered(true);
             dgv_Wedstrijden.DoubleBuffered(true);
 
-            this.Enter += UC_TornooiAdministratie_Enter;
-            this.Leave += UC_TornooiAdministratie_Leave;
+            dgv_Wedstrijden.CellBeginEdit += dgv_Wedstrijden_CellBeginEdit;
+            dgv_Wedstrijden.CellEndEdit += dgv_Wedstrijden_CellEndEdit;
+
+            _BindingListRefreshWedstrijd.StartRefreshing();
         }
 
 
@@ -144,12 +197,12 @@ namespace structures.Views
 
         void extendDataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            _BindingListRefresh.StopRefreshing();
+            _BindingListRefreshWedstrijd.StopRefreshing();
         }
 
         void extendDataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            _BindingListRefresh.StartRefreshing();
+            _BindingListRefreshWedstrijd.StartRefreshing();
         }
 
         void _BindingListRefresh_ListRefreshed()
@@ -164,32 +217,15 @@ namespace structures.Views
         }
         private void RefreshList()
         {
-            if (_BindingListRefresh != null)
+            if (_BindingListRefreshWedstrijd != null)
             {
-                _BindingListRefresh.RefreshList();
+                //_BindingListRefreshWedstrijd.RefreshList();
                 dgv_Wedstrijden.Refresh();
                 dgv_Wedstrijden.Update();
             }
         }
 
-        private void Userview_Enter(object sender, EventArgs e)
-        {
-            if (_BindingListRefresh != null)
-            {
-                if (_BindingListRefresh.AllowDataRefresh)
-                {
-                    _BindingListRefresh.StartRefreshing();
-                }
-            }
-        }
 
-        private void Userview_Leave(object sender, EventArgs e)
-        {
-            if (_BindingListRefresh != null)
-            {
-                _BindingListRefresh.StopRefreshing();
-            }
-        }
         #endregion
 
         void UC_TornooiAdministratie_Leave(object sender, EventArgs e)
@@ -309,14 +345,17 @@ namespace structures.Views
 
         private void dgv_Wedstrijden_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //Update het klassement
-            UpdateKlassement();
+            if (dgv_Wedstrijden.CurrentCell.ColumnIndex != 0)
+            {
+                //Update het klassement
+                UpdateKlassement();
 
-            //Disablez row als terrein niet vrij is
-            DisableRows(0);
+                //Disablez row als terrein niet vrij is
+                DisableRows(0);
 
-            //Update alledatagrids
-            UpdateAllDataGrids();
+                //Update alledatagrids
+                UpdateAllDataGrids();
+            }
         }
 
         private void dgv_Wedstrijden_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -377,6 +416,19 @@ namespace structures.Views
             if (cmb_Aanvangsuur.SelectedIndex < cmb_Aanvangsuur.Items.Count - 1)
             {
                 cmb_Aanvangsuur.SelectedIndex++;
+                if (cmb_Aanvangsuur.SelectedIndex == 1)
+                {
+                    btn_previousRound.Text = "Alle Wedstrijden";
+                }
+                else if (cmb_Aanvangsuur.SelectedIndex == cmb_Aanvangsuur.Items.Count - 1)
+                {
+                    btn_nextRound.Text = "Einde";
+                }
+                else
+                {
+                    btn_previousRound.Text = "Vorige Ronde";
+                    btn_nextRound.Text = "Volgende Ronde";
+                }
             }
 
         }
@@ -387,6 +439,15 @@ namespace structures.Views
             if (cmb_Aanvangsuur.SelectedIndex > 0)
             {
                 cmb_Aanvangsuur.SelectedIndex--;
+                if (cmb_Aanvangsuur.SelectedIndex == 1 || cmb_Aanvangsuur.SelectedIndex == 0)
+                {
+                    btn_previousRound.Text = "Alle Wedstrijden";
+                }
+                else
+                {
+                    btn_previousRound.Text = "Vorige Ronde";
+                    btn_nextRound.Text = "Volgende Ronde";
+                }
             }
         }
 
@@ -418,6 +479,8 @@ namespace structures.Views
                 }
 
             }
+
+            dgv_Wedstrijden.Columns["IsStarted"].ReadOnly = true;
 
             if (cmb_Aanvangsuur.SelectedIndex == 0)
             {
@@ -559,15 +622,14 @@ namespace structures.Views
         {
             for (int i = p; i < dgv_Wedstrijden.Rows.Count; i++)
             {
-                if (_fileteredWedstrijdUurlist[i].Terrein.Status == false && !_fileteredWedstrijdUurlist[i].IsBusy)
+                if (!_fileteredWedstrijdUurlist[i].Terrein.Status && !_fileteredWedstrijdUurlist[i].IsBusy)
                 {
                     dgv_Wedstrijden.Rows[i].ReadOnly = true;
                 }
                 else if (_fileteredWedstrijdUurlist[i].Isplayed)
                 {
-                    int index = dgv_Wedstrijden.Columns["IsBusy"].Index;
-                    dgv_Wedstrijden.Rows[i].Cells[index].ReadOnly = true;
-                    dgv_Wedstrijden.Rows[i].Cells[index + 1].ReadOnly = true;
+                    dgv_Wedstrijden.Rows[i].Cells["IsBusy"].ReadOnly = true;
+                    dgv_Wedstrijden.Rows[i].Cells["Isplayed"].ReadOnly = true;
                 }
                 else
                 {
@@ -584,6 +646,10 @@ namespace structures.Views
                 if (_fileteredWedstrijdUurlist[i].Isplayed == true)
                 {
                     dgv_Wedstrijden.Rows[i].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                }
+                else if (_fileteredWedstrijdUurlist[i].IsStarted == true)
+                {
+                    dgv_Wedstrijden.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
                 }
                 else if (_fileteredWedstrijdUurlist[i].IsBusy == true)
                 {
@@ -695,6 +761,8 @@ namespace structures.Views
 
         private void dgv_Wedstrijden_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
+            try
+            {
             Assembly _assembly;
 
             //Read the complete file and replace the text
@@ -716,19 +784,116 @@ namespace structures.Views
 
             Rectangle rectangle = new Rectangle(xPosition, yPosition, iconWidth, iconHeight);
             graphics.DrawIcon(myIcon, rectangle);
-
-
-
-
-
-
-
-
+            }
+            catch (Exception ee)
+            {
+                
+            }
 
 
         }
 
         #endregion
+
+        #region Change Aanvangsuur
+
+        private void dgv_Wedstrijden_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_Wedstrijden.CurrentCell.ColumnIndex == 0 && e.RowIndex !=-1 && e.ColumnIndex!=-1)
+            {
+                dtp.Location = dgv_Wedstrijden.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
+                dtp.Width = dgv_Wedstrijden.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Width;
+                dtp.Visible = true;
+                dtp.BringToFront();
+                DateTime date = (DateTime)dgv_Wedstrijden.CurrentCell.Value;
+                dtp.Value = date;
+            }
+            else
+            {
+                dtp.Visible = false;
+            }
+        }
+
+        private void dgv_Wedstrijden_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_Wedstrijden.CurrentCell.ColumnIndex == 0)
+            {
+                dtp.Location = dgv_Wedstrijden.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
+                dtp.Width = dgv_Wedstrijden.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Width;
+                dtp.Visible = true;
+                dtp.BringToFront();
+                DateTime date = (DateTime)dgv_Wedstrijden.CurrentCell.Value;
+                dtp.Value = date;
+            }
+        }
+
+        void dtp_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime OldValue = (DateTime)dgv_Wedstrijden.CurrentCell.Value;
+            DateTime NewValue = dtp.Value;
+            TimeSpan delta = NewValue.Subtract(OldValue);
+
+            dgv_Wedstrijden.CurrentCell.Value = dtp.Value;
+            dtp.Visible = false;
+
+            //Change time of all upcoming games
+            for (int i = dgv_Wedstrijden.CurrentCell.RowIndex + 1; i < dgv_Wedstrijden.Rows.Count; i++)
+            {
+                DateTime time = (DateTime) dgv_Wedstrijden.Rows[i].Cells[0].Value;
+                time = time.Add(delta);
+                dgv_Wedstrijden.Rows[i].Cells[0].Value = time;
+
+            }
+
+            PopulateUurCombobox();
+
+
+        }
+        #endregion
+
+
+
+
+
+        #region Refresh data
+        private void UC_TornooiAdministratie_Enter_1(object sender, EventArgs e)
+        {
+            if (_BindingListRefreshWedstrijd != null)
+            {
+                if (_BindingListRefreshWedstrijd.AllowDataRefresh)
+                {
+                    _BindingListRefreshWedstrijd.StartRefreshing();
+                }
+            }
+        }
+
+        private void UC_TornooiAdministratie_Leave_1(object sender, EventArgs e)
+        {
+            if (_BindingListRefreshWedstrijd != null)
+            {
+                _BindingListRefreshWedstrijd.StopRefreshing();
+            }
+        }
+
+        void dgv_Wedstrijden_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            _BindingListRefreshWedstrijd.StartRefreshing();
+        }
+
+        void dgv_Wedstrijden_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            _BindingListRefreshWedstrijd.StopRefreshing();
+        }
+
+
+
+
+
+
+
+
+        #endregion
+
 
         /*
         private void dgv_Terreinen_DataSourceChanged(object sender, EventArgs e)

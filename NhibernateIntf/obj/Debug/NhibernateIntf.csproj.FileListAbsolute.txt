@@ -1,0 +1,15 @@
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\NhibernateIntf.dll
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\NhibernateIntf.pdb
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\FluentNHibernate.dll
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\Lib.dll
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\NHibernate.dll
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\log4net.dll
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\Lib.pdb
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\FluentNHibernate.pdb
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\FluentNHibernate.xml
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\NHibernate.xml
+C:\proj\zomertornooi\NhibernateIntf\bin\Debug\log4net.xml
+C:\proj\zomertornooi\NhibernateIntf\obj\Debug\NhibernateIntf.csprojResolveAssemblyReference.cache
+C:\proj\zomertornooi\NhibernateIntf\obj\Debug\NhibernateIntf.dll
+C:\proj\zomertornooi\NhibernateIntf\obj\Debug\NhibernateIntf.pdb

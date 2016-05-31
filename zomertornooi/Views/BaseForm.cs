@@ -81,7 +81,8 @@ namespace Views
                     UC_reeksAssignment _reeksAssignment = new UC_reeksAssignment(_StructureSetup.PloegList) { Name = "Reeks assignment" };
                     UC_PloegOverView _PloegOverView = new UC_PloegOverView(_PloegList);
                     UC_RoundRobinSetup _RoundRobinSetup = new UC_RoundRobinSetup(_PloegList, _StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
-                    UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
+                    //UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
+                    Userview<Wedstrijd> _WedstrijdViewer = new Userview<Wedstrijd>(_StructureSetup.WedstrijdList, true) { Name = "Wedstrijden" };
                     UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
 
                     CreateDockContent(_persoonview, MainDocking);

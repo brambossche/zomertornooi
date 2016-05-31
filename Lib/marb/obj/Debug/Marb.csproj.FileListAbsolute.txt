@@ -1,0 +1,10 @@
+C:\proj\zomertornooi\Lib\marb\bin\Debug\Lib.dll
+C:\proj\zomertornooi\Lib\marb\bin\Debug\Lib.pdb
+C:\proj\zomertornooi\Lib\marb\bin\Debug\log4net.dll
+C:\proj\zomertornooi\Lib\marb\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+C:\proj\zomertornooi\Lib\marb\bin\Debug\log4net.xml
+C:\proj\zomertornooi\Lib\marb\obj\Debug\Marb.csprojResolveAssemblyReference.cache
+C:\proj\zomertornooi\Lib\marb\obj\Debug\Marb.ExtendToolboxCtrl.ExtendDataGridView.resources
+C:\proj\zomertornooi\Lib\marb\obj\Debug\Marb.csproj.GenerateResource.Cache
+C:\proj\zomertornooi\Lib\marb\obj\Debug\Lib.dll
+C:\proj\zomertornooi\Lib\marb\obj\Debug\Lib.pdb
