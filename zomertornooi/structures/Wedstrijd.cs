@@ -137,6 +137,13 @@ namespace structures
             set { _IsBusy = value; this.NotifyPropertyChanged(ID); if (_IsBusy && !_Isplayed) { _Terrein.Status = false; } else { _Terrein.Status = true; } }
         }
 
+        private bool _IsStarted = false;
+
+        public virtual bool IsStarted
+        {
+            get { return _IsStarted; }
+            set { _IsStarted = value; this.NotifyPropertyChanged(ID); }
+        }
         private bool _Isplayed = false;
 
         public virtual bool Isplayed
@@ -175,6 +182,7 @@ namespace structures
             Map(x => x.Set3Away);
             Map(x => x.Set3Home);
             Map(x => x.IsBusy);
+            Map(x => x.IsStarted);
             Map(x => x.Isplayed);
             Map(x => x.ReeksNaam);
             Map(x => x.Aanvangsuur);

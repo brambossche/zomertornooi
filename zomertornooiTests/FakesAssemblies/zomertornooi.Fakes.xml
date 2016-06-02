@@ -1,0 +1,2387 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>zomertornooi.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.QualityTools.Testing.Fakes.Delegates.ZomertornooiDelegates">
+            <summary>Contains custom delegates used for the stubs and shims of zomertornooi</summary>
+        </member>
+        <member name="T:NHibernateHelper.Fakes.ShimNHibernateIntf`1">
+            <summary>Shim type of NHibernateHelper.NHibernateIntf`1</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.#ctor(NHibernateHelper.NHibernateIntf{`0})">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.CleanUpTableOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action)">
+            <summary>Sets the shim of NHibernateIntf`1.CleanUpTable()</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.CreateRecordOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Boolean})">
+            <summary>Sets the shim of NHibernateIntf`1.CreateRecord(!!0 objectdata)</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.DeleteListOf1IListOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Collections.Generic.IList{``0}})">
+            <summary>Sets the shim of NHibernateIntf`1.DeleteList(IList`1&lt;!!0&gt; itemsToDelete)</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.DeleteOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets the shim of NHibernateIntf`1.Delete(!!0 item)</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.RetrieveAllOf1SessionAction``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{NHibernateHelper.SessionAction,System.Collections.Generic.IList{``0}})">
+            <summary>Sets the shim of NHibernateIntf`1.RetrieveAll(SessionAction sessionAction)</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.SaveOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0})">
+            <summary>Sets the shim of NHibernateIntf`1.Save(!!0 item)</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.ConnectionnGet">
+            <summary>Sets the shim of NHibernateIntf`1.get_Connectionn()</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.ConstructorIPersistenceConfigurer">
+            <summary>Sets the shim of NHibernateIntf`1.NHibernateIntf`1(IPersistenceConfigurer Connectionn)</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.InitializeSessionFactoryIPersistenceConfigurer">
+            <summary>Sets the shim of NHibernateIntf`1.InitializeSessionFactory(IPersistenceConfigurer connection)</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.OpenConnection">
+            <summary>Sets the shim of NHibernateIntf`1.OpenConnection()</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.OpenSession">
+            <summary>Sets the shim of NHibernateIntf`1.OpenSession()</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.RetrieveEqualsStringObject">
+            <summary>Sets the shim of NHibernateIntf`1.RetrieveEquals(String propertyName, Object propertyValue)</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.SessionFactoryGet">
+            <summary>Sets the shim of NHibernateIntf`1.get_SessionFactory()</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.StaticConstructor">
+            <summary>Sets the shim of NHibernateIntf`1.NHibernateIntf`1()</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1._InitializeSessionFactoryb__0Configuration">
+            <summary>Sets the shim of NHibernateIntf`1.&lt;InitializeSessionFactory&gt;b__0(Configuration cfg)</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1._InitializeSessionFactoryb__1MappingConfiguration">
+            <summary>Sets the shim of NHibernateIntf`1.&lt;InitializeSessionFactory&gt;b__1(MappingConfiguration m)</summary>
+        </member>
+        <member name="T:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.CleanUpTableOf1``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{NHibernateHelper.NHibernateIntf{`0}})">
+            <summary>Sets the shim of NHibernateIntf`1.CleanUpTable()</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.CreateRecordOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{NHibernateHelper.NHibernateIntf{`0},``0,System.Boolean})">
+            <summary>Sets the shim of NHibernateIntf`1.CreateRecord(!!0 objectdata)</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.DeleteListOf1IListOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{NHibernateHelper.NHibernateIntf{`0},System.Collections.Generic.IList{``0}})">
+            <summary>Sets the shim of NHibernateIntf`1.DeleteList(IList`1&lt;!!0&gt; itemsToDelete)</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.DeleteOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{NHibernateHelper.NHibernateIntf{`0},``0})">
+            <summary>Sets the shim of NHibernateIntf`1.Delete(!!0 item)</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.RetrieveAllOf1SessionAction``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{NHibernateHelper.NHibernateIntf{`0},NHibernateHelper.SessionAction,System.Collections.Generic.IList{``0}})">
+            <summary>Sets the shim of NHibernateIntf`1.RetrieveAll(SessionAction sessionAction)</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.SaveOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{NHibernateHelper.NHibernateIntf{`0},``0})">
+            <summary>Sets the shim of NHibernateIntf`1.Save(!!0 item)</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.ConnectionnGet">
+            <summary>Sets the shim of NHibernateIntf`1.get_Connectionn()</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.OpenConnection">
+            <summary>Sets the shim of NHibernateIntf`1.OpenConnection()</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.ShimNHibernateIntf`1.AllInstances.RetrieveEqualsStringObject">
+            <summary>Sets the shim of NHibernateIntf`1.RetrieveEquals(String propertyName, Object propertyValue)</summary>
+        </member>
+        <member name="T:NHibernateHelper.Fakes.StubNHibernateIntf`1">
+            <summary>Stub type of NHibernateHelper.NHibernateIntf`1</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.StubNHibernateIntf`1.#ctor(FluentNHibernate.Cfg.Db.IPersistenceConfigurer)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:NHibernateHelper.Fakes.StubNHibernateIntf`1.InitializeStub">
+            <summary>Initializes a new instance of type StubNHibernateIntf</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.StubNHibernateIntf`1.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.StubNHibernateIntf`1.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:NHibernateHelper.Fakes.StubNHibernateIntf`1.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Views.Fakes.ShimUserview">
+            <summary>Shim type of Views.Userview</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.#ctor(Views.Userview)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.Bind(System.ComponentModel.IComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.Bind(System.ComponentModel.ISynchronizeInvoke)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.Bind(System.Windows.Forms.IBindableComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.Bind(System.Windows.Forms.IContainerControl)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.Bind(System.Windows.Forms.IDropTarget)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.Bind(System.Windows.Forms.IWin32Window)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Views.Fakes.ShimUserview.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.Constructor">
+            <summary>Sets the shim of Userview.Userview()</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.DisposeBoolean">
+            <summary>Sets the shim of Userview.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.Form1_LayoutObjectLayoutEventArgs">
+            <summary>Sets the shim of Userview.Form1_Layout(Object sender, LayoutEventArgs e)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.Form1_LoadObjectEventArgs">
+            <summary>Sets the shim of Userview.Form1_Load(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.InitializeComponent">
+            <summary>Sets the shim of Userview.InitializeComponent()</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.catlist_SelectedIndexChangedObjectEventArgs">
+            <summary>Sets the shim of Userview.catlist_SelectedIndexChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.dgv_test_CellClickObjectDataGridViewCellEventArgs">
+            <summary>Sets the shim of Userview.dgv_test_CellClick(Object sender, DataGridViewCellEventArgs e)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.dgv_test_CellValueChangedObjectDataGridViewCellEventArgs">
+            <summary>Sets the shim of Userview.dgv_test_CellValueChanged(Object sender, DataGridViewCellEventArgs e)</summary>
+        </member>
+        <member name="T:Views.Fakes.ShimUserview.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of Userview.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.AllInstances.Form1_LayoutObjectLayoutEventArgs">
+            <summary>Sets the shim of Userview.Form1_Layout(Object sender, LayoutEventArgs e)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.AllInstances.Form1_LoadObjectEventArgs">
+            <summary>Sets the shim of Userview.Form1_Load(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.AllInstances.InitializeComponent">
+            <summary>Sets the shim of Userview.InitializeComponent()</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.AllInstances.catlist_SelectedIndexChangedObjectEventArgs">
+            <summary>Sets the shim of Userview.catlist_SelectedIndexChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.AllInstances.dgv_test_CellClickObjectDataGridViewCellEventArgs">
+            <summary>Sets the shim of Userview.dgv_test_CellClick(Object sender, DataGridViewCellEventArgs e)</summary>
+        </member>
+        <member name="P:Views.Fakes.ShimUserview.AllInstances.dgv_test_CellValueChangedObjectDataGridViewCellEventArgs">
+            <summary>Sets the shim of Userview.dgv_test_CellValueChanged(Object sender, DataGridViewCellEventArgs e)</summary>
+        </member>
+        <member name="T:Views.Fakes.StubUserview">
+            <summary>Stub type of Views.Userview</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AdjustFormScrollbars(System.Boolean)">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AdjustFormScrollbarsBoolean">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AllowDropGet">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AllowDropSetBoolean">
+            <summary>Sets the stub of Control.set_AllowDrop(Boolean value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AnchorGet">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AnchorSetAnchorStyles">
+            <summary>Sets the stub of Control.set_Anchor(AnchorStyles value)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToAllowDrop">
+            <summary>Attaches delegates to emulate StubUserview.AllowDrop as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToAnchor">
+            <summary>Attaches delegates to emulate StubUserview.Anchor as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToAutoScaleBaseSize">
+            <summary>Attaches delegates to emulate StubUserview.AutoScaleBaseSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToAutoScroll">
+            <summary>Attaches delegates to emulate StubUserview.AutoScroll as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToAutoScrollOffset">
+            <summary>Attaches delegates to emulate StubUserview.AutoScrollOffset as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToAutoSize">
+            <summary>Attaches delegates to emulate StubUserview.AutoSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToAutoValidate">
+            <summary>Attaches delegates to emulate StubUserview.AutoValidate as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToBackColor">
+            <summary>Attaches delegates to emulate StubUserview.BackColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToBackgroundImage">
+            <summary>Attaches delegates to emulate StubUserview.BackgroundImage as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToBackgroundImageLayout">
+            <summary>Attaches delegates to emulate StubUserview.BackgroundImageLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToBindingContext">
+            <summary>Attaches delegates to emulate StubUserview.BindingContext as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToContextMenu">
+            <summary>Attaches delegates to emulate StubUserview.ContextMenu as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToContextMenuStrip">
+            <summary>Attaches delegates to emulate StubUserview.ContextMenuStrip as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToCursor">
+            <summary>Attaches delegates to emulate StubUserview.Cursor as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToDock">
+            <summary>Attaches delegates to emulate StubUserview.Dock as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToDoubleBuffered">
+            <summary>Attaches delegates to emulate StubUserview.DoubleBuffered as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToFont">
+            <summary>Attaches delegates to emulate StubUserview.Font as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToForeColor">
+            <summary>Attaches delegates to emulate StubUserview.ForeColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToImeModeBase">
+            <summary>Attaches delegates to emulate StubUserview.ImeModeBase as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToMaximumSize">
+            <summary>Attaches delegates to emulate StubUserview.MaximumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToMinimumSize">
+            <summary>Attaches delegates to emulate StubUserview.MinimumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToRightToLeft">
+            <summary>Attaches delegates to emulate StubUserview.RightToLeft as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToRightToLeftLayout">
+            <summary>Attaches delegates to emulate StubUserview.RightToLeftLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToSite">
+            <summary>Attaches delegates to emulate StubUserview.Site as a property with a backing field.</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.AttachBackingFieldToText">
+            <summary>Attaches delegates to emulate StubUserview.Text as a property with a backing field.</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoScaleBaseSizeGet">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoScaleBaseSizeSetSize">
+            <summary>Sets the stub of Form.set_AutoScaleBaseSize(Size value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoScrollGet">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoScrollOffsetGet">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoScrollOffsetSetPoint">
+            <summary>Sets the stub of Control.set_AutoScrollOffset(Point value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoScrollSetBoolean">
+            <summary>Sets the stub of Form.set_AutoScroll(Boolean value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoSizeGet">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoSizeSetBoolean">
+            <summary>Sets the stub of Form.set_AutoSize(Boolean value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoValidateGet">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.AutoValidateSetAutoValidate">
+            <summary>Sets the stub of Form.set_AutoValidate(AutoValidate value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.BackColorGet">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.BackColorSetColor">
+            <summary>Sets the stub of Form.set_BackColor(Color value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.BackgroundImageGet">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.BackgroundImageLayoutGet">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.BackgroundImageLayoutSetImageLayout">
+            <summary>Sets the stub of Control.set_BackgroundImageLayout(ImageLayout value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.BackgroundImageSetImage">
+            <summary>Sets the stub of Control.set_BackgroundImage(Image value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.BindingContextGet">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.BindingContextSetBindingContext">
+            <summary>Sets the stub of ContainerControl.set_BindingContext(BindingContext value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.CanEnableImeGet">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.CanRaiseEventsGet">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ContextMenuGet">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ContextMenuSetContextMenu">
+            <summary>Sets the stub of Control.set_ContextMenu(ContextMenu value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ContextMenuStripGet">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ContextMenuStripSetContextMenuStrip">
+            <summary>Sets the stub of Control.set_ContextMenuStrip(ContextMenuStrip value)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.CreateAccessibilityInstance">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.CreateAccessibilityInstance01">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.CreateControlsInstance">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.CreateControlsInstance01">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.CreateHandle">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.CreateHandle01">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.CreateParamsGet">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.CursorGet">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.CursorSetCursor">
+            <summary>Sets the stub of Control.set_Cursor(Cursor value)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.DefWndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DefWndProcMessageRef">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DefaultCursorGet">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DefaultImeModeGet">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DefaultMarginGet">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DefaultMaximumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DefaultMinimumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DefaultPaddingGet">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DefaultSizeGet">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.DestroyHandle">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DestroyHandle01">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DisplayRectangleGet">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.Dispose(System.Boolean)">
+            <summary>Sets the stub of Userview.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DisposeBoolean">
+            <summary>Sets the stub of Userview.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DockGet">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DockSetDockStyle">
+            <summary>Sets the stub of Control.set_Dock(DockStyle value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DoubleBufferedGet">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.DoubleBufferedSetBoolean">
+            <summary>Sets the stub of Control.set_DoubleBuffered(Boolean value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.FocusedGet">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.FontGet">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.FontSetFont">
+            <summary>Sets the stub of Control.set_Font(Font value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ForeColorGet">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ForeColorSetColor">
+            <summary>Sets the stub of Control.set_ForeColor(Color value)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.GetAccessibilityObjectById(System.Int32)">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.GetAccessibilityObjectByIdInt32">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.GetPreferredSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.GetPreferredSizeSize">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.GetScaledBounds(System.Drawing.Rectangle,System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.GetScaledBoundsRectangleSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.GetService(System.Type)">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.GetServiceType">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ImeModeBaseGet">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ImeModeBaseSetImeMode">
+            <summary>Sets the stub of Control.set_ImeModeBase(ImeMode value)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.InitLayout">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.InitLayout01">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.InitializeStub">
+            <summary>Initializes a new instance of type StubUserview</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.IsInputChar(System.Char)">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.IsInputCharChar">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.IsInputKeyKeys">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.LayoutEngineGet">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.MaximumSizeGet">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.MaximumSizeSetSize">
+            <summary>Sets the stub of Form.set_MaximumSize(Size value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.MinimumSizeGet">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.MinimumSizeSetSize">
+            <summary>Sets the stub of Form.set_MinimumSize(Size value)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.NotifyInvalidate(System.Drawing.Rectangle)">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.NotifyInvalidateRectangle">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnActivated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnActivatedEventArgs">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnAutoSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnAutoSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnAutoValidateChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnAutoValidateChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnBackgroundImageLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnBackgroundImageLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnCausesValidationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnCausesValidationChangedEventArgs">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnChangeUICuesUICuesEventArgs">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnClickEventArgs">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnClientSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnClientSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnClosed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnClosedEventArgs">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnClosingCancelEventArgs">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnContextMenuChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnContextMenuChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnContextMenuStripChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnContextMenuStripChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnControlAddedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnControlRemovedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnCreateControl">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnCreateControl01">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnDeactivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnDeactivateEventArgs">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnDockChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnDockChangedEventArgs">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnDoubleClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnDoubleClickEventArgs">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnDragDrop(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnDragDropDragEventArgs">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnDragEnter(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnDragEnterDragEventArgs">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnDragLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnDragLeaveEventArgs">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnDragOverDragEventArgs">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnEnabledChangedEventArgs">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnEnter(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnEnterEventArgs">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnFontChangedEventArgs">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnFormClosed(System.Windows.Forms.FormClosedEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnFormClosedFormClosedEventArgs">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnFormClosingFormClosingEventArgs">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnGiveFeedbackGiveFeedbackEventArgs">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnGotFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnGotFocusEventArgs">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnHandleCreated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnHandleCreatedEventArgs">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnHandleDestroyed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnHandleDestroyedEventArgs">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnHelpButtonClicked(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnHelpButtonClickedCancelEventArgs">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnHelpRequested(System.Windows.Forms.HelpEventArgs)">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnHelpRequestedHelpEventArgs">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnImeModeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnImeModeChangedEventArgs">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnInputLanguageChanged(System.Windows.Forms.InputLanguageChangedEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnInputLanguageChangedInputLanguageChangedEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnInputLanguageChanging(System.Windows.Forms.InputLanguageChangingEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnInputLanguageChangingInputLanguageChangingEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnInvalidatedInvalidateEventArgs">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnKeyDownKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnKeyPressKeyPressEventArgs">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnKeyUpKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnLayoutLayoutEventArgs">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnLeaveEventArgs">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnLoad(System.EventArgs)">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnLoadEventArgs">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnLocationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnLocationChangedEventArgs">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnLostFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnLostFocusEventArgs">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMarginChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMarginChangedEventArgs">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMaximizedBoundsChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMaximizedBoundsChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMaximumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMaximumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMdiChildActivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMdiChildActivateEventArgs">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMenuComplete(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMenuCompleteEventArgs">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMenuStart(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMenuStartEventArgs">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMinimumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMinimumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseCaptureChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseCaptureChangedEventArgs">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseDoubleClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseDownMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseEnter(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseEnterEventArgs">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseHover(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseHoverEventArgs">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseLeaveEventArgs">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseMoveMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseUpMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMouseWheelMouseEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnMove(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnMoveEventArgs">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnNotifyMessage(System.Windows.Forms.Message)">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnNotifyMessageMessage">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnPaddingChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnPaddingChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnPaintBackgroundPaintEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnPaintPaintEventArgs">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentEnabledChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentFontChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentRightToLeftChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnParentVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnParentVisibleChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnPreviewKeyDownPreviewKeyDownEventArgs">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnPrint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnPrintPaintEventArgs">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnQueryContinueDragQueryContinueDragEventArgs">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnRegionChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnRegionChangedEventArgs">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnResize(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnResizeBegin(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnResizeBeginEventArgs">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnResizeEnd(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnResizeEndEventArgs">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnResizeEventArgs">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnRightToLeftChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnRightToLeftLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnRightToLeftLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnScroll(System.Windows.Forms.ScrollEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnScrollScrollEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnShown(System.EventArgs)">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnShownEventArgs">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnStyleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnStyleChangedEventArgs">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnSystemColorsChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnSystemColorsChangedEventArgs">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnTabIndexChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnTabIndexChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnTabStopChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnTabStopChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnTextChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnTextChangedEventArgs">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnValidated(System.EventArgs)">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnValidatedEventArgs">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnValidating(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnValidatingCancelEventArgs">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.OnVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.OnVisibleChangedEventArgs">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.PreProcessMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.PreProcessMessageMessageRef">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ProcessCmdKeyMessageRefKeys">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ProcessDialogChar(System.Char)">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ProcessDialogCharChar">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ProcessDialogKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ProcessDialogKeyKeys">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ProcessKeyEventArgs(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ProcessKeyEventArgsMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ProcessKeyMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ProcessKeyMessageMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ProcessKeyPreview(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ProcessKeyPreviewMessageRef">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ProcessMnemonic(System.Char)">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ProcessMnemonicChar">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ProcessTabKey(System.Boolean)">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ProcessTabKeyBoolean">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.Refresh">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.Refresh01">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ResetBackColor">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ResetBackColor01">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ResetCursor">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ResetCursor01">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ResetFont">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ResetFont01">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ResetForeColor">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ResetForeColor01">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ResetRightToLeft">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ResetRightToLeft01">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ResetText">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ResetText01">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.RightToLeftGet">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.RightToLeftLayoutGet">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.RightToLeftLayoutSetBoolean">
+            <summary>Sets the stub of Form.set_RightToLeftLayout(Boolean value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.RightToLeftSetRightToLeft">
+            <summary>Sets the stub of Control.set_RightToLeft(RightToLeft value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ScaleChildrenGet">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ScaleControlSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ScaleCore(System.Single,System.Single)">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ScaleCoreSingleSingle">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ScrollToControl(System.Windows.Forms.Control)">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ScrollToControlControl">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.Select(System.Boolean,System.Boolean)">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.SelectBooleanBoolean">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.SetBoundsCoreInt32Int32Int32Int32BoundsSpecified">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.SetClientSizeCore(System.Int32,System.Int32)">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.SetClientSizeCoreInt32Int32">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.SetVisibleCore(System.Boolean)">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.SetVisibleCoreBoolean">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ShowFocusCuesGet">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ShowKeyboardCuesGet">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ShowWithoutActivationGet">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.SiteGet">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.SiteSetISite">
+            <summary>Sets the stub of Control.set_Site(ISite value)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.SizeFromClientSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.SizeFromClientSizeSize">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.TextGet">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.TextSetString">
+            <summary>Sets the stub of Form.set_Text(String value)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ToString">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ToString01">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.UpdateDefaultButton">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.UpdateDefaultButton01">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ValidateChildren">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.ValidateChildren(System.Windows.Forms.ValidationConstraints)">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ValidateChildren01">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.ValidateChildrenValidationConstraints">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="M:Views.Fakes.StubUserview.WndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:Views.Fakes.StubUserview.WndProcMessageRef">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.AllowDrop">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.Anchor">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.AutoScaleBaseSize">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.AutoScroll">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.AutoScrollOffset">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.AutoSize">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.AutoValidate">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.BackColor">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.BackgroundImage">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.BackgroundImageLayout">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.BindingContext">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.CanEnableIme">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.CanRaiseEvents">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.ContextMenu">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.ContextMenuStrip">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.CreateParams">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.Cursor">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DefaultCursor">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DefaultImeMode">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DefaultMargin">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DefaultMaximumSize">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DefaultMinimumSize">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DefaultPadding">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DefaultSize">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DisplayRectangle">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.Dock">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.DoubleBuffered">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.Focused">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.Font">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.ForeColor">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.ImeModeBase">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.LayoutEngine">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.MaximumSize">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.MinimumSize">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.RightToLeft">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.RightToLeftLayout">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.ScaleChildren">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.ShowFocusCues">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.ShowKeyboardCues">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.ShowWithoutActivation">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.Site">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="P:Views.Fakes.StubUserview.Text">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
+        <member name="T:structures.Factory.Fakes.ShimStructureSetup">
+            <summary>Shim type of structures.Factory.StructureSetup</summary>
+        </member>
+        <member name="M:structures.Factory.Fakes.ShimStructureSetup.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:structures.Factory.Fakes.ShimStructureSetup.#ctor(structures.Factory.StructureSetup)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:structures.Factory.Fakes.ShimStructureSetup.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:structures.Factory.Fakes.ShimStructureSetup.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.ConstructorNHibernateIntfOfUserview">
+            <summary>Sets the shim of StructureSetup.StructureSetup(NHibernateIntf`1&lt;Userview&gt; NHibernateIntf)</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.LoadData">
+            <summary>Sets the shim of StructureSetup.LoadData()</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.PersoonListGet">
+            <summary>Sets the shim of StructureSetup.get_PersoonList()</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.PersoonListSetListOfPersoon">
+            <summary>Sets the shim of StructureSetup.set_PersoonList(List`1&lt;Persoon&gt; value)</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.PloegListGet">
+            <summary>Sets the shim of StructureSetup.get_PloegList()</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.PloegListSetListOfPloeg">
+            <summary>Sets the shim of StructureSetup.set_PloegList(List`1&lt;Ploeg&gt; value)</summary>
+        </member>
+        <member name="T:structures.Factory.Fakes.ShimStructureSetup.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.AllInstances.LoadData">
+            <summary>Sets the shim of StructureSetup.LoadData()</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.AllInstances.PersoonListGet">
+            <summary>Sets the shim of StructureSetup.get_PersoonList()</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.AllInstances.PersoonListSetListOfPersoon">
+            <summary>Sets the shim of StructureSetup.set_PersoonList(List`1&lt;Persoon&gt; value)</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.AllInstances.PloegListGet">
+            <summary>Sets the shim of StructureSetup.get_PloegList()</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.ShimStructureSetup.AllInstances.PloegListSetListOfPloeg">
+            <summary>Sets the shim of StructureSetup.set_PloegList(List`1&lt;Ploeg&gt; value)</summary>
+        </member>
+        <member name="T:structures.Factory.Fakes.StubStructureSetup">
+            <summary>Stub type of structures.Factory.StructureSetup</summary>
+        </member>
+        <member name="M:structures.Factory.Fakes.StubStructureSetup.#ctor(NHibernateHelper.NHibernateIntf{Views.Userview})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:structures.Factory.Fakes.StubStructureSetup.InitializeStub">
+            <summary>Initializes a new instance of type StubStructureSetup</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.StubStructureSetup.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.StubStructureSetup.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:structures.Factory.Fakes.StubStructureSetup.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimAddress">
+            <summary>Shim type of structures.Address</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimAddress.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimAddress.#ctor(structures.Address)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimAddress.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimAddress.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.Constructor">
+            <summary>Sets the shim of Address.Address()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.LandGet">
+            <summary>Sets the shim of Address.get_Land()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.LandSetString">
+            <summary>Sets the shim of Address.set_Land(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.NrGet">
+            <summary>Sets the shim of Address.get_Nr()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.NrSetString">
+            <summary>Sets the shim of Address.set_Nr(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.PostcodeGet">
+            <summary>Sets the shim of Address.get_Postcode()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.PostcodeSetString">
+            <summary>Sets the shim of Address.set_Postcode(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.StraatGet">
+            <summary>Sets the shim of Address.get_Straat()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.StraatSetString">
+            <summary>Sets the shim of Address.set_Straat(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.ToString">
+            <summary>Sets the shim of Address.ToString()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.WoonplaatsGet">
+            <summary>Sets the shim of Address.get_Woonplaats()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.WoonplaatsSetString">
+            <summary>Sets the shim of Address.set_Woonplaats(String value)</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimAddress.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.LandGet">
+            <summary>Sets the shim of Address.get_Land()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.LandSetString">
+            <summary>Sets the shim of Address.set_Land(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.NrGet">
+            <summary>Sets the shim of Address.get_Nr()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.NrSetString">
+            <summary>Sets the shim of Address.set_Nr(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.PostcodeGet">
+            <summary>Sets the shim of Address.get_Postcode()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.PostcodeSetString">
+            <summary>Sets the shim of Address.set_Postcode(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.StraatGet">
+            <summary>Sets the shim of Address.get_Straat()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.StraatSetString">
+            <summary>Sets the shim of Address.set_Straat(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.ToString01">
+            <summary>Sets the shim of Address.ToString()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.WoonplaatsGet">
+            <summary>Sets the shim of Address.get_Woonplaats()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimAddress.AllInstances.WoonplaatsSetString">
+            <summary>Sets the shim of Address.set_Woonplaats(String value)</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimCategory">
+            <summary>Shim type of structures.Category</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimCategory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimCategory.#ctor(structures.Category)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimCategory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimCategory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.CategoriesGet">
+            <summary>Sets the shim of Category.get_Categories()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.CategorynaamGet">
+            <summary>Sets the shim of Category.get_Categorynaam()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.Constructor">
+            <summary>Sets the shim of Category.Category()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.ExplicitOpStringCategory">
+            <summary>Sets the shim of Category.op_Explicit(String input)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.GeslachtGet">
+            <summary>Sets the shim of Category.get_Geslacht()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.GeslachtSetGeslacht">
+            <summary>Sets the shim of Category.set_Geslacht(Geslacht value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.NiveauGet">
+            <summary>Sets the shim of Category.get_Niveau()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.NiveauSetNiveau">
+            <summary>Sets the shim of Category.set_Niveau(Niveau value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.ToString">
+            <summary>Sets the shim of Category.ToString()</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimCategory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.AllInstances.CategorynaamGet">
+            <summary>Sets the shim of Category.get_Categorynaam()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.AllInstances.GeslachtGet">
+            <summary>Sets the shim of Category.get_Geslacht()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.AllInstances.GeslachtSetGeslacht">
+            <summary>Sets the shim of Category.set_Geslacht(Geslacht value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.AllInstances.NiveauGet">
+            <summary>Sets the shim of Category.get_Niveau()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.AllInstances.NiveauSetNiveau">
+            <summary>Sets the shim of Category.set_Niveau(Niveau value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimCategory.AllInstances.ToString01">
+            <summary>Sets the shim of Category.ToString()</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimContact">
+            <summary>Shim type of structures.Contact</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimContact.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimContact.#ctor(structures.Contact)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimContact.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimContact.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.Constructor">
+            <summary>Sets the shim of Contact.Contact()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.EmailGet">
+            <summary>Sets the shim of Contact.get_Email()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.EmailSetString">
+            <summary>Sets the shim of Contact.set_Email(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.GSMNrGet">
+            <summary>Sets the shim of Contact.get_GSMNr()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.GSMNrSetString">
+            <summary>Sets the shim of Contact.set_GSMNr(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.TelNrGet">
+            <summary>Sets the shim of Contact.get_TelNr()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.TelNrSetString">
+            <summary>Sets the shim of Contact.set_TelNr(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.ToString">
+            <summary>Sets the shim of Contact.ToString()</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimContact.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.AllInstances.EmailGet">
+            <summary>Sets the shim of Contact.get_Email()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.AllInstances.EmailSetString">
+            <summary>Sets the shim of Contact.set_Email(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.AllInstances.GSMNrGet">
+            <summary>Sets the shim of Contact.get_GSMNr()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.AllInstances.GSMNrSetString">
+            <summary>Sets the shim of Contact.set_GSMNr(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.AllInstances.TelNrGet">
+            <summary>Sets the shim of Contact.get_TelNr()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.AllInstances.TelNrSetString">
+            <summary>Sets the shim of Contact.set_TelNr(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimContact.AllInstances.ToString01">
+            <summary>Sets the shim of Contact.ToString()</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimPersoon">
+            <summary>Shim type of structures.Persoon</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoon.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoon.#ctor(structures.Persoon)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoon.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoon.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AddresGet">
+            <summary>Sets the shim of Persoon.get_Addres()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AddresSetAddress">
+            <summary>Sets the shim of Persoon.set_Addres(Address value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.Constructor">
+            <summary>Sets the shim of Persoon.Persoon()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.ContactGet">
+            <summary>Sets the shim of Persoon.get_Contact()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.ContactSetContact">
+            <summary>Sets the shim of Persoon.set_Contact(Contact value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.IDGet">
+            <summary>Sets the shim of Persoon.get_ID()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.IDSetInt32">
+            <summary>Sets the shim of Persoon.set_ID(Int32 value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.NaamGet">
+            <summary>Sets the shim of Persoon.get_Naam()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.NaamSetString">
+            <summary>Sets the shim of Persoon.set_Naam(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.ToString">
+            <summary>Sets the shim of Persoon.ToString()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.VoornaamGet">
+            <summary>Sets the shim of Persoon.get_Voornaam()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.VoornaamSetString">
+            <summary>Sets the shim of Persoon.set_Voornaam(String value)</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimPersoon.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.AddresGet">
+            <summary>Sets the shim of Persoon.get_Addres()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.AddresSetAddress">
+            <summary>Sets the shim of Persoon.set_Addres(Address value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.ContactGet">
+            <summary>Sets the shim of Persoon.get_Contact()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.ContactSetContact">
+            <summary>Sets the shim of Persoon.set_Contact(Contact value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.IDGet">
+            <summary>Sets the shim of Persoon.get_ID()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.IDSetInt32">
+            <summary>Sets the shim of Persoon.set_ID(Int32 value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.NaamGet">
+            <summary>Sets the shim of Persoon.get_Naam()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.NaamSetString">
+            <summary>Sets the shim of Persoon.set_Naam(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.ToString01">
+            <summary>Sets the shim of Persoon.ToString()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.VoornaamGet">
+            <summary>Sets the shim of Persoon.get_Voornaam()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoon.AllInstances.VoornaamSetString">
+            <summary>Sets the shim of Persoon.set_Voornaam(String value)</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimPersoonMapping">
+            <summary>Shim type of structures.PersoonMapping</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoonMapping.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoonMapping.#ctor(structures.PersoonMapping)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoonMapping.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoonMapping.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPersoonMapping.Bind(FluentNHibernate.IMappingProvider)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoonMapping.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoonMapping.Constructor">
+            <summary>Sets the shim of PersoonMapping.PersoonMapping()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoonMapping._ctorb__0ComponentPartOfAddress">
+            <summary>Sets the shim of PersoonMapping.&lt;.ctor&gt;b__0(ComponentPart`1&lt;Address&gt; ad)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPersoonMapping._ctorb__1ComponentPartOfContact">
+            <summary>Sets the shim of PersoonMapping.&lt;.ctor&gt;b__1(ComponentPart`1&lt;Contact&gt; Co)</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimPersoonMapping.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimPloeg">
+            <summary>Shim type of structures.Ploeg</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPloeg.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPloeg.#ctor(structures.Ploeg)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPloeg.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:structures.Fakes.ShimPloeg.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AangemeldGet">
+            <summary>Sets the shim of Ploeg.get_Aangemeld()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AangemeldSetBoolean">
+            <summary>Sets the shim of Ploeg.set_Aangemeld(Boolean value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.BetaaldGet">
+            <summary>Sets the shim of Ploeg.get_Betaald()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.BetaaldSetBoolean">
+            <summary>Sets the shim of Ploeg.set_Betaald(Boolean value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.CategoryGet">
+            <summary>Sets the shim of Ploeg.get_Category()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.CategorySetCategory">
+            <summary>Sets the shim of Ploeg.set_Category(Category value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.Constructor">
+            <summary>Sets the shim of Ploeg.Ploeg()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.ContactpersoonGet">
+            <summary>Sets the shim of Ploeg.get_Contactpersoon()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.ContactpersoonSetPersoon">
+            <summary>Sets the shim of Ploeg.set_Contactpersoon(Persoon value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.IDGet">
+            <summary>Sets the shim of Ploeg.get_ID()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.IDSetInt32">
+            <summary>Sets the shim of Ploeg.set_ID(Int32 value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.PloegnaamGet">
+            <summary>Sets the shim of Ploeg.get_Ploegnaam()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.PloegnaamSetString">
+            <summary>Sets the shim of Ploeg.set_Ploegnaam(String value)</summary>
+        </member>
+        <member name="T:structures.Fakes.ShimPloeg.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.AangemeldGet">
+            <summary>Sets the shim of Ploeg.get_Aangemeld()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.AangemeldSetBoolean">
+            <summary>Sets the shim of Ploeg.set_Aangemeld(Boolean value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.BetaaldGet">
+            <summary>Sets the shim of Ploeg.get_Betaald()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.BetaaldSetBoolean">
+            <summary>Sets the shim of Ploeg.set_Betaald(Boolean value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.CategoryGet">
+            <summary>Sets the shim of Ploeg.get_Category()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.CategorySetCategory">
+            <summary>Sets the shim of Ploeg.set_Category(Category value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.ContactpersoonGet">
+            <summary>Sets the shim of Ploeg.get_Contactpersoon()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.ContactpersoonSetPersoon">
+            <summary>Sets the shim of Ploeg.set_Contactpersoon(Persoon value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.IDGet">
+            <summary>Sets the shim of Ploeg.get_ID()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.IDSetInt32">
+            <summary>Sets the shim of Ploeg.set_ID(Int32 value)</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.PloegnaamGet">
+            <summary>Sets the shim of Ploeg.get_Ploegnaam()</summary>
+        </member>
+        <member name="P:structures.Fakes.ShimPloeg.AllInstances.PloegnaamSetString">
+            <summary>Sets the shim of Ploeg.set_Ploegnaam(String value)</summary>
+        </member>
+        <member name="T:structures.Fakes.StubAddress">
+            <summary>Stub type of structures.Address</summary>
+        </member>
+        <member name="M:structures.Fakes.StubAddress.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:structures.Fakes.StubAddress.AttachBackingFieldToLand">
+            <summary>Attaches delegates to emulate StubAddress.Land as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubAddress.AttachBackingFieldToNr">
+            <summary>Attaches delegates to emulate StubAddress.Nr as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubAddress.AttachBackingFieldToPostcode">
+            <summary>Attaches delegates to emulate StubAddress.Postcode as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubAddress.AttachBackingFieldToStraat">
+            <summary>Attaches delegates to emulate StubAddress.Straat as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubAddress.AttachBackingFieldToWoonplaats">
+            <summary>Attaches delegates to emulate StubAddress.Woonplaats as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubAddress.InitializeStub">
+            <summary>Initializes a new instance of type StubAddress</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.LandGet">
+            <summary>Sets the stub of Address.get_Land()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.LandSetString">
+            <summary>Sets the stub of Address.set_Land(String value)</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.NrGet">
+            <summary>Sets the stub of Address.get_Nr()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.NrSetString">
+            <summary>Sets the stub of Address.set_Nr(String value)</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.PostcodeGet">
+            <summary>Sets the stub of Address.get_Postcode()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.PostcodeSetString">
+            <summary>Sets the stub of Address.set_Postcode(String value)</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.StraatGet">
+            <summary>Sets the stub of Address.get_Straat()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.StraatSetString">
+            <summary>Sets the stub of Address.set_Straat(String value)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubAddress.ToString">
+            <summary>Sets the stub of Address.ToString()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.ToString01">
+            <summary>Sets the stub of Address.ToString()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.WoonplaatsGet">
+            <summary>Sets the stub of Address.get_Woonplaats()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubAddress.WoonplaatsSetString">
+            <summary>Sets the stub of Address.set_Woonplaats(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.StubAddress.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:structures.Fakes.StubAddress.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubAddress.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubAddress.Land">
+            <summary>Sets the stub of Address.get_Land()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubAddress.Nr">
+            <summary>Sets the stub of Address.get_Nr()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubAddress.Postcode">
+            <summary>Sets the stub of Address.get_Postcode()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubAddress.Straat">
+            <summary>Sets the stub of Address.get_Straat()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubAddress.Woonplaats">
+            <summary>Sets the stub of Address.get_Woonplaats()</summary>
+        </member>
+        <member name="T:structures.Fakes.StubCategory">
+            <summary>Stub type of structures.Category</summary>
+        </member>
+        <member name="M:structures.Fakes.StubCategory.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:structures.Fakes.StubCategory.InitializeStub">
+            <summary>Initializes a new instance of type StubCategory</summary>
+        </member>
+        <member name="M:structures.Fakes.StubCategory.ToString">
+            <summary>Sets the stub of Category.ToString()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubCategory.ToString01">
+            <summary>Sets the stub of Category.ToString()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubCategory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:structures.Fakes.StubCategory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubCategory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:structures.Fakes.StubContact">
+            <summary>Stub type of structures.Contact</summary>
+        </member>
+        <member name="M:structures.Fakes.StubContact.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:structures.Fakes.StubContact.AttachBackingFieldToEmail">
+            <summary>Attaches delegates to emulate StubContact.Email as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubContact.AttachBackingFieldToGSMNr">
+            <summary>Attaches delegates to emulate StubContact.GSMNr as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubContact.AttachBackingFieldToTelNr">
+            <summary>Attaches delegates to emulate StubContact.TelNr as a property with a backing field.</summary>
+        </member>
+        <member name="F:structures.Fakes.StubContact.EmailGet">
+            <summary>Sets the stub of Contact.get_Email()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubContact.EmailSetString">
+            <summary>Sets the stub of Contact.set_Email(String value)</summary>
+        </member>
+        <member name="F:structures.Fakes.StubContact.GSMNrGet">
+            <summary>Sets the stub of Contact.get_GSMNr()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubContact.GSMNrSetString">
+            <summary>Sets the stub of Contact.set_GSMNr(String value)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubContact.InitializeStub">
+            <summary>Initializes a new instance of type StubContact</summary>
+        </member>
+        <member name="F:structures.Fakes.StubContact.TelNrGet">
+            <summary>Sets the stub of Contact.get_TelNr()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubContact.TelNrSetString">
+            <summary>Sets the stub of Contact.set_TelNr(String value)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubContact.ToString">
+            <summary>Sets the stub of Contact.ToString()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubContact.ToString01">
+            <summary>Sets the stub of Contact.ToString()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubContact.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:structures.Fakes.StubContact.Email">
+            <summary>Sets the stub of Contact.get_Email()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubContact.GSMNr">
+            <summary>Sets the stub of Contact.get_GSMNr()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubContact.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubContact.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubContact.TelNr">
+            <summary>Sets the stub of Contact.get_TelNr()</summary>
+        </member>
+        <member name="T:structures.Fakes.StubPersoon">
+            <summary>Stub type of structures.Persoon</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoon.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.AddresGet">
+            <summary>Sets the stub of Persoon.get_Addres()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.AddresSetAddress">
+            <summary>Sets the stub of Persoon.set_Addres(Address value)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoon.AttachBackingFieldToAddres">
+            <summary>Attaches delegates to emulate StubPersoon.Addres as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoon.AttachBackingFieldToContact">
+            <summary>Attaches delegates to emulate StubPersoon.Contact as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoon.AttachBackingFieldToID">
+            <summary>Attaches delegates to emulate StubPersoon.ID as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoon.AttachBackingFieldToNaam">
+            <summary>Attaches delegates to emulate StubPersoon.Naam as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoon.AttachBackingFieldToVoornaam">
+            <summary>Attaches delegates to emulate StubPersoon.Voornaam as a property with a backing field.</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.ContactGet">
+            <summary>Sets the stub of Persoon.get_Contact()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.ContactSetContact">
+            <summary>Sets the stub of Persoon.set_Contact(Contact value)</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.IDGet">
+            <summary>Sets the stub of Persoon.get_ID()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.IDSetInt32">
+            <summary>Sets the stub of Persoon.set_ID(Int32 value)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoon.InitializeStub">
+            <summary>Initializes a new instance of type StubPersoon</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.NaamGet">
+            <summary>Sets the stub of Persoon.get_Naam()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.NaamSetString">
+            <summary>Sets the stub of Persoon.set_Naam(String value)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoon.ToString">
+            <summary>Sets the stub of Persoon.ToString()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.ToString01">
+            <summary>Sets the stub of Persoon.ToString()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.VoornaamGet">
+            <summary>Sets the stub of Persoon.get_Voornaam()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPersoon.VoornaamSetString">
+            <summary>Sets the stub of Persoon.set_Voornaam(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoon.Addres">
+            <summary>Sets the stub of Persoon.get_Addres()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoon.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoon.Contact">
+            <summary>Sets the stub of Persoon.get_Contact()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoon.ID">
+            <summary>Sets the stub of Persoon.get_ID()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoon.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoon.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoon.Naam">
+            <summary>Sets the stub of Persoon.get_Naam()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoon.Voornaam">
+            <summary>Sets the stub of Persoon.get_Voornaam()</summary>
+        </member>
+        <member name="T:structures.Fakes.StubPersoonMapping">
+            <summary>Stub type of structures.PersoonMapping</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoonMapping.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoonMapping.Component``1(System.Linq.Expressions.Expression{System.Func{structures.Persoon,``0}})">
+            <summary>Sets the stub of ClasslikeMapBase`1.Component(Expression`1&lt;Func`2&lt;!0,!!0&gt;&gt; member)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoonMapping.ComponentOf1ExpressionOfFuncOfPersoonM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Linq.Expressions.Expression{System.Func{structures.Persoon,``0}},FluentNHibernate.Mapping.ReferenceComponentPart{``0}})">
+            <summary>Sets stubs of Component(Expression`1&lt;Func`2&lt;!0,!!0&gt;&gt; member)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPersoonMapping.InitializeStub">
+            <summary>Initializes a new instance of type StubPersoonMapping</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoonMapping.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoonMapping.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPersoonMapping.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:structures.Fakes.StubPloeg">
+            <summary>Stub type of structures.Ploeg</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPloeg.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.AangemeldGet">
+            <summary>Sets the stub of Ploeg.get_Aangemeld()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.AangemeldSetBoolean">
+            <summary>Sets the stub of Ploeg.set_Aangemeld(Boolean value)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPloeg.AttachBackingFieldToAangemeld">
+            <summary>Attaches delegates to emulate StubPloeg.Aangemeld as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPloeg.AttachBackingFieldToBetaald">
+            <summary>Attaches delegates to emulate StubPloeg.Betaald as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPloeg.AttachBackingFieldToCategory">
+            <summary>Attaches delegates to emulate StubPloeg.Category as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPloeg.AttachBackingFieldToContactpersoon">
+            <summary>Attaches delegates to emulate StubPloeg.Contactpersoon as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPloeg.AttachBackingFieldToID">
+            <summary>Attaches delegates to emulate StubPloeg.ID as a property with a backing field.</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPloeg.AttachBackingFieldToPloegnaam">
+            <summary>Attaches delegates to emulate StubPloeg.Ploegnaam as a property with a backing field.</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.BetaaldGet">
+            <summary>Sets the stub of Ploeg.get_Betaald()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.BetaaldSetBoolean">
+            <summary>Sets the stub of Ploeg.set_Betaald(Boolean value)</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.CategoryGet">
+            <summary>Sets the stub of Ploeg.get_Category()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.CategorySetCategory">
+            <summary>Sets the stub of Ploeg.set_Category(Category value)</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.ContactpersoonGet">
+            <summary>Sets the stub of Ploeg.get_Contactpersoon()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.ContactpersoonSetPersoon">
+            <summary>Sets the stub of Ploeg.set_Contactpersoon(Persoon value)</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.IDGet">
+            <summary>Sets the stub of Ploeg.get_ID()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.IDSetInt32">
+            <summary>Sets the stub of Ploeg.set_ID(Int32 value)</summary>
+        </member>
+        <member name="M:structures.Fakes.StubPloeg.InitializeStub">
+            <summary>Initializes a new instance of type StubPloeg</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.PloegnaamGet">
+            <summary>Sets the stub of Ploeg.get_Ploegnaam()</summary>
+        </member>
+        <member name="F:structures.Fakes.StubPloeg.PloegnaamSetString">
+            <summary>Sets the stub of Ploeg.set_Ploegnaam(String value)</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.Aangemeld">
+            <summary>Sets the stub of Ploeg.get_Aangemeld()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.Betaald">
+            <summary>Sets the stub of Ploeg.get_Betaald()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.Category">
+            <summary>Sets the stub of Ploeg.get_Category()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.Contactpersoon">
+            <summary>Sets the stub of Ploeg.get_Contactpersoon()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.ID">
+            <summary>Sets the stub of Ploeg.get_ID()</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:structures.Fakes.StubPloeg.Ploegnaam">
+            <summary>Sets the stub of Ploeg.get_Ploegnaam()</summary>
+        </member>
+    </members>
+</doc>

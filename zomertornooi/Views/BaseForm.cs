@@ -81,8 +81,12 @@ namespace Views
                     UC_reeksAssignment _reeksAssignment = new UC_reeksAssignment(_StructureSetup.PloegList) { Name = "Reeks assignment" };
                     UC_PloegOverView _PloegOverView = new UC_PloegOverView(_PloegList);
                     UC_RoundRobinSetup _RoundRobinSetup = new UC_RoundRobinSetup(_PloegList, _StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
-                    UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
+                    //UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
+                    Userview<Wedstrijd> _WedstrijdViewer = new Userview<Wedstrijd>(_StructureSetup.WedstrijdList, false);
                     UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
+                    UC_Reader _Reader = new UC_Reader(_StructureSetup.WedstrijdList);
+
+
 
                     CreateDockContent(_persoonview, MainDocking);
                     CreateDockContent(_terreinview, MainDocking);
@@ -91,6 +95,8 @@ namespace Views
                     CreateDockContent(_RoundRobinSetup, MainDocking);
                     CreateDockContent(_WedstrijdViewer, MainDocking);
                     CreateDockContent(_TornooiAdministratie, MainDocking);
+                    CreateDockContent(_Reader, MainDocking);
+
                 }
                 else if (_userlevel == UserLevel.User)
                 {

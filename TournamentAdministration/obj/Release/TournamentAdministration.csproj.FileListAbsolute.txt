@@ -1,0 +1,7 @@
+C:\proj\Zomertornooi\TournamentAdministration\bin\Release\TournamentAdministration.exe.config
+C:\proj\Zomertornooi\TournamentAdministration\bin\Release\TournamentAdministration.exe
+C:\proj\Zomertornooi\TournamentAdministration\bin\Release\TournamentAdministration.pdb
+C:\proj\Zomertornooi\TournamentAdministration\obj\Release\TournamentAdministration.Properties.Resources.resources
+C:\proj\Zomertornooi\TournamentAdministration\obj\Release\TournamentAdministration.csproj.GenerateResource.Cache
+C:\proj\Zomertornooi\TournamentAdministration\obj\Release\TournamentAdministration.exe
+C:\proj\Zomertornooi\TournamentAdministration\obj\Release\TournamentAdministration.pdb

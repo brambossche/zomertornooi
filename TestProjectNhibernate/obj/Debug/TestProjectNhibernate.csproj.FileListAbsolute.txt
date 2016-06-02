@@ -1,0 +1,4 @@
+C:\proj\zomertornooi\TestProjectNhibernate\obj\Debug\TestProjectNhibernate.csprojResolveAssemblyReference.cache
+C:\proj\zomertornooi\TestProjectNhibernate\obj\Debug\TestProjectNhibernate.TestForm.resources
+C:\proj\zomertornooi\TestProjectNhibernate\obj\Debug\TestProjectNhibernate.Properties.Resources.resources
+C:\proj\zomertornooi\TestProjectNhibernate\obj\Debug\TestProjectNhibernate.csproj.GenerateResource.Cache

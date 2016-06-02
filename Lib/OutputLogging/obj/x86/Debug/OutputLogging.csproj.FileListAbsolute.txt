@@ -1,0 +1,17 @@
+C:\proj\Zomertornooi\Lib\OutputLogging\bin\x86\Debug\OutputLogging.dll
+C:\proj\Zomertornooi\Lib\OutputLogging\bin\x86\Debug\OutputLogging.pdb
+C:\proj\Zomertornooi\Lib\OutputLogging\bin\x86\Debug\log4net.dll
+C:\proj\Zomertornooi\Lib\OutputLogging\bin\x86\Debug\WeifenLuo.WinFormsUI.Docking.dll
+C:\proj\Zomertornooi\Lib\OutputLogging\bin\x86\Debug\log4net.xml
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\PCL.OutputLogging.Properties.Resources.resources
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.RealUcErrorWindow.resources
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.RealUcConsoleWindow.resources
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.Filter.resources
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.UcConsoleWindow.resources
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.UcErrorWindow.resources
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.UcLogWindow.resources
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.UcSQLLogger.resources
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.csproj.GenerateResource.Cache
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.dll
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.pdb
+C:\proj\Zomertornooi\Lib\OutputLogging\obj\x86\Debug\OutputLogging.csprojResolveAssemblyReference.cache

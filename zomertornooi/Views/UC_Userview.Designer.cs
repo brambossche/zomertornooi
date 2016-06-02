@@ -47,21 +47,24 @@ namespace Views
             // 
             // extendDataGridView1
             // 
+            this.extendDataGridView1.AllowUserToAddRows = false;
             this.extendDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.extendDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.extendDataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.extendDataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.extendDataGridView1.Name = "extendDataGridView1";
             this.extendDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.extendDataGridView1.Size = new System.Drawing.Size(1020, 362);
+            this.extendDataGridView1.Size = new System.Drawing.Size(1360, 446);
             this.extendDataGridView1.TabIndex = 0;
             // 
             // Userview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.extendDataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Userview";
-            this.Size = new System.Drawing.Size(1020, 362);
+            this.Size = new System.Drawing.Size(1360, 446);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Enter += new System.EventHandler(this.Userview_Enter);
             this.Leave += new System.EventHandler(this.Userview_Leave);
@@ -73,7 +76,7 @@ namespace Views
         #endregion
         //private System.Windows.Forms.SplitContainer splitContainer1;
         //private System.Windows.Forms.PropertyGrid PG_details;
-        private Marb.ExtendToolboxCtrl.ExtendDataGridView extendDataGridView1;
+        public Marb.ExtendToolboxCtrl.ExtendDataGridView extendDataGridView1;
         private System.Windows.Forms.Button btn_refreshlist;
 
 

@@ -1,0 +1,14 @@
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate stub for NHibernateHelper.SessionAction: type is a value type.
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate stub for Views.Program: type is sealed.
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate stub for structures.Geslacht: type is a value type.
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate stub for structures.Niveau: type is a value type.
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate stub for structures.PloegMapping: type is not visible to exported or assembly(zomertornooi.Fakes).
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate stub for structures.Properties.Resources: type is not visible to exported or assembly(zomertornooi.Fakes).
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate stub for structures.Properties.Settings: type is sealed.
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate shim for NHibernateHelper.SessionAction: type is an enum.
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate shim for Views.Program: type is not visible to exported or assembly(zomertornooi.Fakes).
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate shim for structures.Geslacht: type is an enum.
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate shim for structures.Niveau: type is an enum.
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate shim for structures.PloegMapping: type is not visible to exported or assembly(zomertornooi.Fakes).
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate shim for structures.Properties.Resources: type is not visible to exported or assembly(zomertornooi.Fakes).
+C:\proj\zomertornooi\zomertornooiTests\Fakes\zomertornooi.fakes : warning : Cannot generate shim for structures.Properties.Settings: type is not visible to exported or assembly(zomertornooi.Fakes).

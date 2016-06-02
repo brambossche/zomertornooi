@@ -21,13 +21,20 @@ namespace Views
         protected static readonly ILog logger = LogManager.GetLogger(typeof(Userview<T>));
         protected BindingListRefresh<T> _BindingListRefresh;
         protected BindingList<T> _inputlist;
-        public Userview(BindingList<T> list, bool AllowUserToAddRows = true) 
+
+        public delegate void del_Listrefreshed();
+        public event del_Listrefreshed ListRefreshed;
+
+        private bool _AllowUserToAddRows;
+
+        public Userview(BindingList<T> list, bool AllowUserToAddRows) 
         {
             try
             {
                 _inputlist = list;
                 _BindingListRefresh = new BindingListRefresh<T>(_inputlist);
                 _BindingListRefresh.ListRefreshed += _BindingListRefresh_ListRefreshed;
+                _AllowUserToAddRows = AllowUserToAddRows;
                 InitializeComponent();                
             }
             catch (Exception e)
@@ -43,7 +50,7 @@ namespace Views
             try
             {
                 extendDataGridView1.DataSource = _inputlist;
-                extendDataGridView1.AllowUserToAddRows = AllowUserToAddRows;
+                extendDataGridView1.AllowUserToAddRows = _AllowUserToAddRows;
                 extendDataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 extendDataGridView1.MultiSelect = false;
                 extendDataGridView1.Dock = DockStyle.Fill;
@@ -168,7 +175,13 @@ namespace Views
 
         private void _BindingListRefresh_ListRefreshed()
         {
+            if (ListRefreshed != null)
+            {
+                ListRefreshed.Invoke();
+            }
+            Console.WriteLine("List was refreshed");
             RefreshList();
+
         }
 
         private void btn_refreshlist_Click(object sender, EventArgs e)

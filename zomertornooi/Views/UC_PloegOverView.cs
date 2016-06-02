@@ -28,8 +28,9 @@ namespace structures.Views
             _ploeglist = PloegList;
             InitializeComponent();
 
-            _ploegview = new Userview<Ploeg>(_ploeglist) { Name = "Ploegview" };
+            _ploegview = new Userview<Ploeg>(_ploeglist,true) { Name = "Ploegview" };
             _ploegview.Dock = DockStyle.Fill;
+            _ploegview.ListRefreshed += _ploegview_ListRefreshed;
             splitContainer1.Panel1.Controls.Add(_ploegview);
             
             _Lstbox_overview = new DataGridView();
@@ -38,6 +39,12 @@ namespace structures.Views
             tstcmb_categoryfilter.Items.AddRange ( Category.Categories.ToArray());
 
             _UC_categoryChanges = new UC_categoryChanges();
+        }
+
+        void _ploegview_ListRefreshed()
+        {
+            //BindingList<Ploeg> _fileteredlist = new BindingList<Ploeg>(_ploeglist.Where(x => x.Category.Categorynaam == tstcmb_categoryfilter.Text).ToList());
+            //_ploegview.DataSource = _fileteredlist;
         }
 
 
@@ -58,6 +65,14 @@ namespace structures.Views
             {
                 BindingList<Ploeg> _fileteredlist = new BindingList<Ploeg>(_ploeglist.Where(x => x.Category.Categorynaam == tstcmb_categoryfilter.Text).ToList());
                 _ploegview.DataSource = _fileteredlist;
+                //_ploegview.DataSource = _ploeglist;
+
+                //CurrencyManager cm = (CurrencyManager)BindingContext[_ploegview.DataSource];
+                //cm.SuspendBinding();
+                //_ploegview.extendDataGridView1.Rows[0].Visible = false;
+                //cm.ResumeBinding();
+
+
                 tstbtn_nofilter.CheckState = CheckState.Unchecked;
             }            
         }
