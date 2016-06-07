@@ -35,7 +35,7 @@ namespace structures.Views
             
             _Lstbox_overview = new DataGridView();
             _Lstbox_overview.Dock = DockStyle.Left;
-
+            tstcmb_categoryfilter.Items.Add("Alle reeksen");
             tstcmb_categoryfilter.Items.AddRange ( Category.Categories.ToArray());
 
             _UC_categoryChanges = new UC_categoryChanges();
@@ -43,8 +43,7 @@ namespace structures.Views
 
         void _ploegview_ListRefreshed()
         {
-            //BindingList<Ploeg> _fileteredlist = new BindingList<Ploeg>(_ploeglist.Where(x => x.Category.Categorynaam == tstcmb_categoryfilter.Text).ToList());
-            //_ploegview.DataSource = _fileteredlist;
+
         }
 
 
@@ -63,14 +62,33 @@ namespace structures.Views
         {
             if (tstbtn_Filter.CheckState == CheckState.Checked)
             {
-                BindingList<Ploeg> _fileteredlist = new BindingList<Ploeg>(_ploeglist.Where(x => x.Category.Categorynaam == tstcmb_categoryfilter.Text).ToList());
-                _ploegview.DataSource = _fileteredlist;
-                //_ploegview.DataSource = _ploeglist;
+                CurrencyManager currencyManager1 = (CurrencyManager)_ploegview.extendDataGridView1.BindingContext[_ploegview.extendDataGridView1.DataSource];
+                currencyManager1.SuspendBinding();
 
-                //CurrencyManager cm = (CurrencyManager)BindingContext[_ploegview.DataSource];
-                //cm.SuspendBinding();
-                //_ploegview.extendDataGridView1.Rows[0].Visible = false;
-                //cm.ResumeBinding();
+                if (tstcmb_categoryfilter.SelectedIndex <= 0)
+                {
+                    for (int i = 0; i < _ploeglist.Count; i++)
+                    {
+                        _ploegview.extendDataGridView1.Rows[i].Visible = true;
+                    }
+
+                }
+                else
+                {
+
+                    for (int i = 0; i < _ploeglist.Count; i++)
+                    {
+                        if (_ploeglist[i].Category.ToString().Equals(tstcmb_categoryfilter.Text))
+                        {
+                            _ploegview.extendDataGridView1.Rows[i].Visible = true;
+                        }
+                        else
+                        {
+                            _ploegview.extendDataGridView1.Rows[i].Visible = false;
+                        }
+                    }
+                }
+                currencyManager1.ResumeBinding();
 
 
                 tstbtn_nofilter.CheckState = CheckState.Unchecked;
