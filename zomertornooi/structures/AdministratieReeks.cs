@@ -55,7 +55,7 @@ namespace structures
         }
 
 
-        public AdministratieReeks(string rn, BindingList<Wedstrijd> w)
+        public AdministratieReeks(string rn, ActiveBindingList<Wedstrijd> w)
         {
             ReeksNaam = rn;
             _ReeksWedstrijden = w;
@@ -68,14 +68,18 @@ namespace structures
         {
             foreach (Wedstrijd w in _ReeksWedstrijden)
             {
-                if (!_ReeksPloegen.Contains(w.Home))
+                if (w.ReeksNaam == _ReeksNaam)
                 {
-                    _ReeksPloegen.Add(w.Home);
+                    if (!_ReeksPloegen.Contains(w.Home))
+                    {
+                        _ReeksPloegen.Add(w.Home);
+                    }
+                    if (!_ReeksPloegen.Contains(w.Away))
+                    {
+                        _ReeksPloegen.Add(w.Away);
+                    }
                 }
-                if (!_ReeksPloegen.Contains(w.Away))
-                {
-                    _ReeksPloegen.Add(w.Away);
-                }
+
             }
         }
 
@@ -267,7 +271,7 @@ namespace structures
                                 AantalVerl21++;
                                 TotalePunten += 1;
                             }
-                            else if (PuntenH > PuntenA)
+                            else if (PuntenH == PuntenA)
                             {
                                 TotalePunten += 1;
                             }

@@ -63,11 +63,15 @@ namespace structures.Views
 
             if (_WedstrijdList.Count > 0)
             {
-                PopulateReeksCombobox();
-                cmb_ReeksNaam.SelectedIndex = 0;
+                InitTornooiAdministratie();
             }
 
-            //Init Datetimepicker
+
+        }
+
+        private void InitTornooiAdministratie()
+        {
+            //Init Datetimpicker
             dtp = new DateTimePicker();
             dtp.Format = DateTimePickerFormat.Time;
             //dtp.ShowUpDown = true;
@@ -76,46 +80,24 @@ namespace structures.Views
             dtp.Validated += dtp_Validated;
             dtp.KeyPress += dtp_KeyPress;
 
-        }
+            //Assign Datasource of datagridviews
+            dgv_Terreinen.DataSource = _TerreinList;
+            //InitTerreinen();
+            dgv_Wedstrijden.DataSource = _WedstrijdList;
+            //InitWedstrijden();
 
-
-
-        void dtp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                DateTime OldValue = (DateTime)dgv_Wedstrijden.CurrentCell.Value;
-                DateTime NewValue = dtp.Value;
-                TimeSpan delta = NewValue.Subtract(OldValue);
-
-                dgv_Wedstrijden.CurrentCell.Value = dtp.Value;
-                dtp.Visible = false;
-
-                //Change time of all upcoming games
-                for (int i = dgv_Wedstrijden.CurrentCell.RowIndex + 1; i < dgv_Wedstrijden.Rows.Count; i++)
-                {
-                    DateTime time = (DateTime)dgv_Wedstrijden.Rows[i].Cells[0].Value;
-                    time = time.Add(delta);
-                    dgv_Wedstrijden.Rows[i].Cells[0].Value = time;
-
-                }
-
-                PopulateUurCombobox();
-            }
+            //Populate cmb_reeksnaam
+            PopulateReeksCombobox();
         }
 
         private void UC_TornooiAdministratie_Load(object sender, EventArgs e)
         {
-            if (_WedstrijdList.Count > 0)
-            {
-                DisableRows(0);
-                ChangeRowColor();
-            }
-            UpdateTerreinen();
+            cmb_ReeksNaam.SelectedIndex = 0;
+
             dgv_Terreinen.DoubleBuffered(true);
             dgv_Klassement.DoubleBuffered(true);
             dgv_Wedstrijden.DoubleBuffered(true);
-
+            
             _BindingListRefreshTerrein.StartRefreshing();
             _BindingListRefreshWedstrijd.StartRefreshing();
 
@@ -123,62 +105,32 @@ namespace structures.Views
 
         }
 
-
         void _TerreinList_ListChanged(object sender, ListChangedEventArgs e)
         {
-            if (e.ListChangedType == ListChangedType.ItemChanged)
+            for (int i = 0; i < _TerreinList.Count; i++)
             {
-                for (int i = 0; i < _TerreinReeksList.Count; i++)
+                if (_TerreinList[i].ReeksNaam == cmb_ReeksNaam.Text && _TerreinList[i].Status == true)
                 {
-
-                    if (_TerreinReeksList[i].Status)
-                    {
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Green;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Green;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
-                    }
-                    else
-                    {
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Red;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
-                    }
-
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Green;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
                 }
-
+                else if (_TerreinList[i].ReeksNaam == cmb_ReeksNaam.Text && _TerreinList[i].Status == false)
+                {
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Red;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
+                }
             }
+
         }
 
         void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)
         {
-
-            if (e.ListChangedType == ListChangedType.ItemChanged)
-            {
-                ChangeRowColor();
-
-            }
-            else
-            {
-                if (_WedstrijdList.Count == 0)
-                {
-                    dgv_Terreinen.DataSource = null;
-                    dgv_Klassement.DataSource = null;
-                    dgv_Wedstrijden.DataSource = null;
-                }
-
-                
-                cmb_ReeksNaam.Items.Clear();
-                cmb_ReeksNaam.Text = "";
-                PopulateReeksCombobox();
-                //ChangeRowColor();
-
-            }
-
-
-
-           UpdateTerreinen();
+            Reeks = new AdministratieReeks(cmb_ReeksNaam.Text, _WedstrijdList);
+            UpdateKlassement();
         }
         #endregion
 
@@ -186,50 +138,35 @@ namespace structures.Views
 
         private void PopulateReeksCombobox()
         {
-            //List<string> ReeksNamen = new List<string>();
-            List<string> ReeksNamen = new List<string>();
+            //Populate cmb_reeksnaam
+            List<string> Reeksen = new List<string>();
             foreach (Wedstrijd w in _WedstrijdList)
             {
-                if (!ReeksNamen.Contains(w.ReeksNaam))
+                if (!Reeksen.Contains(w.ReeksNaam))
                 {
-                    ReeksNamen.Add(w.ReeksNaam);
+                    Reeksen.Add(w.ReeksNaam);
                 }
-
             }
             cmb_ReeksNaam.Items.Clear();
-            foreach (string s in ReeksNamen)
-            {
-                cmb_ReeksNaam.Items.Add(s);
-            }
-
+            cmb_ReeksNaam.Items.AddRange(Reeksen.ToArray());
             cmb_ReeksNaam.Width = DropDownWidth(cmb_ReeksNaam);
-
-
-
-
-        }
-
+            cmb_ReeksNaam.SelectedIndex = 0;
+        } 
+    
         private void PopulateUurCombobox()
         {
             List<string> Aanvangsuren = new List<string>();
-            Aanvangsuren.Clear();
-            foreach (Wedstrijd w in _fileteredWedstrijdReekslist)
+            foreach (Wedstrijd w in _WedstrijdList)
             {
-                if (!Aanvangsuren.Contains(w.Aanvangsuur.ToString()))
+                if (!Aanvangsuren.Contains(w.Aanvangsuur.ToString()) && w.ReeksNaam == cmb_ReeksNaam.Text)
                 {
                     Aanvangsuren.Add(w.Aanvangsuur.ToString());
                 }
             }
-
             cmb_Aanvangsuur.Items.Clear();
             cmb_Aanvangsuur.Items.Add("Alle wedstrijden");
-            foreach (string s in Aanvangsuren)
-            {
-                cmb_Aanvangsuur.Items.Add(s);
-            }
-
-            cmb_Aanvangsuur.Width = DropDownWidth(cmb_Aanvangsuur);
-
+            cmb_Aanvangsuur.Items.AddRange(Aanvangsuren.ToArray());
+            cmb_Aanvangsuur.SelectedIndex = 0;
         }
 
         private int DropDownWidth(ComboBox myCombo)
@@ -249,90 +186,74 @@ namespace structures.Views
         //Events
         private void cmb_ReeksNaam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _fileteredWedstrijdReekslist = new BindingList<Wedstrijd>(_WedstrijdList.Where(x => x.ReeksNaam == cmb_ReeksNaam.Text).ToList());
-            _TerreinReeksList = new BindingList<Terrein>(_TerreinList.Where(x => x.ReeksNaam == cmb_ReeksNaam.Text).ToList());
-            PopulateUurCombobox();
+            CurrencyManager TerreinManager = (CurrencyManager)dgv_Terreinen.BindingContext[dgv_Terreinen.DataSource];
+            TerreinManager.SuspendBinding();
+            for (int i = 0; i < _TerreinList.Count; i++)
+            {
+                if (_TerreinList[i].ReeksNaam == cmb_ReeksNaam.Text)
+                {
+                    dgv_Terreinen.Rows[i].Visible = true;
+                }
+                else
+                {
+                    dgv_Terreinen.Rows[i].Visible = false;
+                }
+            }
+            TerreinManager.ResumeBinding();
 
-            //
+            List<string> Aanvangsuren = new List<string>();
+            foreach (Wedstrijd w in _WedstrijdList)
+            {
+                if (!Aanvangsuren.Contains(w.Aanvangsuur.ToString()) && w.ReeksNaam == cmb_ReeksNaam.Text)
+                {
+                    Aanvangsuren.Add(w.Aanvangsuur.ToString());
+                }
+            }
+            cmb_Aanvangsuur.Items.Clear();
+            cmb_Aanvangsuur.Items.Add("Alle wedstrijden");
+            cmb_Aanvangsuur.Items.AddRange(Aanvangsuren.ToArray());
+            cmb_Aanvangsuur.Width = DropDownWidth(cmb_Aanvangsuur);
             cmb_Aanvangsuur.SelectedIndex = 0;
-            CreateAdministratieReeks();
-            UpdateKlassement();
-            UpdateTerreinen();
-
-            DisableRows(0);
-            ChangeRowColor();
-
-
         }
 
         private void cmb_Aanvangsuur_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmb_Aanvangsuur.Text == "Alle wedstrijden")
+            if (cmb_Aanvangsuur.SelectedIndex == 0)
             {
-                _fileteredWedstrijdUurlist = _fileteredWedstrijdReekslist;
+                CurrencyManager WedstrijdManager = (CurrencyManager)dgv_Wedstrijden.BindingContext[dgv_Wedstrijden.DataSource];
+                WedstrijdManager.SuspendBinding();
+                for (int i = 0; i < _WedstrijdList.Count; i++)
+                {
+                    if (_WedstrijdList[i].ReeksNaam == cmb_ReeksNaam.Text)
+                    {
+                        dgv_Wedstrijden.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dgv_Wedstrijden.Rows[i].Visible = false;
+                    }
+                }
+                WedstrijdManager.ResumeBinding();
             }
             else
             {
-                _fileteredWedstrijdUurlist = new BindingList<Wedstrijd>(_fileteredWedstrijdReekslist.Where(x => x.Aanvangsuur.ToString() == cmb_Aanvangsuur.Text).ToList());
+                CurrencyManager WedstrijdManager = (CurrencyManager)dgv_Wedstrijden.BindingContext[dgv_Wedstrijden.DataSource];
+                WedstrijdManager.SuspendBinding();
+                for (int i = 0; i < _WedstrijdList.Count; i++)
+                {
+                    if (_WedstrijdList[i].ReeksNaam == cmb_ReeksNaam.Text && _WedstrijdList[i].Aanvangsuur.ToString() == cmb_Aanvangsuur.Text)
+                    {
+                        dgv_Wedstrijden.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dgv_Wedstrijden.Rows[i].Visible = false;
+                    }
+                }
+                WedstrijdManager.ResumeBinding();
             }
-            UpdateWedstrijden();
-            ChangeRowColor();
-            DisableRows(0);
-        }
-
-        #endregion
-
-        #region Datagridviews
-
-        private void dgv_Wedstrijden_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            //Update het klassement
+            Reeks = new AdministratieReeks(cmb_ReeksNaam.Text, _WedstrijdList);
             UpdateKlassement();
-
-            //Disablez row als terrein niet vrij is
-            DisableRows(0);
-
-            //Update alledatagrids
-            UpdateAllDataGrids();
-        }
-
-        private void dgv_Wedstrijden_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //Make changes in database
-            dgv_Wedstrijden.EndEdit();
-            //Print wedstrijdblad indien wedstrijd gestart wordt
-            //int index = dgv_Wedstrijden.Columns["IsBusy"].Index;
-            //if (e.ColumnIndex == index && _fileteredWedstrijdUurlist[e.RowIndex].IsBusy == true && _fileteredWedstrijdUurlist[e.RowIndex].Isplayed == false)
-            //{
-            //    CreateGameSheet(e.RowIndex);
-            //}
-
-            ChangeRowColor();
-
-        }
-
-        private void dgv_Terreinen_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = dgv_Terreinen.Columns["Status"].Index;
-            DataGridViewCheckBoxCell c = (DataGridViewCheckBoxCell)dgv_Terreinen.Rows[e.RowIndex].Cells[index];
-            if ((bool)c.FormattedValue)
-            {
-                dgv_Terreinen.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Green;
-                dgv_Terreinen.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.Green;
-                dgv_Terreinen.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
-                dgv_Terreinen.Rows[e.RowIndex].DefaultCellStyle.SelectionForeColor = Color.White;
-            }
-            else
-            {
-                dgv_Terreinen.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                dgv_Terreinen.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.Red;
-                dgv_Terreinen.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
-                dgv_Terreinen.Rows[e.RowIndex].DefaultCellStyle.SelectionForeColor = Color.White;
-            }
-
-
-
-            UpdateAllDataGrids();
         }
 
         #endregion
@@ -341,6 +262,8 @@ namespace structures.Views
         private void btn_lock_Click(object sender, EventArgs e)
         {
             cmb_ReeksNaam.Enabled = false;
+            InitTerreinen();
+            InitWedstrijden();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -390,11 +313,10 @@ namespace structures.Views
 
         #region Update routines
 
-        private void UpdateWedstrijden()
+        private void InitWedstrijden()
         {
-
-            dgv_Wedstrijden.DataSource = _fileteredWedstrijdUurlist;
-
+            CurrencyManager WedstrijdManager = (CurrencyManager)dgv_Wedstrijden.BindingContext[dgv_Wedstrijden.DataSource];
+            WedstrijdManager.SuspendBinding();
             foreach (DataGridViewColumn column in dgv_Wedstrijden.Columns)
             {
                 if (column.Index <= 5)
@@ -415,24 +337,48 @@ namespace structures.Views
             }
 
             dgv_Wedstrijden.Columns["IsStarted"].ReadOnly = true;
+            WedstrijdManager.ResumeBinding();
+        }
 
-            if (cmb_Aanvangsuur.SelectedIndex == 0)
+        private void InitTerreinen()
+        {
+            if (_TerreinReeksList != null)
             {
-                btn_previousRound.Enabled = false;
-                btn_nextRound.Enabled = true;
-            }
-            else if (cmb_Aanvangsuur.SelectedIndex == cmb_Aanvangsuur.Items.Count - 1)
-            {
-                btn_nextRound.Enabled = false;
-                btn_previousRound.Enabled = true;
-            }
-            else
-            {
-                btn_previousRound.Enabled = true;
-                btn_nextRound.Enabled = true;
-            }
+                CurrencyManager TerreinManager = (CurrencyManager)dgv_Terreinen.BindingContext[dgv_Terreinen.DataSource];
+                TerreinManager.SuspendBinding();
+                dgv_Terreinen.DataSource = _TerreinReeksList;
+                foreach (DataGridViewColumn column in dgv_Terreinen.Columns)
+                {
 
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+                }
+                TerreinManager.ResumeBinding();
+
+                /*
+                for (int i = 0; i < _TerreinReeksList.Count; i++)
+                {
+                    if (_TerreinReeksList[i].Status == true)
+                    {
+                        dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Green;
+                        dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
+                    }
+                    else
+                    {
+                        dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Red;
+                        dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
+
+                    }
+
+                }*/
+            }
 
         }
 
@@ -469,45 +415,6 @@ namespace structures.Views
 
         }
 
-        private void UpdateTerreinen()
-        {
-            if (_TerreinReeksList != null)
-            {
-                dgv_Terreinen.DataSource = _TerreinReeksList;
-                foreach (DataGridViewColumn column in dgv_Terreinen.Columns)
-                {
-
-                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
-                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                }
-
-
-                for (int i = 0; i < _TerreinReeksList.Count; i++)
-                {
-                    if (_TerreinReeksList[i].Status == true)
-                    {
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Green;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Green;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
-                    }
-                    else
-                    {
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Red;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-                        dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
-
-                    }
-
-                }
-            }
-
-        }
-
         private void UpdateAllDataGrids()
         {
             dgv_Terreinen.Refresh();
@@ -523,33 +430,6 @@ namespace structures.Views
 
 
         #region Methods
-
-        private void CreateAdministratieReeks()
-        {
-            Reeks = new AdministratieReeks(cmb_ReeksNaam.Text, _fileteredWedstrijdReekslist);
-
-            foreach (Wedstrijd w in _fileteredWedstrijdReekslist)
-            {
-                if (!Reeks.ReeksTerreinen.Contains(w.Terrein))
-                {
-                    Reeks.ReeksTerreinen.Add(w.Terrein);
-                }
-            }
-
-            foreach (Wedstrijd w in _fileteredWedstrijdReekslist)
-            {
-                if (!Reeks.ReeksPloegen.Contains(w.Home))
-                {
-                    Reeks.ReeksPloegen.Add(w.Home);
-                }
-                if (!Reeks.ReeksPloegen.Contains(w.Away))
-                {
-                    Reeks.ReeksPloegen.Add(w.Away);
-                }
-            }
-
-
-        }
 
         private void DisableRows(int p)
         {
@@ -599,8 +479,6 @@ namespace structures.Views
 
         #endregion
 
-
-
         #region Printing
 
         private void CreateGameSheet(int index)
@@ -623,7 +501,7 @@ namespace structures.Views
                 objReader.Close();
 
                 //Replace the text
-                Wedstrijd w = _fileteredWedstrijdUurlist[index];
+                Wedstrijd w = _WedstrijdList[index];
 
                 string home = w.Home.ToString();
                 content = content.Replace("[HOME]", home);
@@ -706,8 +584,7 @@ namespace structures.Views
             }
         }
 
-
-
+        #endregion
 
         #region Change Aanvangsuur
 
@@ -746,24 +623,52 @@ namespace structures.Views
             DateTime OldValue = (DateTime)dgv_Wedstrijden.CurrentCell.Value;
             DateTime NewValue = dtp.Value;
             TimeSpan delta = NewValue.Subtract(OldValue);
-
-            dgv_Wedstrijden.CurrentCell.Value = dtp.Value;
             dtp.Visible = false;
+            dgv_Wedstrijden.CurrentCell.Value = dtp.Value;
 
-            //Change time of all upcoming games
-            for (int i = dgv_Wedstrijden.CurrentCell.RowIndex + 1; i < dgv_Wedstrijden.Rows.Count; i++)
+            //Change all coming games as well
+            int start = dgv_Wedstrijden.CurrentCell.RowIndex+1;
+            for (int i = start; i < dgv_Wedstrijden.Rows.Count; i++)
             {
-                DateTime time = (DateTime) dgv_Wedstrijden.Rows[i].Cells[0].Value;
-                time = time.Add(delta);
-                dgv_Wedstrijden.Rows[i].Cells[0].Value = time;
-
+                if (dgv_Wedstrijden.Rows[i].Visible == true)
+                {
+                    DateTime time = (DateTime)dgv_Wedstrijden.Rows[i].Cells[0].Value;
+                    time = time.Add(delta);
+                    dgv_Wedstrijden.Rows[i].Cells[0].Value = time;
+                }
             }
 
-            PopulateUurCombobox();
-
-
         }
-        #endregion
+
+        void dtp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {           
+                DateTime OldValue = (DateTime)dgv_Wedstrijden.CurrentCell.Value;
+                DateTime NewValue = dtp.Value;
+                TimeSpan delta = NewValue.Subtract(OldValue);
+
+                dtp.Visible = false;
+                dgv_Wedstrijden.CurrentCell.Value = dtp.Value;
+
+                //Change all coming games as well
+                int start = dgv_Wedstrijden.CurrentCell.RowIndex + 1;
+                for (int i = start; i < dgv_Wedstrijden.Rows.Count; i++)
+                {
+                    if (dgv_Wedstrijden.Rows[i].Visible == true)
+                    {
+                        DateTime time = (DateTime)dgv_Wedstrijden.Rows[i].Cells[0].Value;
+                        time = time.Add(delta);
+                        dgv_Wedstrijden.Rows[i].Cells[0].Value = time;
+                    }
+                }
+
+
+
+            }
+        }
+
+
 
         #endregion
 
@@ -772,6 +677,23 @@ namespace structures.Views
         void _BindingListRefreshTerrein_ListRefreshed()
         {
             RefreshList();
+            /*            for (int i = 0; i < _TerreinList.Count; i++)
+            {
+                if (_TerreinList[i].ReeksNaam == cmb_ReeksNaam.Text && _TerreinList[i].Status == true)
+                {
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Green;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
+                }
+                else if (_TerreinList[i].ReeksNaam == cmb_ReeksNaam.Text && _TerreinList[i].Status == false)
+                {
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Red;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    dgv_Terreinen.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
+                }
+            }*/
         }
 
         void _BindingListRefreshWedstrijd_ListRefreshed()
@@ -791,8 +713,6 @@ namespace structures.Views
                 _BindingListRefreshTerrein.RefreshList();
             }
             UpdateAllDataGrids();
-
-
         }
 
         private void UC_TornooiAdministratie_Enter(object sender, EventArgs e)
@@ -821,9 +741,6 @@ namespace structures.Views
             }
         }
 
-
-        #endregion
-
         private void dgv_Wedstrijden_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             _BindingListRefreshTerrein.StopRefreshing();
@@ -846,6 +763,13 @@ namespace structures.Views
         {
             _BindingListRefreshTerrein.StartRefreshing();
             _BindingListRefreshWedstrijd.StartRefreshing();
+        }
+
+        #endregion
+
+        private void dgv_Wedstrijden_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgv_Wedstrijden.EndEdit();
         }
     }
 }

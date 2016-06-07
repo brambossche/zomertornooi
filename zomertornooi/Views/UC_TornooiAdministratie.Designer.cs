@@ -139,7 +139,6 @@
             this.dgv_Terreinen.TabIndex = 2;
             this.dgv_Terreinen.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgv_Terreinen_CellBeginEdit);
             this.dgv_Terreinen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Terreinen_CellEndEdit);
-            this.dgv_Terreinen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Terreinen_CellValueChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -213,7 +212,6 @@
             this.dgv_Wedstrijden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellContentClick);
             this.dgv_Wedstrijden.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellDoubleClick);
             this.dgv_Wedstrijden.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellEndEdit);
-            this.dgv_Wedstrijden.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellValueChanged);
             this.dgv_Wedstrijden.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_Wedstrijden_RowHeaderMouseClick);
             this.dgv_Wedstrijden.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_Wedstrijden_RowPostPaint);
             // 

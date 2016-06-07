@@ -65,14 +65,6 @@ namespace Factory
             {
                 Add(item);
             }
-
-
-
-
-
-
-
-
             ResetBindings();
             RaiseListChangedEvents = true;            
         }

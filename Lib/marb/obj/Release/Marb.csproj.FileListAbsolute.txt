@@ -7,3 +7,4 @@ C:\proj\Zomertornooi\Lib\marb\obj\Release\Marb.ExtendToolboxCtrl.ExtendDataGridV
 C:\proj\Zomertornooi\Lib\marb\obj\Release\Marb.csproj.GenerateResource.Cache
 C:\proj\Zomertornooi\Lib\marb\obj\Release\Lib.dll
 C:\proj\Zomertornooi\Lib\marb\obj\Release\Lib.pdb
+C:\proj\zomertornooi\Lib\marb\obj\Release\Marb.csprojResolveAssemblyReference.cache

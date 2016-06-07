@@ -142,7 +142,7 @@ namespace structures
         public virtual bool IsStarted
         {
             get { return _IsStarted; }
-            set { _IsStarted = value; this.NotifyPropertyChanged(ID); }
+            set { _IsStarted = value; this.NotifyPropertyChanged(ID); if (_IsBusy && !_Isplayed) { _Terrein.Status = false; } else { _Terrein.Status = true; } }
         }
         private bool _Isplayed = false;
 
