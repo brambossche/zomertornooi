@@ -36,7 +36,7 @@ namespace structures
         public virtual bool Status
         {
             get { return _status; }
-            set { _status = value; this.NotifyPropertyChanged(ID); }
+            set { _status = value; this.NotifyPropertyChanged(ID);}
         }
 
 

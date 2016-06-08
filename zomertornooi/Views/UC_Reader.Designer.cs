@@ -41,7 +41,11 @@
             this.dgv_Wedstrijden.Name = "dgv_Wedstrijden";
             this.dgv_Wedstrijden.Size = new System.Drawing.Size(1058, 588);
             this.dgv_Wedstrijden.TabIndex = 2;
+            this.dgv_Wedstrijden.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgv_Wedstrijden_CellBeginEdit);
             this.dgv_Wedstrijden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellContentClick);
+            this.dgv_Wedstrijden.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Wedstrijden_CellEndEdit);
+            this.dgv_Wedstrijden.Enter += new System.EventHandler(this.dgv_Wedstrijden_Enter);
+            this.dgv_Wedstrijden.Leave += new System.EventHandler(this.dgv_Wedstrijden_Leave);
             // 
             // UC_Reader
             // 

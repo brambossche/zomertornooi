@@ -179,7 +179,7 @@ namespace Views
             {
                 ListRefreshed.Invoke();
             }
-            Console.WriteLine("List was refreshed");
+            //Console.WriteLine("List was refreshed");
             RefreshList();
 
         }

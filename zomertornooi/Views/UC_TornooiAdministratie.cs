@@ -17,10 +17,8 @@ namespace structures.Views
 {
     public partial class UC_TornooiAdministratie : UserControl
     {
-
         private static readonly ILog logger = LogManager.GetLogger(typeof(UC_TornooiAdministratie));        
 
-        //Wedstrijden
         //Input lists
         private ActiveBindingList<Wedstrijd> _WedstrijdList;
         private ActiveBindingList<Terrein> _TerreinList;
@@ -176,21 +174,35 @@ namespace structures.Views
                 {
                     dgv_Wedstrijden.Rows[i].DefaultCellStyle.BackColor = Color.White;
                 }
-
-
-
-
-
-
-
-
             }
 
+            //UpdateWedstrijdStatus();
+
+        }
+
+        private void UpdateWedstrijdStatus()
+        {
+            CurrencyManager WedstrijdManager = (CurrencyManager)dgv_Wedstrijden.BindingContext[dgv_Wedstrijden.DataSource];
+            WedstrijdManager.SuspendBinding();
+            foreach (DataGridViewRow r in dgv_Wedstrijden.Rows)
+            {
+                Wedstrijd w = r.DataBoundItem as Wedstrijd;
+                if (!w.Terrein.Status && w.IsBusy)
+                {
+                    r.ReadOnly = true;
+                }
+                else
+                {
+                    r.ReadOnly = false;
+                }
+            }
+            WedstrijdManager.ResumeBinding();
         }
 
         void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)
         {
             //Reeks = new AdministratieReeks(cmb_ReeksNaam.Text, _WedstrijdList);
+            //_BindingListRefreshTerrein.RefreshList();
             UpdateKlassement();
             UpdateWedstrijdColors();
         }
@@ -330,6 +342,8 @@ namespace structures.Views
 
         private void btn_nextRound_Click(object sender, EventArgs e)
         {
+            _WedstrijdList[0].Terrein.Status = false;
+
 
             if (cmb_Aanvangsuur.SelectedIndex < cmb_Aanvangsuur.Items.Count - 1)
             {
@@ -815,7 +829,19 @@ namespace structures.Views
             cmb_Aanvangsuur.SelectedIndex = 0;
         }
 
-
+        private void UpdateTerreinList()
+        {
+            _TerreinList.RaiseListChangedEvents = false;
+            _TerreinList.Clear();
+            foreach (Wedstrijd w in _WedstrijdList)
+            {
+                if (_TerreinList.Contains(w.Terrein))
+                {
+                    _TerreinList.Add(w.Terrein);
+                }
+            }
+            _TerreinList.RaiseListChangedEvents = true;
+        }
 
 
     }

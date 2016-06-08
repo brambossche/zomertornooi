@@ -102,12 +102,10 @@ namespace Factory
         {
             try
             {
-
                 _TerreinList = new ActiveBindingList<Terrein>(_DataAccessLayer, _SessionFactory.OpenSession());
                 _PersoonList = new ActiveBindingList<Persoon>(_DataAccessLayer, _SessionFactory.OpenSession());                
                 _PloegList = new ActiveBindingList<Ploeg>(_DataAccessLayer, _SessionFactory.OpenSession());                
                 _WedstrijdList = new ActiveBindingList<Wedstrijd>(_DataAccessLayer, _SessionFactory.OpenSession());
-
             }
             catch (Exception e)
             {

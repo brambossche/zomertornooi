@@ -186,11 +186,11 @@ namespace structures
             Map(x => x.Isplayed);
             Map(x => x.ReeksNaam);
             Map(x => x.Aanvangsuur);
-            References(x => x.Away);
-            References(x => x.Home);
+            References(x => x.Away).Not.LazyLoad();
+            References(x => x.Home).Not.LazyLoad();
             //References(x => x.Terrein).Cascade.SaveUpdate();
-            References(x => x.Terrein);
-            References(x => x.Scheidsrechter);
+            References(x => x.Terrein).Not.LazyLoad();
+            References(x => x.Scheidsrechter).Not.LazyLoad();
          
         }
     }

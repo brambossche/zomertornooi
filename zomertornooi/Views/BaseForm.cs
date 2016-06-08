@@ -82,7 +82,7 @@ namespace Views
                     UC_PloegOverView _PloegOverView = new UC_PloegOverView(_PloegList);
                     UC_RoundRobinSetup _RoundRobinSetup = new UC_RoundRobinSetup(_PloegList, _StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
                     //UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
-                    Userview<Wedstrijd> _WedstrijdViewer = new Userview<Wedstrijd>(_StructureSetup.WedstrijdList, false);
+                    Userview<Wedstrijd> _WedstrijdViewer = new Userview<Wedstrijd>(_StructureSetup.WedstrijdList, false) { Name = "Wedstrijden" };
                     UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
                     UC_Reader _Reader = new UC_Reader(_StructureSetup.WedstrijdList);
 
