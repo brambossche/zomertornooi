@@ -172,9 +172,9 @@
             this.btn_previousRound.Name = "btn_previousRound";
             this.btn_previousRound.Size = new System.Drawing.Size(129, 27);
             this.btn_previousRound.TabIndex = 3;
-            this.btn_previousRound.Text = "Vorige Ronde";
+            this.btn_previousRound.Text = "Alle Wedstrijden";
             this.btn_previousRound.UseVisualStyleBackColor = true;
-            this.btn_previousRound.Click += new System.EventHandler(this.button1_Click_1);
+            this.btn_previousRound.Click += new System.EventHandler(this.btn_previousRound_Click);
             // 
             // btn_nextRound
             // 
@@ -185,7 +185,7 @@
             this.btn_nextRound.TabIndex = 2;
             this.btn_nextRound.Text = "Volgende Ronde";
             this.btn_nextRound.UseVisualStyleBackColor = true;
-            this.btn_nextRound.Click += new System.EventHandler(this.button1_Click);
+            this.btn_nextRound.Click += new System.EventHandler(this.btn_nextRound_Click);
             // 
             // panel1
             // 
