@@ -109,20 +109,29 @@ namespace structures.Views
                 comboBxReeksen.Items.Add(r.ReeksNaam);
             }
 
-            comboBxReeksen.SelectedIndex = 0;
+            if (_ReeksList.Count > 0)
+            {
+                comboBxReeksen.SelectedIndex = 0;
+            }
+
+            
 
             
         }
 
         private void UpdateReeksParameters()
         {
-           nc_aantalRoundRobin.Value =  _ReeksList[comboBxReeksen.SelectedIndex].WedstrijdDefinition.AantalRoundRobin;
-           nc_MaxNaElkaar.Value = _ReeksList[comboBxReeksen.SelectedIndex].WedstrijdDefinition.MaxNaElkaarSpelen;
-           nc_AantalRondesZaterdag.Value = _ReeksList[comboBxReeksen.SelectedIndex].WedstrijdDefinition.AantalrondesZaterdag;
-           nc_WedstrijdDuur.Value = _ReeksList[comboBxReeksen.SelectedIndex].WedstrijdDefinition.Wedstrijdduur;
-           nc_aantalTerreinen.Value = _ReeksList[comboBxReeksen.SelectedIndex].Terreinen.Count();
+            if (_ReeksList.Count > 0)
+            {
+                nc_aantalRoundRobin.Value = _ReeksList[comboBxReeksen.SelectedIndex].WedstrijdDefinition.AantalRoundRobin;
+                nc_MaxNaElkaar.Value = _ReeksList[comboBxReeksen.SelectedIndex].WedstrijdDefinition.MaxNaElkaarSpelen;
+                nc_AantalRondesZaterdag.Value = _ReeksList[comboBxReeksen.SelectedIndex].WedstrijdDefinition.AantalrondesZaterdag;
+                nc_WedstrijdDuur.Value = _ReeksList[comboBxReeksen.SelectedIndex].WedstrijdDefinition.Wedstrijdduur;
+                nc_aantalTerreinen.Value = _ReeksList[comboBxReeksen.SelectedIndex].Terreinen.Count();
 
-           createTerreinDtv();
+                createTerreinDtv();
+            }
+
 
            /*for (int i = 0; i < _ReeksList[comboBxReeksen.SelectedIndex].Terreinen.Count; i++)
            {
@@ -192,14 +201,17 @@ namespace structures.Views
             dtp_Zondag.DataBindings.Clear();
 
 
+            if (_ReeksList.Count > 0)
+            {
+                nc_aantalRoundRobin.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "AantalRoundRobin");
+                nc_MaxNaElkaar.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "MaxNaElkaarSpelen");
+                nc_WedstrijdDuur.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "Wedstrijdduur");
+                nc_AantalRondesZaterdag.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "AantalrondesZaterdag");
 
-            nc_aantalRoundRobin.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "AantalRoundRobin");
-            nc_MaxNaElkaar.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "MaxNaElkaarSpelen");
-            nc_WedstrijdDuur.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "Wedstrijdduur");
-            nc_AantalRondesZaterdag.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "AantalrondesZaterdag");
+                dtp_Zaterdag.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "AanvangsuurZat");
+                dtp_Zondag.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "AanvangsuurZon");
+            }
 
-            dtp_Zaterdag.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "AanvangsuurZat");
-            dtp_Zondag.DataBindings.Add("Value", _ReeksList[index].WedstrijdDefinition, "AanvangsuurZon");
 
         }
 
@@ -208,9 +220,9 @@ namespace structures.Views
             CreateReeksList();
             AddDatabindings(comboBxReeksen.SelectedIndex);
             UpdateReeksParameters();
-
-
         }
+
+
 
         private void comboBxReeksen_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -238,7 +250,8 @@ namespace structures.Views
             {
                 isListChanged = false;
                 CreateReeksList();
-
+                AddDatabindings(comboBxReeksen.SelectedIndex);
+                UpdateReeksParameters();
             }
         }
 

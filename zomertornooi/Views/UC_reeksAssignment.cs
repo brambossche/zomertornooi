@@ -18,23 +18,31 @@ namespace structures.Views
         /// <summary>
         /// binding to  all teams
         /// </summary>
-        private ExtBindingList<Ploeg> _ploeglist;
+        private ActiveBindingList<Ploeg> _ploeglist;
         /// <summary>
         /// List with different series 
         /// </summary>
         private List<ReeksAssignment> _reeksAssignmentlist = new List<ReeksAssignment>();
         //list of all user controls to assign
         private List<UC_ListAllocation> List_UC_ListAllocation = new List<UC_ListAllocation>();
+        private bool ListChanged = false;
 
         private UC_ListAllocation Selected_uc_ListAllocation;
 
-        public UC_reeksAssignment( ExtBindingList<Ploeg> ploeglist)
+        public UC_reeksAssignment(ActiveBindingList<Ploeg> ploeglist)
         {
             _ploeglist = ploeglist;
+            _ploeglist.ListChanged += _ploeglist_ListChanged;
             InitializeComponent();
             CreateOverview();
             dataGridView1.DataSource = _reeksAssignmentlist;
             //ploeglist.ListChanged += ploeglist_ListChanged;
+            
+        }
+
+        void _ploeglist_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            ListChanged = true;
             
         }
 
@@ -150,6 +158,7 @@ namespace structures.Views
                 else
                 {
                     splitContainer1.Panel2Collapsed = true;
+                    Selected_uc_ListAllocation.SetItemsToInputList();
                 }
 
                 this.AllowDrop = true;
@@ -198,6 +207,18 @@ namespace structures.Views
 
         }
 
+
+        private void UC_reeksAssignment_Enter(object sender, EventArgs e)
+        {
+                List_UC_ListAllocation.Clear();
+                _reeksAssignmentlist.Clear();
+                CreateOverview();
+                dataGridView1.Refresh();
+                dataGridView1.Update(); 
+        }
+
+
+
         public class CustomGrid : DataGridView
         {
             protected override bool ProcessDialogKey(Keys keyData)
@@ -210,6 +231,10 @@ namespace structures.Views
                 return base.ProcessDialogKey(keyData);
             }
         }
+
+
+
+
 
 
     }

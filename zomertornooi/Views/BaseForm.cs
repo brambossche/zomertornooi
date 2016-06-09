@@ -76,24 +76,24 @@ namespace Views
                     _TerreinList = _StructureSetup.TerreinList;
 
                     Userview<Persoon> _persoonview = new Userview<Persoon>(_StructureSetup.PersoonList,true) { Name = "Persoonview" };
-                    Userview<Terrein> _terreinview = new Userview<Terrein>(_StructureSetup.TerreinList,false) { Name = "Terreinen" };
                     //Userview<Reeks> _reeksen = new Userview<Reeks>(_StructureSetup.ReeksList) { Name = "Reeksen" };
-                    UC_reeksAssignment _reeksAssignment = new UC_reeksAssignment(_StructureSetup.PloegList) { Name = "Reeks assignment" };
                     UC_PloegOverView _PloegOverView = new UC_PloegOverView(_PloegList);
+                    UC_reeksAssignment _reeksAssignment = new UC_reeksAssignment(_StructureSetup.PloegList) { Name = "Reeks assignment" };
                     UC_RoundRobinSetup _RoundRobinSetup = new UC_RoundRobinSetup(_PloegList, _StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
                     //UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
                     Userview<Wedstrijd> _WedstrijdViewer = new Userview<Wedstrijd>(_StructureSetup.WedstrijdList, false) { Name = "Wedstrijden" };
+                    Userview<Terrein> _terreinview = new Userview<Terrein>(_StructureSetup.TerreinList, false) { Name = "Terreinen" };
                     UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
                     UC_Reader _Reader = new UC_Reader(_StructureSetup.WedstrijdList);
 
 
 
                     CreateDockContent(_persoonview, MainDocking);
-                    CreateDockContent(_terreinview, MainDocking);
-                    CreateDockContent(_reeksAssignment, MainDocking);
                     CreateDockContent(_PloegOverView, MainDocking);
+                    CreateDockContent(_reeksAssignment, MainDocking);
                     CreateDockContent(_RoundRobinSetup, MainDocking);
                     CreateDockContent(_WedstrijdViewer, MainDocking);
+                    CreateDockContent(_terreinview, MainDocking);
                     CreateDockContent(_TornooiAdministratie, MainDocking);
                     CreateDockContent(_Reader, MainDocking);
 

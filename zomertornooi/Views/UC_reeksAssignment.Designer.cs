@@ -30,7 +30,7 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new CustomGrid();
+            this.dataGridView1 = new UC_reeksAssignment.CustomGrid();
             this.pnl_listview = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.pnl_listassignment = new System.Windows.Forms.Panel();
@@ -51,6 +51,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -62,17 +63,19 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.pnl_listview);
             this.splitContainer1.Panel2.Controls.Add(this.pnl_listassignment);
-            this.splitContainer1.Size = new System.Drawing.Size(760, 369);
-            this.splitContainer1.SplitterDistance = 253;
+            this.splitContainer1.Size = new System.Drawing.Size(1013, 454);
+            this.splitContainer1.SplitterDistance = 337;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 369);
+            this.panel1.Location = new System.Drawing.Point(0, 454);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 0);
+            this.panel1.Size = new System.Drawing.Size(337, 0);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -80,8 +83,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(253, 369);
+            this.dataGridView1.Size = new System.Drawing.Size(337, 454);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
@@ -92,17 +96,20 @@
             this.pnl_listview.Controls.Add(this.splitContainer2);
             this.pnl_listview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_listview.Location = new System.Drawing.Point(0, 0);
+            this.pnl_listview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl_listview.Name = "pnl_listview";
-            this.pnl_listview.Size = new System.Drawing.Size(503, 321);
+            this.pnl_listview.Size = new System.Drawing.Size(671, 396);
             this.pnl_listview.TabIndex = 2;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Size = new System.Drawing.Size(503, 321);
-            this.splitContainer2.SplitterDistance = 167;
+            this.splitContainer2.Size = new System.Drawing.Size(671, 396);
+            this.splitContainer2.SplitterDistance = 222;
+            this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
             // pnl_listassignment
@@ -112,17 +119,19 @@
             this.pnl_listassignment.Controls.Add(this.btn_allbacktoinputlist);
             this.pnl_listassignment.Controls.Add(this.btn_assigntolists);
             this.pnl_listassignment.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_listassignment.Location = new System.Drawing.Point(0, 321);
+            this.pnl_listassignment.Location = new System.Drawing.Point(0, 396);
+            this.pnl_listassignment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl_listassignment.Name = "pnl_listassignment";
-            this.pnl_listassignment.Size = new System.Drawing.Size(503, 48);
+            this.pnl_listassignment.Size = new System.Drawing.Size(671, 58);
             this.pnl_listassignment.TabIndex = 1;
             // 
             // btn_allbacktoinputlist
             // 
             this.btn_allbacktoinputlist.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_allbacktoinputlist.Location = new System.Drawing.Point(0, 23);
+            this.btn_allbacktoinputlist.Location = new System.Drawing.Point(0, 28);
+            this.btn_allbacktoinputlist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_allbacktoinputlist.Name = "btn_allbacktoinputlist";
-            this.btn_allbacktoinputlist.Size = new System.Drawing.Size(501, 23);
+            this.btn_allbacktoinputlist.Size = new System.Drawing.Size(669, 28);
             this.btn_allbacktoinputlist.TabIndex = 1;
             this.btn_allbacktoinputlist.Text = "Set all itms back to inputlist";
             this.btn_allbacktoinputlist.UseVisualStyleBackColor = true;
@@ -132,8 +141,9 @@
             // 
             this.btn_assigntolists.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_assigntolists.Location = new System.Drawing.Point(0, 0);
+            this.btn_assigntolists.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_assigntolists.Name = "btn_assigntolists";
-            this.btn_assigntolists.Size = new System.Drawing.Size(501, 23);
+            this.btn_assigntolists.Size = new System.Drawing.Size(669, 28);
             this.btn_assigntolists.TabIndex = 0;
             this.btn_assigntolists.Text = "Divide inputs over outputlists";
             this.btn_assigntolists.UseVisualStyleBackColor = true;
@@ -141,11 +151,13 @@
             // 
             // UC_reeksAssignment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UC_reeksAssignment";
-            this.Size = new System.Drawing.Size(760, 369);
+            this.Size = new System.Drawing.Size(1013, 454);
+            this.Enter += new System.EventHandler(this.UC_reeksAssignment_Enter);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
