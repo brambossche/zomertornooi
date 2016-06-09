@@ -37,7 +37,11 @@ namespace structures.Views
 
         void _wedstrijdlist_ListChanged(object sender, ListChangedEventArgs e)
         {
-            UpdateWedstrijden();
+            if (_wedstrijdlist.Count > 0 & _wedstrijdlist != null)
+            {
+                UpdateWedstrijden();
+            }
+
         }
 
         private void dgv_Wedstrijden_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -91,7 +95,7 @@ namespace structures.Views
 
                 dgv_Wedstrijden.Refresh();
                 dgv_Wedstrijden.Update();
-
+                
                     foreach (DataGridViewColumn column in dgv_Wedstrijden.Columns)
                     {
                         if (column.Index <= 5)
@@ -160,20 +164,32 @@ namespace structures.Views
 
         private void dgv_Wedstrijden_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void dgv_Wedstrijden_Leave(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void UC_Reader_Enter(object sender, EventArgs e)
+        {
+            UpdateWedstrijden();
             if (_BindingListRefreshWedstrijd != null)
             {
                 _BindingListRefreshWedstrijd.StartRefreshing();
             }
         }
 
-        private void dgv_Wedstrijden_Leave(object sender, EventArgs e)
+        private void UC_Reader_Leave(object sender, EventArgs e)
         {
             if (_BindingListRefreshWedstrijd != null)
             {
                 _BindingListRefreshWedstrijd.StopRefreshing();
             }
+
         }
-        #endregion
 
 
     }

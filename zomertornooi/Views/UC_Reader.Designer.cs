@@ -55,6 +55,8 @@
             this.Name = "UC_Reader";
             this.Size = new System.Drawing.Size(1058, 588);
             this.Load += new System.EventHandler(this.UC_Reader_Load);
+            this.Enter += new System.EventHandler(this.UC_Reader_Enter);
+            this.Leave += new System.EventHandler(this.UC_Reader_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Wedstrijden)).EndInit();
             this.ResumeLayout(false);
 

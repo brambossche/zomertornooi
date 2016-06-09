@@ -64,6 +64,7 @@ namespace NhibernateIntf
                 }
 
             });
+            QueThreading.IsBackground = true;
             QueThreading.Start();
 
         }
@@ -392,6 +393,7 @@ namespace NhibernateIntf
                 {
                     try
                     {
+                        Session.Clear();
                         Sem_session.WaitOne();
                         var metadata = Session.SessionFactory.GetClassMetadata(typeof(T)) as NHibernate.Persister.Entity.AbstractEntityPersister;
                         string table = metadata.TableName.Replace("[", "").Replace("]", "");

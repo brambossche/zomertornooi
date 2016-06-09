@@ -120,7 +120,11 @@ namespace structures.Views
 
         void _TerreinList_ListChanged(object sender, ListChangedEventArgs e)
         {
-            UpdateTerreinColors();
+            if (_TerreinList.Count > 0 & _TerreinList != null)
+            {
+                UpdateTerreinColors();
+            }
+            
         }
 
 
@@ -201,10 +205,38 @@ namespace structures.Views
 
         void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)
         {
+            if (_WedstrijdList.Count > 0 & _WedstrijdList != null)
+            {
+                if (e.ListChangedType == ListChangedType.ItemChanged)
+                {
+
+                    UpdateKlassement();
+                    UpdateWedstrijdColors();
+
+
+                }
+                else if (e.ListChangedType == ListChangedType.Reset)
+                {
+                    InitTornooiAdministratie();
+                    cmb_ReeksNaam.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                dgv_Klassement.DataSource = null;
+                dgv_Terreinen.DataSource = null;
+                dgv_Wedstrijden.DataSource = null;
+                cmb_Aanvangsuur.Items.Clear();
+                cmb_Aanvangsuur.Text = "";
+                cmb_ReeksNaam.Items.Clear();
+                cmb_ReeksNaam.Text = "";
+            }
+
+
             //Reeks = new AdministratieReeks(cmb_ReeksNaam.Text, _WedstrijdList);
             //_BindingListRefreshTerrein.RefreshList();
-            UpdateKlassement();
-            UpdateWedstrijdColors();
+
+
         }
 
         #region Comboboxes
@@ -829,19 +861,7 @@ namespace structures.Views
             cmb_Aanvangsuur.SelectedIndex = 0;
         }
 
-        private void UpdateTerreinList()
-        {
-            _TerreinList.RaiseListChangedEvents = false;
-            _TerreinList.Clear();
-            foreach (Wedstrijd w in _WedstrijdList)
-            {
-                if (_TerreinList.Contains(w.Terrein))
-                {
-                    _TerreinList.Add(w.Terrein);
-                }
-            }
-            _TerreinList.RaiseListChangedEvents = true;
-        }
+
 
 
     }

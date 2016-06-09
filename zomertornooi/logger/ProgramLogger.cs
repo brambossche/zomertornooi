@@ -91,6 +91,7 @@ namespace structures
                         Console.WriteLine("error " + e);
                     }
                 });
+                LogThread.IsBackground = true;
                 LogThread.Start();
             }
         }
