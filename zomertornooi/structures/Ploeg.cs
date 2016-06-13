@@ -187,7 +187,7 @@ namespace structures
             });
 
 
-           References(x => x.Contactpersoon);
+           References(x => x.Contactpersoon).Not.LazyLoad();
 
             Map(x => x.Betaald);
             Map(x => x.Aangemeld);

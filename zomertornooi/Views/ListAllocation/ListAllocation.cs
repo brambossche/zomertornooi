@@ -205,6 +205,12 @@ namespace structures.Views
                 {
                     _inputlist.Add(_BindingSourceList[i]);
                 }
+                if (!(_inputbox.Items.Contains(_BindingSourceList[i])))
+                {
+                    _inputbox.Items.Add(_BindingSourceList[i]);
+                }
+
+
             }           
             foreach (extendedListbox<Ploeg> _out in _outputboxes)
             {

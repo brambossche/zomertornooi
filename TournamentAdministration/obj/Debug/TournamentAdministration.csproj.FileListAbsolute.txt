@@ -5,3 +5,4 @@ C:\proj\zomertornooi\TournamentAdministration\obj\Debug\TournamentAdministration
 C:\proj\zomertornooi\TournamentAdministration\obj\Debug\TournamentAdministration.csproj.GenerateResource.Cache
 C:\proj\zomertornooi\TournamentAdministration\obj\Debug\TournamentAdministration.exe
 C:\proj\zomertornooi\TournamentAdministration\obj\Debug\TournamentAdministration.pdb
+C:\proj\zomertornooi\TournamentAdministration\obj\Debug\TournamentAdministration.csprojResolveAssemblyReference.cache

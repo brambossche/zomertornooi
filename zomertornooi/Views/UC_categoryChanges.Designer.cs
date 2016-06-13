@@ -41,18 +41,22 @@
             // lstbx_categoryinput
             // 
             this.lstbx_categoryinput.FormattingEnabled = true;
-            this.lstbx_categoryinput.Location = new System.Drawing.Point(12, 21);
+            this.lstbx_categoryinput.ItemHeight = 16;
+            this.lstbx_categoryinput.Location = new System.Drawing.Point(16, 26);
+            this.lstbx_categoryinput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstbx_categoryinput.Name = "lstbx_categoryinput";
-            this.lstbx_categoryinput.Size = new System.Drawing.Size(120, 121);
+            this.lstbx_categoryinput.Size = new System.Drawing.Size(159, 148);
             this.lstbx_categoryinput.TabIndex = 0;
             this.lstbx_categoryinput.SelectedIndexChanged += new System.EventHandler(this.lstbx_categoryinput_SelectedIndexChanged);
             // 
             // lstbx_outpucategory
             // 
             this.lstbx_outpucategory.FormattingEnabled = true;
-            this.lstbx_outpucategory.Location = new System.Drawing.Point(278, 21);
+            this.lstbx_outpucategory.ItemHeight = 16;
+            this.lstbx_outpucategory.Location = new System.Drawing.Point(371, 26);
+            this.lstbx_outpucategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstbx_outpucategory.Name = "lstbx_outpucategory";
-            this.lstbx_outpucategory.Size = new System.Drawing.Size(120, 121);
+            this.lstbx_outpucategory.Size = new System.Drawing.Size(159, 148);
             this.lstbx_outpucategory.TabIndex = 1;
             this.lstbx_outpucategory.SelectedIndexChanged += new System.EventHandler(this.lstbx_outpucategory_SelectedIndexChanged);
             // 
@@ -60,9 +64,10 @@
             // 
             this.btn_changecategory.BackColor = System.Drawing.SystemColors.Control;
             this.btn_changecategory.ForeColor = System.Drawing.Color.Red;
-            this.btn_changecategory.Location = new System.Drawing.Point(135, 65);
+            this.btn_changecategory.Location = new System.Drawing.Point(180, 80);
+            this.btn_changecategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_changecategory.Name = "btn_changecategory";
-            this.btn_changecategory.Size = new System.Drawing.Size(137, 30);
+            this.btn_changecategory.Size = new System.Drawing.Size(183, 37);
             this.btn_changecategory.TabIndex = 2;
             this.btn_changecategory.Text = ">> Change catgory >>";
             this.btn_changecategory.UseVisualStyleBackColor = false;
@@ -73,9 +78,11 @@
             this.groupBox1.Controls.Add(this.btn_changecategory);
             this.groupBox1.Controls.Add(this.lstbx_categoryinput);
             this.groupBox1.Controls.Add(this.lstbx_outpucategory);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 160);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(548, 197);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change category ";
@@ -83,20 +90,23 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.bnt_setbackcategory);
-            this.groupBox2.Location = new System.Drawing.Point(3, 169);
+            this.groupBox2.Location = new System.Drawing.Point(4, 208);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(411, 80);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(548, 98);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Set back to default";
             // 
             // bnt_setbackcategory
             // 
             this.bnt_setbackcategory.BackColor = System.Drawing.SystemColors.Control;
             this.bnt_setbackcategory.ForeColor = System.Drawing.Color.Red;
-            this.bnt_setbackcategory.Location = new System.Drawing.Point(12, 29);
+            this.bnt_setbackcategory.Location = new System.Drawing.Point(16, 36);
+            this.bnt_setbackcategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bnt_setbackcategory.Name = "bnt_setbackcategory";
-            this.bnt_setbackcategory.Size = new System.Drawing.Size(196, 30);
+            this.bnt_setbackcategory.Size = new System.Drawing.Size(261, 37);
             this.bnt_setbackcategory.TabIndex = 3;
             this.bnt_setbackcategory.Text = "Set back to subscribed category";
             this.bnt_setbackcategory.UseVisualStyleBackColor = false;
@@ -104,13 +114,14 @@
             // 
             // UC_categoryChanges
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UC_categoryChanges";
-            this.Size = new System.Drawing.Size(423, 289);
+            this.Size = new System.Drawing.Size(564, 356);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

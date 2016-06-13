@@ -113,6 +113,13 @@ namespace structures.Views
             {
                 comboBxReeksen.SelectedIndex = 0;
             }
+            else
+            {
+                comboBxReeksen.Text = "";
+                dtv_Wedstrijden.DataSource = null;
+                dtv_optimisation.DataSource = null;
+                dtv_StatusList.DataSource = null;
+            }
 
             
 

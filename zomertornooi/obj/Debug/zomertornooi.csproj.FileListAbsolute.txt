@@ -63,3 +63,5 @@ C:\proj\_Zomertornooi\zomertornooi\obj\Debug\structures.Views.UC_wedstrijdViewer
 C:\proj\_Zomertornooi\zomertornooi\obj\Debug\zomertornooi.csproj.GenerateResource.Cache
 C:\proj\_Zomertornooi\zomertornooi\obj\Debug\zomertornooi.dll
 C:\proj\_Zomertornooi\zomertornooi\obj\Debug\zomertornooi.pdb
+C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.UC_PersoonView.resources
+C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.UC_AddTeams.resources

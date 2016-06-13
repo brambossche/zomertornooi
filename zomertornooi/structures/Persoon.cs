@@ -29,7 +29,7 @@ namespace structures
         }
 
 
-        public virtual int Version { get; set; }  
+        //public virtual int Version { get; set; }  
 
 
         private string _Naam = "";

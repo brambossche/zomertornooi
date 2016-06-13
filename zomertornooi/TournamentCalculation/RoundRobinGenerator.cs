@@ -638,7 +638,16 @@ namespace TournamentCalculation
         {
             List<Terrein> terreinen = new List<Terrein>();
             int nrTeams = r.Ploegen.Count();
-            int NrTerrains = (int)Math.Floor(Convert.ToDouble(nrTeams) / 3);
+            int NrTerrains = 0;
+
+            if (nrTeams > 2)
+            {
+                NrTerrains = (int)Math.Floor(Convert.ToDouble(nrTeams) / 3);
+            }
+            else
+            {
+                NrTerrains = 1;
+            }
 
             for (int t = 0; t < NrTerrains; t++)
             {

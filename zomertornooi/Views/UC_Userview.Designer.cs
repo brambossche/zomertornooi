@@ -31,7 +31,9 @@ namespace Views
         {
             this.btn_refreshlist = new System.Windows.Forms.Button();
             this.extendDataGridView1 = new Marb.ExtendToolboxCtrl.ExtendDataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.extendDataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_refreshlist
@@ -51,24 +53,34 @@ namespace Views
             this.extendDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.extendDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.extendDataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.extendDataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.extendDataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.extendDataGridView1.Name = "extendDataGridView1";
             this.extendDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.extendDataGridView1.Size = new System.Drawing.Size(1360, 446);
             this.extendDataGridView1.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.extendDataGridView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1360, 446);
+            this.panel1.TabIndex = 2;
+            // 
             // Userview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.extendDataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Userview";
             this.Size = new System.Drawing.Size(1360, 446);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Enter += new System.EventHandler(this.Userview_Enter);
             this.Leave += new System.EventHandler(this.Userview_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.extendDataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -78,6 +90,7 @@ namespace Views
         //private System.Windows.Forms.PropertyGrid PG_details;
         public Marb.ExtendToolboxCtrl.ExtendDataGridView extendDataGridView1;
         private System.Windows.Forms.Button btn_refreshlist;
+        private System.Windows.Forms.Panel panel1;
 
 
     }

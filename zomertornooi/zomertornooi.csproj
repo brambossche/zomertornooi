@@ -123,6 +123,18 @@
       <DependentUpon>ListAllocation.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ListRefreshEngine\BindingListRefresh.cs" />
+    <Compile Include="Views\UC_AddTeams.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_AddTeams.Designer.cs">
+      <DependentUpon>UC_AddTeams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_PersoonView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_PersoonView.Designer.cs">
+      <DependentUpon>UC_PersoonView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UC_PloegOverView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,8 +197,14 @@
     <EmbeddedResource Include="Views\ListAllocation\ListAllocation.resx">
       <DependentUpon>ListAllocation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_AddTeams.resx">
+      <DependentUpon>UC_AddTeams.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_categoryChanges.resx">
       <DependentUpon>UC_categoryChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_PersoonView.resx">
+      <DependentUpon>UC_PersoonView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_PloegOverView.resx">
       <DependentUpon>UC_PloegOverView.cs</DependentUpon>
@@ -275,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
+    <None Include="Resources\Add_sign.png" />
     <None Include="Resources\UPload_00.gif" />
     <EmbeddedResource Include="Printing\printerIcon.png" />
     <EmbeddedResource Include="Printing\gameSheet.html" />

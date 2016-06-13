@@ -74,10 +74,13 @@ namespace Views
                 {
                     _PloegList = _StructureSetup.PloegList;
                     _TerreinList = _StructureSetup.TerreinList;
+                    
+                    //Userview<Persoon> _persoonview = new Userview<Persoon>(_StructureSetup.PersoonList,true) { Name = "Persoonview" };
+                    UC_PersoonView _Personen = new UC_PersoonView(_StructureSetup.PersoonList);
 
-                    Userview<Persoon> _persoonview = new Userview<Persoon>(_StructureSetup.PersoonList,true) { Name = "Persoonview" };
+
                     //Userview<Reeks> _reeksen = new Userview<Reeks>(_StructureSetup.ReeksList) { Name = "Reeksen" };
-                    UC_PloegOverView _PloegOverView = new UC_PloegOverView(_PloegList);
+                    UC_PloegOverView _PloegOverView = new UC_PloegOverView(_PloegList, _StructureSetup.PersoonList);
                     UC_reeksAssignment _reeksAssignment = new UC_reeksAssignment(_StructureSetup.PloegList) { Name = "Reeks assignment" };
                     UC_RoundRobinSetup _RoundRobinSetup = new UC_RoundRobinSetup(_PloegList, _StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
                     //UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
@@ -88,7 +91,8 @@ namespace Views
 
 
 
-                    CreateDockContent(_persoonview, MainDocking);
+                    //CreateDockContent(_persoonview, MainDocking);
+                    CreateDockContent(_Personen, MainDocking);
                     CreateDockContent(_PloegOverView, MainDocking);
                     CreateDockContent(_reeksAssignment, MainDocking);
                     CreateDockContent(_RoundRobinSetup, MainDocking);

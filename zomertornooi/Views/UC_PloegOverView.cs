@@ -20,18 +20,23 @@ namespace structures.Views
     {
         private Userview<Ploeg> _ploegview;
         private ActiveBindingList<Ploeg> _ploeglist;
+        private ActiveBindingList<Persoon> _PersoonList;
         private DataGridView _Lstbox_overview;
         private UC_categoryChanges _UC_categoryChanges;
+        private UC_AddTeams _UC_addTeams;
 
-        public UC_PloegOverView(ActiveBindingList<Ploeg> PloegList)
+        public UC_PloegOverView(ActiveBindingList<Ploeg> PloegList, ActiveBindingList<Persoon> PersoonList)
         {
             _ploeglist = PloegList;
+            _PersoonList = PersoonList;
             InitializeComponent();
 
-            _ploegview = new Userview<Ploeg>(_ploeglist,true) { Name = "Ploegview" };
+            _ploegview = new Userview<Ploeg>(_ploeglist,false) { Name = "Ploegview" };
             _ploegview.Dock = DockStyle.Fill;
             _ploegview.ListRefreshed += _ploegview_ListRefreshed;
             splitContainer1.Panel1.Controls.Add(_ploegview);
+            splitContainer1.IsSplitterFixed = false;
+
             
             _Lstbox_overview = new DataGridView();
             _Lstbox_overview.Dock = DockStyle.Left;
@@ -39,6 +44,8 @@ namespace structures.Views
             tstcmb_categoryfilter.Items.AddRange ( Category.Categories.ToArray());
 
             _UC_categoryChanges = new UC_categoryChanges();
+            _UC_addTeams = new UC_AddTeams(_ploeglist, _PersoonList);
+
         }
 
         void _ploegview_ListRefreshed()
@@ -52,9 +59,12 @@ namespace structures.Views
             splitContainer1.Panel2.Controls.Clear();
             splitContainer1.Panel2.Controls.Add(_Lstbox_overview);
             splitContainer1.Panel2Collapsed = true;
+            _Lstbox_overview.Dock = DockStyle.Fill;
             _Lstbox_overview.DataSource =  Ploegoverview();
             _Lstbox_overview.Columns[0].HeaderText = "Category";
             _Lstbox_overview.Columns[1].HeaderText = "Aantal";
+            _Lstbox_overview.Columns[2].HeaderText = "Aangemeld";
+
             splitContainer1.Panel2Collapsed = !splitContainer1.Panel2Collapsed;
         }
 
@@ -100,18 +110,24 @@ namespace structures.Views
         {
             if (tstbtn_nofilter.CheckState == CheckState.Checked)
             {
-                _ploegview.DataSource = _ploeglist;
+                CurrencyManager currencyManager1 = (CurrencyManager)_ploegview.extendDataGridView1.BindingContext[_ploegview.extendDataGridView1.DataSource];
+                currencyManager1.SuspendBinding();
+                for (int i = 0; i < _ploeglist.Count; i++)
+                {
+                    _ploegview.extendDataGridView1.Rows[i].Visible = true;
+                }
+                currencyManager1.ResumeBinding();
                 tstbtn_Filter.CheckState = CheckState.Unchecked;
             }
         }
 
 
-        private List<Tuple<string, int>> Ploegoverview()
+        private List<Tuple<string, int, int>> Ploegoverview()
         {
-            List<Tuple<string, int>> overview = new List<Tuple<string, int>>();
+            List<Tuple<string, int, int>> overview = new List<Tuple<string, int, int>>();
             foreach (Category cat in Category.Categories)
-            {             
-                overview.Add(new Tuple<string, int>(cat.Categorynaam, _ploeglist.Where(x => x.Category.Categorynaam == cat.Categorynaam).Count()));                
+            {
+                overview.Add(new Tuple<string, int, int>(cat.Categorynaam, _ploeglist.Where(x => x.Category.Categorynaam == cat.Categorynaam).Count(), _ploeglist.Where(x => x.Category.Categorynaam == cat.Categorynaam && x.Aangemeld == true).Count()));                
             }
             return overview;
         }
@@ -126,6 +142,8 @@ namespace structures.Views
             splitContainer1.Panel2Collapsed = true;
             splitContainer1.Panel2.Controls.Clear();
             splitContainer1.Panel2.Controls.Add(_UC_categoryChanges);
+            //_UC_categoryChanges.Dock = DockStyle.Fill;
+            splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
             splitContainer1.Panel2Collapsed = false;
             _UC_categoryChanges.categorychanged += _UC_categoryChanges_categorychanged;
             _UC_categoryChanges.setbackcategory += _UC_categoryChanges_setbackcategory;
@@ -157,6 +175,20 @@ namespace structures.Views
         private void UC_PloegOverView_Load(object sender, EventArgs e)
         {
         }
+
+        private void tsb_AddTeam_Click(object sender, EventArgs e)
+        {
+            splitContainer1.Panel2Collapsed = true;
+            splitContainer1.Panel2.Controls.Clear();
+            
+            splitContainer1.Panel2.Controls.Add(_UC_addTeams);
+            splitContainer1.SplitterDistance = splitContainer1.Width - _UC_addTeams.Width;
+            //_UC_categoryChanges.Dock = DockStyle.Fill;
+            //splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
+            splitContainer1.Panel2Collapsed = false;
+
+        }
+
 
 
     }
