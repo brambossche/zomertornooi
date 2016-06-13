@@ -40,7 +40,7 @@
             // 
             // txt_PloegNaam
             // 
-            this.txt_PloegNaam.Location = new System.Drawing.Point(31, 72);
+            this.txt_PloegNaam.Location = new System.Drawing.Point(33, 29);
             this.txt_PloegNaam.Name = "txt_PloegNaam";
             this.txt_PloegNaam.Size = new System.Drawing.Size(270, 22);
             this.txt_PloegNaam.TabIndex = 0;
@@ -48,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 52);
+            this.label1.Location = new System.Drawing.Point(32, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 1;
@@ -57,7 +57,7 @@
             // chb_Betaald
             // 
             this.chb_Betaald.AutoSize = true;
-            this.chb_Betaald.Location = new System.Drawing.Point(31, 215);
+            this.chb_Betaald.Location = new System.Drawing.Point(33, 172);
             this.chb_Betaald.Name = "chb_Betaald";
             this.chb_Betaald.Size = new System.Drawing.Size(78, 21);
             this.chb_Betaald.TabIndex = 4;
@@ -67,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 104);
+            this.label2.Location = new System.Drawing.Point(32, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 17);
             this.label2.TabIndex = 3;
@@ -76,7 +76,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 156);
+            this.label3.Location = new System.Drawing.Point(32, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 4;
@@ -85,7 +85,7 @@
             // cmb_ContactPersoon
             // 
             this.cmb_ContactPersoon.FormattingEnabled = true;
-            this.cmb_ContactPersoon.Location = new System.Drawing.Point(31, 123);
+            this.cmb_ContactPersoon.Location = new System.Drawing.Point(33, 80);
             this.cmb_ContactPersoon.Name = "cmb_ContactPersoon";
             this.cmb_ContactPersoon.Size = new System.Drawing.Size(270, 24);
             this.cmb_ContactPersoon.TabIndex = 2;
@@ -93,14 +93,14 @@
             // cmb_category
             // 
             this.cmb_category.FormattingEnabled = true;
-            this.cmb_category.Location = new System.Drawing.Point(31, 176);
+            this.cmb_category.Location = new System.Drawing.Point(33, 133);
             this.cmb_category.Name = "cmb_category";
             this.cmb_category.Size = new System.Drawing.Size(268, 24);
             this.cmb_category.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(31, 242);
+            this.button1.Location = new System.Drawing.Point(33, 199);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(268, 31);
             this.button1.TabIndex = 5;

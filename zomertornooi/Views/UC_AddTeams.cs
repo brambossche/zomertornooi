@@ -25,6 +25,7 @@ namespace structures.Views
             _PersoonList.ListChanged += _PersoonList_ListChanged;
             InitializeComponent();
             UpdateComboboxes();
+            cmb_category.SelectedIndex = 0;
         }
 
         void _PersoonList_ListChanged(object sender, ListChangedEventArgs e)

@@ -24,28 +24,91 @@ namespace structures.Views
         private DataGridView _Lstbox_overview;
         private UC_categoryChanges _UC_categoryChanges;
         private UC_AddTeams _UC_addTeams;
+        private PropertyGrid _PropertiesPersoon = new PropertyGrid();
+        private ComboBox _ComboPersonen = new ComboBox();
 
         public UC_PloegOverView(ActiveBindingList<Ploeg> PloegList, ActiveBindingList<Persoon> PersoonList)
         {
             _ploeglist = PloegList;
+            _ploeglist.ListChanged += _ploeglist_ListChanged;
             _PersoonList = PersoonList;
+            _PersoonList.ListChanged += _PersoonList_ListChanged;
             InitializeComponent();
 
             _ploegview = new Userview<Ploeg>(_ploeglist,false) { Name = "Ploegview" };
             _ploegview.Dock = DockStyle.Fill;
+            _ploegview.extendDataGridView1.CellContentClick += extendDataGridView1_CellContentClick;
             _ploegview.ListRefreshed += _ploegview_ListRefreshed;
+            _ploegview.extendDataGridView1.CellClick += extendDataGridView1_CellClick;
+            _ploegview.extendDataGridView1.CellDoubleClick += extendDataGridView1_CellDoubleClick;
             splitContainer1.Panel1.Controls.Add(_ploegview);
             splitContainer1.IsSplitterFixed = false;
 
             
             _Lstbox_overview = new DataGridView();
-            _Lstbox_overview.Dock = DockStyle.Left;
+            //_Lstbox_overview.Dock = DockStyle.Left;
             tstcmb_categoryfilter.Items.Add("Alle reeksen");
             tstcmb_categoryfilter.Items.AddRange ( Category.Categories.ToArray());
 
             _UC_categoryChanges = new UC_categoryChanges();
             _UC_addTeams = new UC_AddTeams(_ploeglist, _PersoonList);
 
+            //Populate ComboBoxPersonen
+            _PropertiesPersoon.PropertySort = PropertySort.NoSort;
+            _ComboPersonen.Visible = false;
+            PopulateComboPersonen();
+            _ComboPersonen.SelectedValueChanged += _ComboPersonen_SelectedValueChanged;
+            splitContainer1.Panel1.Controls.Add(_ComboPersonen);
+        }
+
+        void _PersoonList_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            PopulateComboPersonen();
+        }
+
+        void extendDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == _ploegview.extendDataGridView1.Columns["Contactpersoon"].Index)
+            {
+                _ComboPersonen.Location = _ploegview.extendDataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
+                _ComboPersonen.Width = _ploegview.extendDataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Width;
+                _ComboPersonen.Visible = true;
+                _ComboPersonen.BringToFront();
+            }
+        }
+
+
+
+
+        void _ComboPersonen_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Ploeg p = _ploegview.extendDataGridView1.CurrentRow.DataBoundItem as Ploeg;
+            p.Contactpersoon = (Persoon)_ComboPersonen.SelectedItem;
+            _ComboPersonen.Visible = false;
+        }
+
+        private void PopulateComboPersonen()
+        {
+            _ComboPersonen.Items.Clear();
+            foreach (Persoon p in _PersoonList)
+            {
+                _ComboPersonen.Items.Add(p);
+            }
+        }
+
+        void extendDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _PropertiesPersoon.SelectedObject = _ploeglist[_ploegview.extendDataGridView1.CurrentCell.RowIndex].Contactpersoon;
+        }
+
+        void extendDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _ploegview.extendDataGridView1.EndEdit();
+        }
+
+        void _ploeglist_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            _Lstbox_overview.DataSource = Ploegoverview();
         }
 
         void _ploegview_ListRefreshed()
@@ -56,16 +119,36 @@ namespace structures.Views
 
         private void tstbtn_overview_Click(object sender, EventArgs e)
         {
-            splitContainer1.Panel2.Controls.Clear();
-            splitContainer1.Panel2.Controls.Add(_Lstbox_overview);
-            splitContainer1.Panel2Collapsed = true;
-            _Lstbox_overview.Dock = DockStyle.Fill;
-            _Lstbox_overview.DataSource =  Ploegoverview();
-            _Lstbox_overview.Columns[0].HeaderText = "Category";
-            _Lstbox_overview.Columns[1].HeaderText = "Aantal";
-            _Lstbox_overview.Columns[2].HeaderText = "Aangemeld";
-
-            splitContainer1.Panel2Collapsed = !splitContainer1.Panel2Collapsed;
+            if (splitContainer1.Panel2.Controls.Contains(_Lstbox_overview))
+            {
+                splitContainer1.Panel2Collapsed = true;
+                splitContainer1.Panel2.Controls.Clear();
+                _PropertiesPersoon.SelectedObject = _ploeglist[_ploegview.extendDataGridView1.CurrentCell.RowIndex].Contactpersoon;
+                splitContainer1.Panel2.Controls.Add(_PropertiesPersoon);
+                splitContainer1.SplitterDistance = splitContainer1.Width /4*3;
+                _PropertiesPersoon.Dock = DockStyle.Fill;
+                //_UC_categoryChanges.Dock = DockStyle.Fill;
+                //splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
+                splitContainer1.Panel2Collapsed = false;
+            }
+            else
+            {
+                splitContainer1.Panel2.Controls.Clear();
+                splitContainer1.Panel2.Controls.Add(_Lstbox_overview);
+                splitContainer1.Panel2Collapsed = true;
+                //splitContainer1.SplitterDistance = splitContainer1.Width - _Lstbox_overview.Width;
+                _Lstbox_overview.Dock = DockStyle.Fill;
+                _Lstbox_overview.DataSource = Ploegoverview();
+                _Lstbox_overview.Columns[0].HeaderText = "Category";
+                _Lstbox_overview.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                _Lstbox_overview.Columns[1].HeaderText = "Aantal";
+                _Lstbox_overview.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                _Lstbox_overview.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                _Lstbox_overview.Columns[2].HeaderText = "Aangemeld";
+                _Lstbox_overview.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                _Lstbox_overview.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                splitContainer1.Panel2Collapsed = !splitContainer1.Panel2Collapsed;
+            }
         }
 
         private void tstbtn_Filter_Click(object sender, EventArgs e)
@@ -139,14 +222,29 @@ namespace structures.Views
 
         private void tstbtn_changecategory_Click(object sender, EventArgs e)
         {
-            splitContainer1.Panel2Collapsed = true;
-            splitContainer1.Panel2.Controls.Clear();
-            splitContainer1.Panel2.Controls.Add(_UC_categoryChanges);
-            //_UC_categoryChanges.Dock = DockStyle.Fill;
-            splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
-            splitContainer1.Panel2Collapsed = false;
-            _UC_categoryChanges.categorychanged += _UC_categoryChanges_categorychanged;
-            _UC_categoryChanges.setbackcategory += _UC_categoryChanges_setbackcategory;
+            if (splitContainer1.Panel2.Controls.Contains(_UC_categoryChanges))
+            {
+                splitContainer1.Panel2Collapsed = true;
+                splitContainer1.Panel2.Controls.Clear();
+                _PropertiesPersoon.SelectedObject = _ploeglist[_ploegview.extendDataGridView1.CurrentCell.RowIndex].Contactpersoon;
+                splitContainer1.Panel2.Controls.Add(_PropertiesPersoon);
+                splitContainer1.SplitterDistance = splitContainer1.Width /4*3;
+                _PropertiesPersoon.Dock = DockStyle.Fill;
+                //_UC_categoryChanges.Dock = DockStyle.Fill;
+                //splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
+                splitContainer1.Panel2Collapsed = false;
+            }
+            else
+            {
+                splitContainer1.Panel2Collapsed = true;
+                splitContainer1.Panel2.Controls.Clear();
+                splitContainer1.Panel2.Controls.Add(_UC_categoryChanges);
+                //_UC_categoryChanges.Dock = DockStyle.Fill;
+                splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
+                splitContainer1.Panel2Collapsed = false;
+                _UC_categoryChanges.categorychanged += _UC_categoryChanges_categorychanged;
+                _UC_categoryChanges.setbackcategory += _UC_categoryChanges_setbackcategory;
+            }
         }
 
         void _UC_categoryChanges_setbackcategory()
@@ -174,18 +272,44 @@ namespace structures.Views
 
         private void UC_PloegOverView_Load(object sender, EventArgs e)
         {
+            splitContainer1.Panel2Collapsed = true;
+            splitContainer1.Panel2.Controls.Clear();
+            _PropertiesPersoon.SelectedObject = _ploeglist[_ploegview.extendDataGridView1.CurrentCell.RowIndex].Contactpersoon;
+            splitContainer1.Panel2.Controls.Add(_PropertiesPersoon);
+            splitContainer1.SplitterDistance = splitContainer1.Width /4*3;
+            _PropertiesPersoon.Dock = DockStyle.Fill;
+            //_UC_categoryChanges.Dock = DockStyle.Fill;
+            //splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
+            splitContainer1.Panel2Collapsed = false;
+
+
         }
 
         private void tsb_AddTeam_Click(object sender, EventArgs e)
         {
-            splitContainer1.Panel2Collapsed = true;
-            splitContainer1.Panel2.Controls.Clear();
-            
-            splitContainer1.Panel2.Controls.Add(_UC_addTeams);
-            splitContainer1.SplitterDistance = splitContainer1.Width - _UC_addTeams.Width;
-            //_UC_categoryChanges.Dock = DockStyle.Fill;
-            //splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
-            splitContainer1.Panel2Collapsed = false;
+            if (splitContainer1.Panel2.Controls.Contains(_UC_addTeams))
+            {
+                splitContainer1.Panel2Collapsed = true;
+                splitContainer1.Panel2.Controls.Clear();
+                _PropertiesPersoon.SelectedObject = _ploeglist[_ploegview.extendDataGridView1.CurrentCell.RowIndex].Contactpersoon;
+                splitContainer1.Panel2.Controls.Add(_PropertiesPersoon);
+                splitContainer1.SplitterDistance = splitContainer1.Width /4*3;
+                _PropertiesPersoon.Dock = DockStyle.Fill;
+                //_UC_categoryChanges.Dock = DockStyle.Fill;
+                //splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
+                splitContainer1.Panel2Collapsed = false;
+            }
+            else
+            {
+                splitContainer1.Panel2Collapsed = true;
+                splitContainer1.Panel2.Controls.Clear();
+                splitContainer1.Panel2.Controls.Add(_UC_addTeams);
+                splitContainer1.SplitterDistance = splitContainer1.Width - _UC_addTeams.Width;
+                //_UC_categoryChanges.Dock = DockStyle.Fill;
+                //splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
+                splitContainer1.Panel2Collapsed = false;
+            }
+
 
         }
 
