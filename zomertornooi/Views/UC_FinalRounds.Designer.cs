@@ -30,23 +30,26 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.nc_WedstrijdDuur = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nc_aantalReeksen = new System.Windows.Forms.NumericUpDown();
-            this.dtp_Finals = new System.Windows.Forms.DateTimePicker();
+            this.btn_AddFinals = new System.Windows.Forms.Button();
             this.btn_SimulateFinals = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.nc_WedstrijdDuur = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.nc_aantalReeksen = new System.Windows.Forms.NumericUpDown();
             this.cmb_Reeks4 = new System.Windows.Forms.ComboBox();
             this.cmb_Reeks3 = new System.Windows.Forms.ComboBox();
+            this.dtp_Finals = new System.Windows.Forms.DateTimePicker();
             this.cmb_Reeks2 = new System.Windows.Forms.ComboBox();
             this.cmb_Reeks1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_AddFinals = new System.Windows.Forms.Button();
+            this.PanelWedstrijden = new System.Windows.Forms.Panel();
+            this.txt_reeksnaam = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nc_WedstrijdDuur)).BeginInit();
@@ -61,6 +64,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.PanelWedstrijden, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -74,6 +78,8 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.txt_reeksnaam);
             this.panel1.Controls.Add(this.btn_AddFinals);
             this.panel1.Controls.Add(this.btn_SimulateFinals);
             this.panel1.Controls.Add(this.label4);
@@ -97,6 +103,25 @@
             this.panel1.Size = new System.Drawing.Size(243, 567);
             this.panel1.TabIndex = 0;
             // 
+            // btn_AddFinals
+            // 
+            this.btn_AddFinals.Location = new System.Drawing.Point(3, 521);
+            this.btn_AddFinals.Name = "btn_AddFinals";
+            this.btn_AddFinals.Size = new System.Drawing.Size(235, 23);
+            this.btn_AddFinals.TabIndex = 31;
+            this.btn_AddFinals.Text = "Toevoegen aan database";
+            this.btn_AddFinals.UseVisualStyleBackColor = true;
+            // 
+            // btn_SimulateFinals
+            // 
+            this.btn_SimulateFinals.Location = new System.Drawing.Point(3, 483);
+            this.btn_SimulateFinals.Name = "btn_SimulateFinals";
+            this.btn_SimulateFinals.Size = new System.Drawing.Size(235, 23);
+            this.btn_SimulateFinals.TabIndex = 30;
+            this.btn_SimulateFinals.Text = "Simuleren";
+            this.btn_SimulateFinals.UseVisualStyleBackColor = true;
+            this.btn_SimulateFinals.Click += new System.EventHandler(this.btn_SimulateFinals_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -106,6 +131,15 @@
             this.label4.Size = new System.Drawing.Size(136, 17);
             this.label4.TabIndex = 24;
             this.label4.Text = "Wedstrijdduur (min.)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 423);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 17);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Reeks 4";
             // 
             // nc_WedstrijdDuur
             // 
@@ -125,6 +159,15 @@
             0,
             0});
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 372);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 17);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Reeks 3";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -134,6 +177,15 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Aanvangsuur finales";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 321);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 17);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Reeks 2";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -142,6 +194,15 @@
             this.label1.Size = new System.Drawing.Size(108, 17);
             this.label1.TabIndex = 22;
             this.label1.Text = "Aantal Reeksen";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 270);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Reeks 1";
             // 
             // nc_aantalReeksen
             // 
@@ -167,6 +228,26 @@
             0});
             this.nc_aantalReeksen.ValueChanged += new System.EventHandler(this.nc_aantalReeksen_ValueChanged);
             // 
+            // cmb_Reeks4
+            // 
+            this.cmb_Reeks4.Enabled = false;
+            this.cmb_Reeks4.FormattingEnabled = true;
+            this.cmb_Reeks4.Location = new System.Drawing.Point(3, 443);
+            this.cmb_Reeks4.Name = "cmb_Reeks4";
+            this.cmb_Reeks4.Size = new System.Drawing.Size(235, 24);
+            this.cmb_Reeks4.TabIndex = 3;
+            this.cmb_Reeks4.SelectedIndexChanged += new System.EventHandler(this.cmb_Reeks4_SelectedIndexChanged);
+            // 
+            // cmb_Reeks3
+            // 
+            this.cmb_Reeks3.Enabled = false;
+            this.cmb_Reeks3.FormattingEnabled = true;
+            this.cmb_Reeks3.Location = new System.Drawing.Point(3, 392);
+            this.cmb_Reeks3.Name = "cmb_Reeks3";
+            this.cmb_Reeks3.Size = new System.Drawing.Size(235, 24);
+            this.cmb_Reeks3.TabIndex = 2;
+            this.cmb_Reeks3.SelectedIndexChanged += new System.EventHandler(this.cmb_Reeks3_SelectedIndexChanged);
+            // 
             // dtp_Finals
             // 
             this.dtp_Finals.CustomFormat = "hh:mm";
@@ -178,86 +259,24 @@
             this.dtp_Finals.TabIndex = 19;
             this.dtp_Finals.Value = new System.DateTime(2016, 8, 20, 10, 30, 0, 0);
             // 
-            // btn_SimulateFinals
-            // 
-            this.btn_SimulateFinals.Location = new System.Drawing.Point(3, 438);
-            this.btn_SimulateFinals.Name = "btn_SimulateFinals";
-            this.btn_SimulateFinals.Size = new System.Drawing.Size(235, 23);
-            this.btn_SimulateFinals.TabIndex = 30;
-            this.btn_SimulateFinals.Text = "Simuleren";
-            this.btn_SimulateFinals.UseVisualStyleBackColor = true;
-            this.btn_SimulateFinals.Click += new System.EventHandler(this.btn_SimulateFinals_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 378);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 17);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Reeks 4";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 327);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 17);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Reeks 3";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 276);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Reeks 2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 225);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Reeks 1";
-            // 
-            // cmb_Reeks4
-            // 
-            this.cmb_Reeks4.Enabled = false;
-            this.cmb_Reeks4.FormattingEnabled = true;
-            this.cmb_Reeks4.Location = new System.Drawing.Point(3, 398);
-            this.cmb_Reeks4.Name = "cmb_Reeks4";
-            this.cmb_Reeks4.Size = new System.Drawing.Size(235, 24);
-            this.cmb_Reeks4.TabIndex = 3;
-            // 
-            // cmb_Reeks3
-            // 
-            this.cmb_Reeks3.Enabled = false;
-            this.cmb_Reeks3.FormattingEnabled = true;
-            this.cmb_Reeks3.Location = new System.Drawing.Point(3, 347);
-            this.cmb_Reeks3.Name = "cmb_Reeks3";
-            this.cmb_Reeks3.Size = new System.Drawing.Size(235, 24);
-            this.cmb_Reeks3.TabIndex = 2;
-            // 
             // cmb_Reeks2
             // 
             this.cmb_Reeks2.Enabled = false;
             this.cmb_Reeks2.FormattingEnabled = true;
-            this.cmb_Reeks2.Location = new System.Drawing.Point(3, 296);
+            this.cmb_Reeks2.Location = new System.Drawing.Point(3, 341);
             this.cmb_Reeks2.Name = "cmb_Reeks2";
             this.cmb_Reeks2.Size = new System.Drawing.Size(235, 24);
             this.cmb_Reeks2.TabIndex = 1;
+            this.cmb_Reeks2.SelectedIndexChanged += new System.EventHandler(this.cmb_Reeks2_SelectedIndexChanged);
             // 
             // cmb_Reeks1
             // 
             this.cmb_Reeks1.FormattingEnabled = true;
-            this.cmb_Reeks1.Location = new System.Drawing.Point(3, 245);
+            this.cmb_Reeks1.Location = new System.Drawing.Point(3, 290);
             this.cmb_Reeks1.Name = "cmb_Reeks1";
             this.cmb_Reeks1.Size = new System.Drawing.Size(235, 24);
             this.cmb_Reeks1.TabIndex = 0;
+            this.cmb_Reeks1.SelectedIndexChanged += new System.EventHandler(this.cmb_Reeks1_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -269,14 +288,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(955, 166);
             this.dataGridView1.TabIndex = 2;
             // 
-            // btn_AddFinals
+            // PanelWedstrijden
             // 
-            this.btn_AddFinals.Location = new System.Drawing.Point(3, 476);
-            this.btn_AddFinals.Name = "btn_AddFinals";
-            this.btn_AddFinals.Size = new System.Drawing.Size(235, 23);
-            this.btn_AddFinals.TabIndex = 31;
-            this.btn_AddFinals.Text = "Toevoegen aan database";
-            this.btn_AddFinals.UseVisualStyleBackColor = true;
+            this.PanelWedstrijden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelWedstrijden.Location = new System.Drawing.Point(252, 3);
+            this.PanelWedstrijden.Name = "PanelWedstrijden";
+            this.PanelWedstrijden.Size = new System.Drawing.Size(955, 395);
+            this.PanelWedstrijden.TabIndex = 3;
+            // 
+            // txt_reeksnaam
+            // 
+            this.txt_reeksnaam.Location = new System.Drawing.Point(3, 245);
+            this.txt_reeksnaam.Name = "txt_reeksnaam";
+            this.txt_reeksnaam.Size = new System.Drawing.Size(235, 22);
+            this.txt_reeksnaam.TabIndex = 32;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(4, 225);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 17);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Reeksnaam:";
             // 
             // UC_FinalRounds
             // 
@@ -317,5 +352,8 @@
         private System.Windows.Forms.Button btn_SimulateFinals;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_AddFinals;
+        private System.Windows.Forms.Panel PanelWedstrijden;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt_reeksnaam;
     }
 }

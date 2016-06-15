@@ -111,11 +111,15 @@ namespace structures.Views
 
             if (_ReeksList.Count > 0)
             {
+                btn_OptimizeTerrein.Enabled = true;
+                btn_Simulate.Enabled = true;
                 comboBxReeksen.SelectedIndex = 0;
             }
             else
             {
                 comboBxReeksen.Text = "";
+                btn_OptimizeTerrein.Enabled = false;
+                btn_Simulate.Enabled = false;
                 dtv_Wedstrijden.DataSource = null;
                 dtv_optimisation.DataSource = null;
                 dtv_StatusList.DataSource = null;

@@ -55,6 +55,12 @@ namespace structures
         }
 
 
+        public override string ToString()
+        {
+            return ReeksNaam;
+        }
+
+
         public AdministratieReeks(string rn, ActiveBindingList<Wedstrijd> w)
         {
             ReeksNaam = rn;
@@ -292,8 +298,6 @@ namespace structures
 
             _Klassement.Ranking = Rankings;
         }
-
-
 
 
 

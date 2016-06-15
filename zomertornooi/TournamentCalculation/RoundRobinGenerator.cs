@@ -8,6 +8,7 @@ using structures;
 using ProgramDefinitions;
 using System.Data;
 using System.Collections.ObjectModel;
+using Factory;
 
 namespace TournamentCalculation
 {
@@ -820,103 +821,6 @@ namespace TournamentCalculation
 #endregion
 
         #region Calculate Post RoundRobin Games
-
-        public void SimulateFinalGames(List<Reeks> Reeksen)
-        {
-            switch (Reeksen[0].TornooiFormule)
-            {
-                case TornooiFormule.RoundRobin:
-                    break;
-
-                case TornooiFormule.PlacementGames:
-                    for (int k = 0; k < Reeksen.Count; k++)
-                    {                        
-                        //Aantal wedstrijden bepalen
-                        List<Wedstrijd> Placementgames = new List<Wedstrijd>();
-                        int n = Reeksen[k].Ploegen.Count;
-                        if (n % 2 == 1)
-                        {
-                            n--;
-                        }
-
-                        //Haal aanvangsuur op van laatste gespeelde wedstrijd
-                        DateTime tijd = Reeksen[k].TimeSchedule.Last().Aanvangsuur;
-
-                        
-                        // Dummy wedstrijden aanmaken
-                        int terrein = 0;
-                        int Aanvang = 1;
-                        //Start placement games pas in volgende ronde: 
-                        Reeksen[k].AantalRondes++;
-
-
-                        for (int w = 0; w < n / 2; w++)
-                        {
-                            //Maak Dummy team
-                            Ploeg DummyHome = new Ploeg() { Ploegnaam = Reeksen[k].ReeksNaam + "_Home" + w.ToString() };
-                            Ploeg DummyAway = new Ploeg() { Ploegnaam = Reeksen[k].ReeksNaam + "_Away" + w.ToString() +"*"};
-                            Ploeg Scheids = new Ploeg() { Ploegnaam = "Scheidsrechter"};
-                            Reeksen[k].TimeSchedule.Add(new Wedstrijd() { Home = DummyHome, Away = DummyAway, Scheidsrechter = Scheids, Aanvangsuur = tijd.AddMinutes(Aanvang * Reeksen[k].WedstrijdDefinition.Wedstrijdduur), Terrein = Reeksen[k].Terreinen[terrein],Reeks = Reeksen[k], ReeksNaam = Reeksen[k].ReeksNaam });
-                            terrein++;
-                            //Als het aantal terreinen bereikt is, resetten van terrein counters + updaten van rondecounters 
-                            if ((w + 1) % Reeksen[k].Terreinen.Count == 0)
-                            {
-                                //Voeg ronde toe aan timeschedule
-                                Reeksen[k].AantalRondes++;
-                                Aanvang++;
-                                terrein = 0;
-                            }
-                        }
-                    }
-                    break;
-
-                case TornooiFormule.CrossFinals:
-
-                    switch (Reeksen.Count)
-                    {
-                        case 2:
-                            break;
-                        case 4:
-                            break;
-
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    break;
-            }
-
-
-
-
-        }
 
 
         public void CalculateFinalGames(List<Reeks> Reeksen)

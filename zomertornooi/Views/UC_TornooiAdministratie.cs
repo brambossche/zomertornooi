@@ -61,7 +61,7 @@ namespace structures.Views
                 InitTornooiAdministratie();
             }
 
-
+           
         }
 
         private void UC_TornooiAdministratie_Load(object sender, EventArgs e)
@@ -98,6 +98,7 @@ namespace structures.Views
 
             //Assign Datasource of datagridviews
             dgv_Terreinen.DataSource = _TerreinList;
+            dgv_Terreinen.Columns["ReeksNaam"].Visible = false;
             dgv_Wedstrijden.DataSource = _WedstrijdList;
 
             //Populate cmb_reeksnaam
@@ -120,11 +121,16 @@ namespace structures.Views
 
         void _TerreinList_ListChanged(object sender, ListChangedEventArgs e)
         {
+
             if (_TerreinList.Count > 0 & _TerreinList != null)
             {
                 UpdateTerreinColors();
             }
+
             
+
+
+
         }
 
 
@@ -480,6 +486,8 @@ namespace structures.Views
                     column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 }
+                dgv_Terreinen.Columns["ReeksNaam"].Visible = false;
+
                 TerreinManager.ResumeBinding();
 
                 /*
@@ -766,6 +774,23 @@ namespace structures.Views
 
         private void UC_TornooiAdministratie_Enter(object sender, EventArgs e)
         {
+            CurrencyManager TerreinManager = (CurrencyManager)dgv_Terreinen.BindingContext[dgv_Terreinen.DataSource];
+            TerreinManager.SuspendBinding();
+            for (int i = 0; i < _TerreinList.Count; i++)
+            {
+                if (_TerreinList[i].ReeksNaam == cmb_ReeksNaam.Text)
+                {
+                    dgv_Terreinen.Rows[i].Visible = true;
+                }
+                else
+                {
+                    dgv_Terreinen.Rows[i].Visible = false;
+                }
+            }
+            TerreinManager.ResumeBinding();
+
+
+
             if (_BindingListRefreshWedstrijd != null)
             {
                 _BindingListRefreshWedstrijd.StartRefreshing();

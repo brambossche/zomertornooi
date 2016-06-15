@@ -116,6 +116,18 @@
     <Compile Include="Views\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Final Rounds\UC_AllBrackets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Final Rounds\UC_AllBrackets.Designer.cs">
+      <DependentUpon>UC_AllBrackets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Final Rounds\UC_Brackets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Final Rounds\UC_Brackets.Designer.cs">
+      <DependentUpon>UC_Brackets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListAllocation\ListAllocation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +140,12 @@
     </Compile>
     <Compile Include="Views\UC_AddTeams.Designer.cs">
       <DependentUpon>UC_AddTeams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_FinalRounds.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_FinalRounds.Designer.cs">
+      <DependentUpon>UC_FinalRounds.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UC_PersoonView.cs">
       <SubType>UserControl</SubType>
@@ -194,6 +212,12 @@
     <EmbeddedResource Include="Views\baseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Final Rounds\UC_AllBrackets.resx">
+      <DependentUpon>UC_AllBrackets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Final Rounds\UC_Brackets.resx">
+      <DependentUpon>UC_Brackets.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ListAllocation\ListAllocation.resx">
       <DependentUpon>ListAllocation.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_categoryChanges.resx">
       <DependentUpon>UC_categoryChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_FinalRounds.resx">
+      <DependentUpon>UC_FinalRounds.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_PersoonView.resx">
       <DependentUpon>UC_PersoonView.cs</DependentUpon>
@@ -293,6 +320,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
+    <None Include="Resources\Brackets1.png" />
+    <None Include="Resources\Brackets.png" />
     <None Include="Resources\Add_sign.png" />
     <None Include="Resources\UPload_00.gif" />
     <EmbeddedResource Include="Printing\printerIcon.png" />

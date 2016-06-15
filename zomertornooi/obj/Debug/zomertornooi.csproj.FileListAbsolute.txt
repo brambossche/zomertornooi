@@ -65,3 +65,6 @@ C:\proj\_Zomertornooi\zomertornooi\obj\Debug\zomertornooi.dll
 C:\proj\_Zomertornooi\zomertornooi\obj\Debug\zomertornooi.pdb
 C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.UC_PersoonView.resources
 C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.UC_AddTeams.resources
+C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.UC_FinalRounds.resources
+C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.Final_Rounds.UC_AllBrackets.resources
+C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.Final_Rounds.UC_Brackets.resources

@@ -30,7 +30,7 @@ namespace Views
         private NHibernateSessionManager<BaseForm> _NHibernateSessionManager;
         private StructureSetup _StructureSetup;
         private ActiveBindingList<Ploeg> _PloegList;
-        private ExtBindingList<Terrein> _TerreinList;
+        private ActiveBindingList<Terrein> _TerreinList;
         private static readonly ILog logger = LogManager.GetLogger(typeof(BaseForm));
         public static UserLevel _userlevel = UserLevel.Admin;
         private QueStatus _QueStatus;
@@ -87,6 +87,7 @@ namespace Views
                     Userview<Wedstrijd> _WedstrijdViewer = new Userview<Wedstrijd>(_StructureSetup.WedstrijdList, false) { Name = "Wedstrijden" };
                     Userview<Terrein> _terreinview = new Userview<Terrein>(_StructureSetup.TerreinList, false) { Name = "Terreinen" };
                     UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
+                    UC_FinalRounds _FinalRounds = new UC_FinalRounds(_StructureSetup.WedstrijdList, _PloegList, _TerreinList);
                     UC_Reader _Reader = new UC_Reader(_StructureSetup.WedstrijdList);
 
 
@@ -100,6 +101,8 @@ namespace Views
                     CreateDockContent(_terreinview, MainDocking);
                     CreateDockContent(_TornooiAdministratie, MainDocking);
                     CreateDockContent(_Reader, MainDocking);
+                    CreateDockContent(_FinalRounds, MainDocking);
+                    
 
                 }
                 else if (_userlevel == UserLevel.User)

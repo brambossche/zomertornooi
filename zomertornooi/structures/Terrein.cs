@@ -24,7 +24,7 @@ namespace structures
         private string _ReeksNaam = "";
 
         [ReadOnly(true)]
-        [Browsable(false)]
+        //[Browsable(false)]
         public virtual string ReeksNaam
         {
             get { return _ReeksNaam; }
@@ -48,6 +48,8 @@ namespace structures
 
         private IList<Wedstrijd> _wedstrijden =  new List<Wedstrijd>();
 
+        [Browsable(false)]
+        [ReadOnly(true)]
         public virtual IList<Wedstrijd> wedstrijden
         {
             get { return _wedstrijden; }

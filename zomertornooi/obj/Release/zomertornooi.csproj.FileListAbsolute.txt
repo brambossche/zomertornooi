@@ -31,3 +31,6 @@ C:\proj\Zomertornooi\zomertornooi\obj\Release\zomertornooi.csproj.GenerateResour
 C:\proj\Zomertornooi\zomertornooi\obj\Release\zomertornooi.dll
 C:\proj\Zomertornooi\zomertornooi\obj\Release\zomertornooi.pdb
 C:\proj\Zomertornooi\zomertornooi\obj\Release\structures.Views.UC_Reader.resources
+C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.UC_AddTeams.resources
+C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.UC_FinalRounds.resources
+C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.UC_PersoonView.resources
