@@ -115,7 +115,7 @@
             this.tstbtn_overview.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tstbtn_overview.Name = "tstbtn_overview";
             this.tstbtn_overview.Size = new System.Drawing.Size(24, 25);
-            this.tstbtn_overview.Text = "Aantal Ploegen";
+            this.tstbtn_overview.Text = "Aanmeldingen";
             this.tstbtn_overview.Click += new System.EventHandler(this.tstbtn_overview_Click);
             // 
             // toolStripSeparator2

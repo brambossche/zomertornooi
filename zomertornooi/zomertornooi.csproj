@@ -104,6 +104,7 @@
     <Compile Include="structures\Terrein.cs" />
     <Compile Include="structures\Wedstrijd.cs" />
     <Compile Include="structures\WedstrijdDefinition.cs" />
+    <Compile Include="TournamentCalculation\FinalGamesGenerator.cs" />
     <Compile Include="TournamentCalculation\RoundRobinGenerator.cs" />
     <Compile Include="UnitHibernateTestDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

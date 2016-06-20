@@ -462,7 +462,7 @@ namespace TournamentCalculation
             Scheidsrechters = Scheidsrechters.Where(ploeg => ploeg.AantalxNaElkaarScheids < 1).ToList();
             //Scheidsrechters = Scheidsrechters.Where(ploeg => ploeg.AantalxNaElkaarRust < 1).ToList();
 
-            Scheidsrechters = Scheidsrechters.OrderBy(p => p.AantalxScheids).ToList();
+            Scheidsrechters = Scheidsrechters.OrderBy(p => p.AantalxScheids).ThenBy(p => p.AantalxRust).ToList();
             Scheidsrechters = Scheidsrechters.Concat(Scheidsrechters).ToList();
 
             for (int rg = 0; rg < RoundGames.Count; rg++)
@@ -825,17 +825,7 @@ namespace TournamentCalculation
 
         public void CalculateFinalGames(List<Reeks> Reeksen)
         {
-            switch (Reeksen[0].TornooiFormule)
-            {
-                case TornooiFormule.RoundRobin:
-                    break;
 
-                case TornooiFormule.PlacementGames:
-                    break;
-
-                case TornooiFormule.CrossFinals:
-                    break;
-            }
 
 
 

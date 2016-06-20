@@ -112,8 +112,26 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_Home;
+
+        public System.Windows.Forms.Label Lbl_Home
+        {
+            get { return lbl_Home; }
+            set { lbl_Home = value; }
+        }
         private System.Windows.Forms.Label lbl_Away;
+
+        public System.Windows.Forms.Label Lbl_Away
+        {
+            get { return lbl_Away; }
+            set { lbl_Away = value; }
+        }
         private System.Windows.Forms.Label lbl_Winner;
+
+        public System.Windows.Forms.Label Lbl_Winner
+        {
+            get { return lbl_Winner; }
+            set { lbl_Winner = value; }
+        }
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 
     }

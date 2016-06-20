@@ -137,13 +137,6 @@ namespace structures
             set { _TimeScheduleHulp = value; }
         }
 
-        private TornooiFormule _TornooiFormule = TornooiFormule.RoundRobin;
-
-        public TornooiFormule TornooiFormule
-        {
-            get { return _TornooiFormule; }
-            set { _TornooiFormule = value; }
-        }
 
         private WedstrijdDefinition _WedstrijdDefinition = new WedstrijdDefinition();
 

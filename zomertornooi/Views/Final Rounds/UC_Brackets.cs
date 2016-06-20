@@ -27,7 +27,6 @@ namespace structures.Views.Final_Rounds
             InitializeComponent();
             lbl_Home.Text = h;
             lbl_Away.Text = a;
-
         }
 
 

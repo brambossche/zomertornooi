@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Factory;
 using TournamentCalculation;
 using structures.Views.Final_Rounds;
+using structures.TournamentCalculation;
 
 namespace structures.Views
 {
@@ -97,7 +98,19 @@ namespace structures.Views
         private void btn_SimulateFinals_Click(object sender, EventArgs e)
         {
         //CalculateFinalGames(_ReeksList, _terreinList);
-            PanelWedstrijden.Controls.Add(new UC_AllBrackets(2, 8) { Dock = DockStyle.Fill});
+            //PanelWedstrijden.Controls.Add(new UC_AllBrackets(2, 8) { Dock = DockStyle.Fill});
+            FinalGamesGenerator fgr = new FinalGamesGenerator(_ReeksList,_terreinList,dtp_Finals.Value, (int)nc_WedstrijdDuur.Value);
+            List<Wedstrijd> games = fgr.CalculateFinalGames();
+            dgv_wedstrijden.DataSource = games;
+            UC_AllBrackets FinalBrackets = new UC_AllBrackets(1, games.Count) { Dock = DockStyle.Fill};
+            PanelWedstrijden.Controls.Add(FinalBrackets);
+            for (int i = 0; i < games.Count; i++)
+            {
+                FinalBrackets.FinalGames[i].Lbl_Home.Text = games[i].Home.ToString();
+                FinalBrackets.FinalGames[i].Lbl_Away.Text = games[i].Away.ToString();
+                FinalBrackets.FinalGames[i].Lbl_Winner.Text = "";
+
+            }
 
 
 

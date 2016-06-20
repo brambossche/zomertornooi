@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
+using ProgramDefinitions;
 
 namespace structures
 {
@@ -153,6 +154,15 @@ namespace structures
         }
 
 
+        private WedstrijdFormule _WedstrijdFormule = WedstrijdFormule.RoundRobin;
+        [Browsable(false)]
+        public virtual WedstrijdFormule WedstrijdFormule
+        {
+            get { return _WedstrijdFormule; }
+            set { _WedstrijdFormule = value; this.NotifyPropertyChanged(ID); }
+        }
+
+
     }
 
     /*
@@ -186,6 +196,7 @@ namespace structures
             Map(x => x.Isplayed);
             Map(x => x.ReeksNaam);
             Map(x => x.Aanvangsuur);
+            Map(x => x.WedstrijdFormule);
             References(x => x.Away).Not.LazyLoad();
             References(x => x.Home).Not.LazyLoad();
             //References(x => x.Terrein).Cascade.SaveUpdate();

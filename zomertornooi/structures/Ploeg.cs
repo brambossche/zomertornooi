@@ -192,6 +192,8 @@ namespace structures
             Map(x => x.Betaald);
             Map(x => x.Aangemeld);
             Map(x => x.Reeksnaam);
+            Map(x => x.AantalxNaElkaarScheids);
+            Map(x => x.AantalxScheids);
             Table(typeof(Ploeg).Name);
         }
     }
