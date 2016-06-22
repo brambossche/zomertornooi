@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using log4net;
 using structures;
+using structures.Views.ServerSelection;
 
 namespace Views
 {
@@ -36,7 +37,7 @@ namespace Views
         {
 
             ProgramLogger _ProgramLogger = new ProgramLogger();
-            new BaseForm().ShowDialog();
+            new F_ServerSelection().ShowDialog();
 
             //Don't start GUI from a different thread as is causes big issues for drag and drop which must be 
             //in as single state appartment and must run on the main UI thread!!!!

@@ -29,6 +29,7 @@ namespace structures.Views.Final_Rounds
 
         public UC_AllBrackets(int AantalRonden, int AantalWedstrijdenPerRonde)
         {
+            this.Dock = DockStyle.Fill;
             InitializeComponent();
             tbl_Brackets.ColumnCount = 2 * AantalRonden - 1;
             tbl_Brackets.RowCount = AantalWedstrijdenPerRonde;

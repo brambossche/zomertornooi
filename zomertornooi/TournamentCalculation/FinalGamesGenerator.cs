@@ -16,14 +16,18 @@ namespace structures.TournamentCalculation
         private DateTime _Aanvangsuur = new DateTime();
         private int _Interval = 0;
         private List<Ploeg> _ploegen = new List<Ploeg>();
+        private List<PloegHulp> _ploegenHulp = new List<PloegHulp>();
         private List<Wedstrijd> _wedstrijden = new List<Wedstrijd>();
+        private WedstrijdFormule _WedstrijdFormule = WedstrijdFormule.PlacementGames;
+        private string _ReeksNaam;
 
-        public FinalGamesGenerator(List<AdministratieReeks> reeksen, ActiveBindingList<Terrein> terreinen, DateTime Aanvangsuur, int Interval)
+        public FinalGamesGenerator(List<AdministratieReeks> reeksen, ActiveBindingList<Terrein> terreinen, DateTime Aanvangsuur, int Interval, string Reeksnaam)
         {
             _Reeksen = reeksen;
             _Terreinen = terreinen;
             _Aanvangsuur = Aanvangsuur;
             _Interval = Interval;
+            _ReeksNaam = Reeksnaam;
         }
 
         public List<Wedstrijd> CalculateFinalGames()
@@ -31,25 +35,32 @@ namespace structures.TournamentCalculation
             switch (_Reeksen.Count)
             {
                 case 1:
-                    CalculateFinalGames_1();
+                    _WedstrijdFormule = WedstrijdFormule.PlacementGames;
+                    CalculateGames();
                     break;
                 case 2:
-                    CalculateFinalGames_2();
+                    _WedstrijdFormule = WedstrijdFormule.CrossFinals;
+                    CalculateGames();
                     break;
                 case 3:
-                    CalculateFinalGames_3();
+                    _WedstrijdFormule = WedstrijdFormule.CrossFinals;
+                    CalculateGames();
                     break;
                 case 4:
-                    CalculateFinalGames_4();
+                    _WedstrijdFormule = WedstrijdFormule.CrossFinals;
+                    CalculateGames();
                     break;
             }
 
 
+
+
+            //_wedstrijden.Reverse();
             return _wedstrijden;
         }
 
 
-        private void CalculateFinalGames_1()
+        private void CalculateGames()
         {
             //Get ploegen from rankings, put them in the correct order in the list
             List<Ploeg> _Freeteams = GetTeams();
@@ -131,6 +142,12 @@ namespace structures.TournamentCalculation
                     //Haal de wedstrijden op
                     Wedstrijd w = _WedstrijdList.Last();
 
+                    //zet de juiste reeksnaam
+                    w.ReeksNaam = _ReeksNaam;
+
+                    //Zet de juiste tornooiformule vast
+                    w.WedstrijdFormule = _WedstrijdFormule;
+
                     //Geef terrein op
                     w.Terrein = _TerreinList[i];
 
@@ -205,6 +222,7 @@ namespace structures.TournamentCalculation
 
             }
             //Store ploegen in logical order in list
+            List<PloegHulp> pH_hulp = new List<PloegHulp>();
 
             for (int i = 0; i < maxP; i++)
             {
@@ -215,21 +233,54 @@ namespace structures.TournamentCalculation
                     {
                         DataRow dr = dt.Rows[i];
                         Ploeg p = (Ploeg)dr[0];
-                        _ploegen.Add(p);
-                        _FreeTeams.Add(p);
+                        int punten = (int)dr[8];
+                        int GS = (int)dr[6];
+                        int VS = (int)dr[7];
+                        int AW = (int)dr[1];
+                        PloegHulp PH = new PloegHulp(p, punten, GS, VS, AW);
+                        pH_hulp.Add(PH);
+                        //_ploegen.Add(p);
+                        //_FreeTeams.Add(p);
                     }
-
-
-
                 }
+
+
+                pH_hulp = pH_hulp.OrderByDescending(p => p.Setcoeff).ThenByDescending(p => p.Punten).ToList();
+                if (i % 2 == 0)
+                {
+                    pH_hulp.Reverse();
+                    _ploegenHulp.AddRange(pH_hulp);
+                }
+                else
+                {
+                    _ploegenHulp.AddRange(pH_hulp);
+                }
+                pH_hulp.Clear();
             }
 
             //Indien oneven, verwijder laatste ploeg! 
-            if (_ploegen.Count % 2 == 1)
+            if (_ploegenHulp.Count % 2 == 1)
             {
-                _ploegen.Remove(_ploegen.Last());
-                _FreeTeams.Remove(_FreeTeams.Last());
+                //_ploegen.Remove(_ploegen.Last());
+                //_FreeTeams.Remove(_FreeTeams.Last());
+                _ploegenHulp.Remove(_ploegenHulp.Last());
             }
+
+
+            //Populate ploegen en freeteams in this order: 
+            _ploegen.Clear();
+            _FreeTeams.Clear();
+            foreach (PloegHulp ph in _ploegenHulp)
+            {
+                _ploegen.Add(ph.Ploeg);
+                _FreeTeams.Add(ph.Ploeg);
+            }
+
+
+
+
+
+
 
             return _FreeTeams;
         }
@@ -296,7 +347,6 @@ namespace structures.TournamentCalculation
         private List<Wedstrijd> CalculatePlacementGames()
         {   
             List<Wedstrijd> _HulpWedstrijden = new List<Wedstrijd>();
-            List<Wedstrijd> _EindWedstrijden = new List<Wedstrijd>();
             for (int i = 0; i < _ploegen.Count; i+=2)
             {
                 _HulpWedstrijden.Add(new Wedstrijd() { Home = _ploegen[i], Away = _ploegen[i+1], WedstrijdFormule = ProgramDefinitions.WedstrijdFormule.PlacementGames});
@@ -305,5 +355,87 @@ namespace structures.TournamentCalculation
             return _HulpWedstrijden;
         }
 
+        private List<Wedstrijd> CalculateCrossFinals()
+        {
+            List<Wedstrijd> _HulpWedstrijden = new List<Wedstrijd>();
+            List<Wedstrijd> _EindWedstrijden = new List<Wedstrijd>();
+            for (int i = 0; i < _ploegen.Count; i += 2)
+            {
+                _HulpWedstrijden.Add(new Wedstrijd() { Home = _ploegen[i], Away = _ploegen[i + 1], WedstrijdFormule = ProgramDefinitions.WedstrijdFormule.PlacementGames });
+            }
+
+            return _HulpWedstrijden;
+        }
+
     }
+
+
+    public class PloegHulp
+    {
+        private Ploeg _Ploeg;
+
+        public Ploeg Ploeg
+        {
+            get { return _Ploeg; }
+            set { _Ploeg = value; }
+        }
+
+        private int _AantalWedstrijden;
+
+        public int AantalWedstrijden
+        {
+            get { return _AantalWedstrijden; }
+            set { _AantalWedstrijden = value; }
+        }
+
+
+
+        private int _Punten;
+
+        public int Punten
+        {
+            get { return _Punten; }
+            set { _Punten = value; }
+        }
+        private int _GewonnenSets;
+
+        public int GewonnenSets
+        {
+            get { return _GewonnenSets; }
+            set { _GewonnenSets = value; }
+        }
+        private int _VerlorenSets;
+
+        public int VerlorenSets
+        {
+            get { return _VerlorenSets; }
+            set { _VerlorenSets = value; }
+        }
+
+
+        private double _Setcoeff;
+
+        public double Setcoeff
+        {
+            get { return _Setcoeff; }
+            set { _Setcoeff = value; }
+        }
+
+
+        public PloegHulp(Ploeg Ploeg, int Punten, int GewonnenSets, int VerlorenSets, int AantalWedstrijden)
+        {
+            _Ploeg = Ploeg;
+            _AantalWedstrijden = AantalWedstrijden;
+            _Punten = Punten;
+            _GewonnenSets = GewonnenSets;
+            _VerlorenSets = VerlorenSets;
+
+            _Setcoeff = (Convert.ToDouble(_GewonnenSets) - Convert.ToDouble(_VerlorenSets)) / Convert.ToDouble(_AantalWedstrijden);
+
+        }
+    }
+
+
+
+
 }

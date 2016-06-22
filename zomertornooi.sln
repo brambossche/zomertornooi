@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zomertornooi", "zomertornooi\zomertornooi.csproj", "{474E385C-70D0-446B-B8E8-A2F787EE44FB}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectNhibernate", "TestProjectNhibernate\TestProjectNhibernate.csproj", "{AD0F0427-5C41-401A-B0BD-65B15A608523}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C866A6AE-17BB-4D3C-8DCB-4CAF06B23F38}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TornooiInstaller", "TornooiInstaller\TornooiInstaller.vdproj", "{77664A52-5DD8-4572-8190-938D38331CB7}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ZomerTornooi2016", "ZomerTornooi2016\ZomerTornooi2016.vdproj", "{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +141,24 @@ Global
 		{AD0F0427-5C41-401A-B0BD-65B15A608523}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AD0F0427-5C41-401A-B0BD-65B15A608523}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{AD0F0427-5C41-401A-B0BD-65B15A608523}.Release|x86.ActiveCfg = Release|Any CPU
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Debug|Any CPU.ActiveCfg = Debug
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Debug|x86.ActiveCfg = Debug
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Release_PQAsic|Any CPU.ActiveCfg = Release
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Release_PQAsic|Mixed Platforms.ActiveCfg = Release
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Release_PQAsic|x86.ActiveCfg = Release
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Release|Any CPU.ActiveCfg = Release
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Release|Mixed Platforms.ActiveCfg = Release
+		{77664A52-5DD8-4572-8190-938D38331CB7}.Release|x86.ActiveCfg = Release
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Debug|Any CPU.ActiveCfg = Debug
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Debug|x86.ActiveCfg = Debug
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Release_PQAsic|Any CPU.ActiveCfg = Release
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Release_PQAsic|Mixed Platforms.ActiveCfg = Release
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Release_PQAsic|x86.ActiveCfg = Release
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Release|Any CPU.ActiveCfg = Release
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Release|Mixed Platforms.ActiveCfg = Release
+		{C9C4FD62-D577-4FDE-9E50-98661D51D0B7}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

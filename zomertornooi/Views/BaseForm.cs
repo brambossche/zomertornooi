@@ -12,6 +12,7 @@ using Marb.ExternalProcesses;
 using Marb.Bindinglist;
 using structures.structures;
 using NhibernateIntf;
+using structures.Views.ServerSelection;
 
 namespace Views
 {
@@ -107,8 +108,16 @@ namespace Views
                 }
                 else if (_userlevel == UserLevel.User)
                 {
-                    UC_wedstrijdViewer _WedstrijdViewer = new UC_wedstrijdViewer(_StructureSetup.WedstrijdList);
-                    CreateDockContent(_WedstrijdViewer, MainDocking);
+                    //Userview<Wedstrijd> _WedstrijdViewer = new Userview<Wedstrijd>(_StructureSetup.WedstrijdList, false) { Name = "Wedstrijden" };
+                    UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_StructureSetup.WedstrijdList, _StructureSetup.TerreinList);
+
+                    //CreateDockContent(_WedstrijdViewer, MainDocking);
+                    CreateDockContent(_TornooiAdministratie, MainDocking);
+                }
+                else if (_userlevel == UserLevel.Reader)
+                {
+                    UC_Reader _Reader = new UC_Reader(_StructureSetup.WedstrijdList);
+                    CreateDockContent(_Reader, MainDocking);
                 }
             }
             catch (Exception ee)
@@ -200,6 +209,11 @@ namespace Views
                     }break;
 
             }
+        }
+
+        private void selectServerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new F_ServerSelection().ShowDialog();
         }
     }
 }

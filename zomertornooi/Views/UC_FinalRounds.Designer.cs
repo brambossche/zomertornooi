@@ -128,6 +128,7 @@
             this.btn_AddFinals.TabIndex = 31;
             this.btn_AddFinals.Text = "Toevoegen aan database";
             this.btn_AddFinals.UseVisualStyleBackColor = true;
+            this.btn_AddFinals.Click += new System.EventHandler(this.btn_AddFinals_Click);
             // 
             // btn_SimulateFinals
             // 
@@ -267,7 +268,7 @@
             // 
             // dtp_Finals
             // 
-            this.dtp_Finals.CustomFormat = "hh:mm";
+            this.dtp_Finals.CustomFormat = "HH:mm";
             this.dtp_Finals.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_Finals.Location = new System.Drawing.Point(17, 90);
             this.dtp_Finals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

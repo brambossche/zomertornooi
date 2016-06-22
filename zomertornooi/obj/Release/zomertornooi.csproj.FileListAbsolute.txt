@@ -36,3 +36,5 @@ C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.UC_FinalRounds.re
 C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.UC_PersoonView.resources
 C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.Final_Rounds.UC_AllBrackets.resources
 C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.Final_Rounds.UC_Brackets.resources
+C:\proj\Zomertornooi\zomertornooi\obj\Release\structures.Views.ServerSelection.F_ServerSelection.resources
+C:\proj\Zomertornooi\zomertornooi\obj\Release\structures.Views.FinalRoundsViewer.resources

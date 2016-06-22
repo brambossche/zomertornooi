@@ -211,15 +211,12 @@ namespace structures.Views
 
         void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)
         {
-            if (_WedstrijdList.Count > 0 & _WedstrijdList != null)
-            {
+            if (_WedstrijdList.Count > 0 & _WedstrijdList != null && _TerreinList.Count !=0 && _TerreinList != null)
+            {                
                 if (e.ListChangedType == ListChangedType.ItemChanged)
                 {
-
                     UpdateKlassement();
                     UpdateWedstrijdColors();
-
-
                 }
                 else if (e.ListChangedType == ListChangedType.Reset)
                 {
@@ -253,7 +250,7 @@ namespace structures.Views
             List<string> Reeksen = new List<string>();
             foreach (Wedstrijd w in _WedstrijdList)
             {
-                if (!Reeksen.Contains(w.ReeksNaam))
+                if (w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.RoundRobin && !Reeksen.Contains(w.ReeksNaam))
                 {
                     Reeksen.Add(w.ReeksNaam);
                 }

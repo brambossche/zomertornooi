@@ -21,7 +21,8 @@ namespace structures.Views
         private ActiveBindingList<Terrein> _terreinList;
         private List<AdministratieReeks> _ReeksList = new List<AdministratieReeks>();
         private List<ComboBox> _ComboBoxes = new List<ComboBox>();
-        RoundRobinGenerator rrg = new RoundRobinGenerator();
+        private RoundRobinGenerator rrg = new RoundRobinGenerator();
+        private List<Wedstrijd> _FinaleWedstrijden = new List<Wedstrijd>();
 
 
         public UC_FinalRounds(ActiveBindingList<Wedstrijd> wedstrijdlist, ActiveBindingList<Ploeg> ploegList, ActiveBindingList<Terrein> terreinList)
@@ -97,17 +98,18 @@ namespace structures.Views
 
         private void btn_SimulateFinals_Click(object sender, EventArgs e)
         {
+            PanelWedstrijden.Controls.Clear();
         //CalculateFinalGames(_ReeksList, _terreinList);
             //PanelWedstrijden.Controls.Add(new UC_AllBrackets(2, 8) { Dock = DockStyle.Fill});
-            FinalGamesGenerator fgr = new FinalGamesGenerator(_ReeksList,_terreinList,dtp_Finals.Value, (int)nc_WedstrijdDuur.Value);
-            List<Wedstrijd> games = fgr.CalculateFinalGames();
-            dgv_wedstrijden.DataSource = games;
-            UC_AllBrackets FinalBrackets = new UC_AllBrackets(1, games.Count) { Dock = DockStyle.Fill};
+            FinalGamesGenerator fgr = new FinalGamesGenerator(_ReeksList,_terreinList,dtp_Finals.Value, (int)nc_WedstrijdDuur.Value, txt_reeksnaam.Text);
+            _FinaleWedstrijden = fgr.CalculateFinalGames();
+            dgv_wedstrijden.DataSource = _FinaleWedstrijden;
+            UC_AllBrackets FinalBrackets = new UC_AllBrackets(1, _FinaleWedstrijden.Count);
             PanelWedstrijden.Controls.Add(FinalBrackets);
-            for (int i = 0; i < games.Count; i++)
+            for (int i = 0; i < _FinaleWedstrijden.Count; i++)
             {
-                FinalBrackets.FinalGames[i].Lbl_Home.Text = games[i].Home.ToString();
-                FinalBrackets.FinalGames[i].Lbl_Away.Text = games[i].Away.ToString();
+                FinalBrackets.FinalGames[i].Lbl_Home.Text = _FinaleWedstrijden[i].Home.ToString();
+                FinalBrackets.FinalGames[i].Lbl_Away.Text = _FinaleWedstrijden[i].Away.ToString();
                 FinalBrackets.FinalGames[i].Lbl_Winner.Text = "";
 
             }
@@ -281,6 +283,14 @@ namespace structures.Views
         private void cmb_Reeks4_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateReeksList();
+        }
+
+        private void btn_AddFinals_Click(object sender, EventArgs e)
+        {
+            foreach (Wedstrijd w in _FinaleWedstrijden)
+            {
+                _wedstrijdlist.Add(w);
+            }
         }
 
 
