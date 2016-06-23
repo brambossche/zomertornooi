@@ -23,13 +23,19 @@ namespace structures.Views
         {
             InitializeComponent();
             _wedstrijdlist = wedstrijdlist;
-            _wedstrijdlist.ListChanged += _wedstrijdlist_ListChanged;
-
+            _wedstrijdlist.onListSizeChanged += _wedstrijdlist_onListSizeChanged;
+            //_wedstrijdlist.ListChanged += _wedstrijdlist_ListChanged;
             _BindingListRefreshWedstrijd = new BindingListRefresh<Wedstrijd>(_wedstrijdlist);
             _BindingListRefreshWedstrijd.ListRefreshed += _BindingListRefreshWedstrijd_ListRefreshed;
             dgv_Wedstrijden.DataSource = _wedstrijdlist;
             dgv_Wedstrijden.DoubleBuffered(true);
+        }
 
+        void _wedstrijdlist_onListSizeChanged()
+        {
+            dgv_Wedstrijden.DataSource = null;
+            dgv_Wedstrijden.DataSource = _wedstrijdlist;
+            UpdateWedstrijden();
         }
 
 
@@ -63,6 +69,8 @@ namespace structures.Views
 
         public void UpdateWedstrijden()
         {
+            
+
             try
             {
                 CurrencyManager WedstrijdManager = (CurrencyManager)dgv_Wedstrijden.BindingContext[dgv_Wedstrijden.DataSource];

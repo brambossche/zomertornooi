@@ -38,7 +38,6 @@ namespace structures.Views
             _ploegview = new Userview<Ploeg>(_ploeglist,false) { Name = "Ploegview" };
             _ploegview.Dock = DockStyle.Fill;
             _ploegview.extendDataGridView1.CellContentClick += extendDataGridView1_CellContentClick;
-            _ploegview.ListRefreshed += _ploegview_ListRefreshed;
             _ploegview.extendDataGridView1.CellClick += extendDataGridView1_CellClick;
             _ploegview.extendDataGridView1.CellDoubleClick += extendDataGridView1_CellDoubleClick;
             splitContainer1.Panel1.Controls.Add(_ploegview);
@@ -99,6 +98,10 @@ namespace structures.Views
         void extendDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             _PropertiesPersoon.SelectedObject = _ploeglist[_ploegview.extendDataGridView1.CurrentCell.RowIndex].Contactpersoon;
+            if (_ploegview.extendDataGridView1.Columns["Contactpersoon"].Index != e.ColumnIndex)
+            {
+                _ComboPersonen.Visible = false;
+            }
         }
 
         void extendDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -109,11 +112,6 @@ namespace structures.Views
         void _ploeglist_ListChanged(object sender, ListChangedEventArgs e)
         {
             _Lstbox_overview.DataSource = Ploegoverview();
-        }
-
-        void _ploegview_ListRefreshed()
-        {
-
         }
 
 

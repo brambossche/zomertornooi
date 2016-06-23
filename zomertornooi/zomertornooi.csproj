@@ -220,6 +220,12 @@
     <Compile Include="Views\UC_wedstrijdViewer.Designer.cs">
       <DependentUpon>UC_wedstrijdViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\_Splashscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\_Splashscreen.Designer.cs">
+      <DependentUpon>_Splashscreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="structures\QueStatus.resx">
       <DependentUpon>QueStatus.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +290,9 @@
     <EmbeddedResource Include="Views\UC_wedstrijdViewer.resx">
       <DependentUpon>UC_wedstrijdViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\_Splashscreen.resx">
+      <DependentUpon>_Splashscreen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -340,6 +349,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
+    <None Include="Resources\VolleyAssnee.jpg" />
     <None Include="Resources\Brackets1.png" />
     <None Include="Resources\Brackets.png" />
     <None Include="Resources\Add_sign.png" />

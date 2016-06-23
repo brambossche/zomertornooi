@@ -17,6 +17,10 @@ namespace Factory
         private DataAccessLayer _DataAccessLayer = null;
         private ISession _BindingSession = null;
 
+        public delegate void ListSizeChanged();
+        public event ListSizeChanged onListSizeChanged;
+
+
         public ActiveBindingList(DataAccessLayer DataAcces, ISession BindingSession)
             : base(DataAcces.RetrieveAll<T>(BindingSession))
         {
@@ -51,7 +55,8 @@ namespace Factory
 
         public void Refresh()
         {
-
+            int _InitialCount = Count;
+            int _FinalCount = 0;
             RaiseListChangedEvents = false;
             while (Count > 0)
             {
@@ -65,8 +70,18 @@ namespace Factory
             {
                 Add(item);
             }
+
             ResetBindings();
-            RaiseListChangedEvents = true;            
+            RaiseListChangedEvents = true;
+            _FinalCount = Count;
+
+            if (_InitialCount != _FinalCount)
+            {
+                if (onListSizeChanged != null)
+                {
+                    onListSizeChanged.Invoke();
+                }
+            }
         }
 
         private void ListChangedEventHandler(object sender, ListChangedEventArgs e)

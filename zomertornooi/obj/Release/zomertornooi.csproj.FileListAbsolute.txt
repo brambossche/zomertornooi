@@ -38,3 +38,4 @@ C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.Final_Rounds.UC_A
 C:\proj\zomertornooi\zomertornooi\obj\Release\structures.Views.Final_Rounds.UC_Brackets.resources
 C:\proj\Zomertornooi\zomertornooi\obj\Release\structures.Views.ServerSelection.F_ServerSelection.resources
 C:\proj\Zomertornooi\zomertornooi\obj\Release\structures.Views.FinalRoundsViewer.resources
+C:\proj\Zomertornooi\zomertornooi\obj\Release\structures.Views._Splashscreen.resources

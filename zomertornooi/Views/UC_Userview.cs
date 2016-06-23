@@ -5,6 +5,7 @@ using structures;
 using System.ComponentModel;
 using structures.Views.ListRefreshEngine;
 using Marb.Extender.Datgridview;
+using Factory;
 
 namespace Views
 {
@@ -20,14 +21,10 @@ namespace Views
     {
         protected static readonly ILog logger = LogManager.GetLogger(typeof(Userview<T>));
         protected BindingListRefresh<T> _BindingListRefresh;
-        protected BindingList<T> _inputlist;
-
-        public delegate void del_Listrefreshed();
-        public event del_Listrefreshed ListRefreshed;
-
+        protected ActiveBindingList<T> _inputlist;
         private bool _AllowUserToAddRows;
 
-        public Userview(BindingList<T> list, bool AllowUserToAddRows) 
+        public Userview(ActiveBindingList<T> list, bool AllowUserToAddRows) 
         {
             try
             {
@@ -65,6 +62,7 @@ namespace Views
                 extendDataGridView1.CellBeginEdit += extendDataGridView1_CellBeginEdit;
                 extendDataGridView1.CellEndEdit += extendDataGridView1_CellEndEdit;
                 _inputlist.ListChanged += _inputlist_ListChanged;
+                _inputlist.onListSizeChanged += _inputlist_onListSizeChanged;
                 _BindingListRefresh.StartRefreshing();
 
 
@@ -74,6 +72,13 @@ namespace Views
             {
                 logger.Error(this.Name, ee);
             }
+        }
+
+        void _inputlist_onListSizeChanged()
+        {
+            //Console.WriteLine("Tis van da");
+            extendDataGridView1.DataSource = null;
+            extendDataGridView1.DataSource = _inputlist;
         }
 
 
@@ -100,7 +105,7 @@ namespace Views
         /// <summary>
         /// attach a binding list to the datasource of the datagridview
         /// </summary>
-        public BindingList<T> DataSource
+        public ActiveBindingList<T> DataSource
         {
             get { return _inputlist; }
             set
@@ -113,53 +118,6 @@ namespace Views
                 extendDataGridView1.Update();             
             }
         }
-
-
-
-
-        /*void _Grid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                bool attributefound = false;
-                //get the sinle selected object
-                T obj = _inputlist[e.RowIndex];
-                //get the selected propertyname from the column
-                string propname = ((DataGridView)sender).Columns[e.ColumnIndex].DataPropertyName;
-                //get all properties 
-                PropertyInfo _PropertyInfo = obj.GetType().GetProperties().ToList().Where(x => x.Name == propname).First();
-
-                foreach (CustomAttributeData attr in _PropertyInfo.CustomAttributes)
-                {
-                    if (attr.AttributeType == typeof(PropertyGridViewer))
-                    {
-                        attributefound = true;
-                        if ((bool)attr.NamedArguments.ToList().Where(x => x.MemberName == "ShowInPropertyGrid").First().TypedValue.Value)
-                        {
-                            _BindingListRefresh.StopRefreshing();
-                            PG_details.SelectedObject = ((DataGridView)sender).CurrentCell.Value;
-                            PG_details.Visible = true;
-                            PG_details.ExpandAllGridItems();
-                            break;
-                        }
-                        else
-                        {
-                            PG_details.Visible = false;
-                        }
-                    }
-                }
-                if (!attributefound)
-                {
-                    PG_details.SelectedObject = ((DataGridView)sender).CurrentCell.Value;
-                    PG_details.Visible = false;
-                }
-            }
-            catch (Exception ee)
-            {
-                logger.Error(this.Name, ee);
-            }
-        }*/
-
 
         #region refresh data        
 
@@ -175,11 +133,6 @@ namespace Views
 
         private void _BindingListRefresh_ListRefreshed()
         {
-            if (ListRefreshed != null)
-            {
-                ListRefreshed.Invoke();
-            }
-            //Console.WriteLine("List was refreshed");
             RefreshList();
 
         }
@@ -193,7 +146,7 @@ namespace Views
         {
             if (_BindingListRefresh != null)
             {
-                _BindingListRefresh.RefreshList();
+                //_BindingListRefresh.RefreshList();
                 extendDataGridView1.Refresh();
                 extendDataGridView1.Update();
             }
@@ -214,6 +167,12 @@ namespace Views
                 _BindingListRefresh.StopRefreshing();
             }
         }
+
         #endregion
+
+        private void extendDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            extendDataGridView1.EndEdit();
+        }
     }
 }

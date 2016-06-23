@@ -58,6 +58,7 @@ namespace Views
             this.extendDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.extendDataGridView1.Size = new System.Drawing.Size(1360, 446);
             this.extendDataGridView1.TabIndex = 0;
+            this.extendDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.extendDataGridView1_CellContentClick);
             // 
             // panel1
             // 
