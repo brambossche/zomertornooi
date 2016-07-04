@@ -102,7 +102,7 @@ namespace Marb.ExtendToolboxCtrl
         void ExtendDataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
             {
                 this.Rows[e.RowIndex].Selected = true;
                 this.rowIndex = e.RowIndex;

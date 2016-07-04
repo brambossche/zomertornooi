@@ -110,7 +110,8 @@ namespace ProgramDefinitions
     {
         Gespeeld,
         Scheidsrechter,
-        Rust
+        Rust,
+        NietAanwezig
     }
 
     public enum WedstrijdFormule

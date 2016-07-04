@@ -211,6 +211,25 @@ namespace structures.TournamentCalculation
         //Methods
         private List<Ploeg> GetTeams()
         {
+            //Check of er ploegen zijn die enkel op zaterdag hebben gespeeld? 
+            for (int j = 0; j < _Reeksen.Count; j++)
+            {
+                DataTable dt = _Reeksen[j].Klassement.Ranking;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                        DataRow dr = dt.Rows[i];
+                        Ploeg p = (Ploeg)dr[0];
+                        if (p.OnlyOnSaterday)
+                        {
+                            dt.Rows.Remove(dr);
+                        }
+                }
+
+
+            }
+
+
+
             List<Ploeg> _FreeTeams = new List<Ploeg>();
             _ploegen.Clear();
 
@@ -239,6 +258,7 @@ namespace structures.TournamentCalculation
                         int AW = (int)dr[1];
                         PloegHulp PH = new PloegHulp(p, punten, GS, VS, AW);
                         pH_hulp.Add(PH);
+                        
                         //_ploegen.Add(p);
                         //_FreeTeams.Add(p);
                     }

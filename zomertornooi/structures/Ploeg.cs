@@ -156,6 +156,27 @@ namespace structures
              return this.Ploegnaam;
          }
 
+
+         private bool _OnlyOnSaterday = false;
+
+        //[Browsable(false)]
+         public bool OnlyOnSaterday
+         {
+             get { return _OnlyOnSaterday; }
+             set { _OnlyOnSaterday = value; this.NotifyPropertyChanged(ID); }
+         }
+
+         private bool _OnlyOnSunday = false;
+
+        //[Browsable(false)]
+        public bool OnlyOnSunday
+         {
+             get { return _OnlyOnSunday; }
+             set { _OnlyOnSunday = value; this.NotifyPropertyChanged(ID); }
+         }
+
+
+
     }
 
 
@@ -194,6 +215,8 @@ namespace structures
             Map(x => x.Reeksnaam);
             Map(x => x.AantalxNaElkaarScheids);
             Map(x => x.AantalxScheids);
+            Map(x => x.OnlyOnSaterday);
+            Map(x => x.OnlyOnSunday);
             Table(typeof(Ploeg).Name);
         }
     }

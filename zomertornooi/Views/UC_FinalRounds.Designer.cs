@@ -50,6 +50,7 @@
             this.cmb_Reeks1 = new System.Windows.Forms.ComboBox();
             this.dgv_wedstrijden = new System.Windows.Forms.DataGridView();
             this.PanelWedstrijden = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nc_WedstrijdDuur)).BeginInit();
@@ -78,6 +79,7 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txt_reeksnaam);
             this.panel1.Controls.Add(this.btn_AddFinals);
@@ -122,7 +124,7 @@
             // 
             // btn_AddFinals
             // 
-            this.btn_AddFinals.Location = new System.Drawing.Point(3, 521);
+            this.btn_AddFinals.Location = new System.Drawing.Point(3, 508);
             this.btn_AddFinals.Name = "btn_AddFinals";
             this.btn_AddFinals.Size = new System.Drawing.Size(235, 23);
             this.btn_AddFinals.TabIndex = 31;
@@ -132,7 +134,7 @@
             // 
             // btn_SimulateFinals
             // 
-            this.btn_SimulateFinals.Location = new System.Drawing.Point(3, 483);
+            this.btn_SimulateFinals.Location = new System.Drawing.Point(3, 477);
             this.btn_SimulateFinals.Name = "btn_SimulateFinals";
             this.btn_SimulateFinals.Size = new System.Drawing.Size(235, 23);
             this.btn_SimulateFinals.TabIndex = 30;
@@ -314,6 +316,16 @@
             this.PanelWedstrijden.Size = new System.Drawing.Size(955, 395);
             this.PanelWedstrijden.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 537);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(235, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Haal laatste status";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UC_FinalRounds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,5 +368,6 @@
         private System.Windows.Forms.Panel PanelWedstrijden;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_reeksnaam;
+        private System.Windows.Forms.Button button1;
     }
 }

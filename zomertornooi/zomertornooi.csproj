@@ -161,6 +161,12 @@
     <Compile Include="Views\UC_FinalRounds.Designer.cs">
       <DependentUpon>UC_FinalRounds.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UC_FinalRoundsViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_FinalRoundsViewer.Designer.cs">
+      <DependentUpon>UC_FinalRoundsViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UC_PersoonView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     <EmbeddedResource Include="Views\UC_FinalRounds.resx">
       <DependentUpon>UC_FinalRounds.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_FinalRoundsViewer.resx">
+      <DependentUpon>UC_FinalRoundsViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_PersoonView.resx">
       <DependentUpon>UC_PersoonView.cs</DependentUpon>
     </EmbeddedResource>
@@ -349,6 +358,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
+    <None Include="Resources\tumblr_mv4r2zSoa41sljpg2o1_500.gif" />
     <None Include="Resources\VolleyAssnee.jpg" />
     <None Include="Resources\Brackets1.png" />
     <None Include="Resources\Brackets.png" />

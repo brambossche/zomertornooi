@@ -15,7 +15,7 @@ namespace TournamentCalculation
     public class RoundRobinGenerator
     {
         private static readonly ILog logger = LogManager.GetLogger(typeof(RoundRobinGenerator));
-
+        private int PlayedFirstDay = 0;
 
         #region Calculate RoundRobin
 
@@ -199,6 +199,9 @@ namespace TournamentCalculation
             //Generate TimeSlots 
             GenerateTimeslots(Reeksen);
 
+            //Check of er teams zijn die enkel op zondag of zaterdag meedoen 
+            CheckoneDayTournament(Reeksen);
+
             while (AantalWedstrijden > 0)
             {
                 for (int k = 0; k < Reeksen.Count; k++)
@@ -304,6 +307,9 @@ namespace TournamentCalculation
                 Reeksen[k].DubbelScheids = false;
                 Reeksen[k].Vrijescheids = false;
                 Reeksen[k].WedstrijdDefinition.StartingTimes.Clear();
+                Reeksen[k].AfwezigeTeamsZat.Clear();
+                Reeksen[k].AfwezigeTeamsZon.Clear();
+                Reeksen[k].DagTornooi = false;
             }
 
         }
@@ -455,6 +461,19 @@ namespace TournamentCalculation
 
         }
 
+        //Reset counters from one reeks
+        private void resetPloegCountersForSunday(Reeks r)
+        {
+                for (int p = 0; p < r.Ploegen.Count; p++)
+                {
+                    Ploeg ploeg = r.Ploegen[p];
+                    ploeg.AantalxNaElkaarGespeeld = 0;
+                    ploeg.AantalxNaElkaarScheids = 0;
+                    ploeg.AantalxNaElkaarRust = 0;
+                }
+
+        }
+
         //Vind scheidsrechters voor de rondewedstrijden binnen alle reeksen
         private void Findreferees(List<Reeks> Reeksen, List<Wedstrijd> RoundGames)
         {
@@ -523,13 +542,39 @@ namespace TournamentCalculation
                     {
                         isFull = false;
                     }
-
-
-
                 }
             }
 
             return isFull;
+        }
+
+        //Check if there are teams competing for only one day and adjust games 
+        private void CheckoneDayTournament(List<Reeks> Reeksen)
+        {
+            for (int k = 0; k < Reeksen.Count; k++)
+            {
+                //Check of er teams zijn die enkel op zaterdag of enkel op zondag meedoen
+                foreach (Ploeg p in Reeksen[k].Ploegen)
+                {
+                    if (p.OnlyOnSaterday)
+                    {
+                        Reeksen[k].AfwezigeTeamsZon.Add(p);
+                        Reeksen[k].DagTornooi = true;
+                    }
+                    else if (p.OnlyOnSunday)
+                    {
+                        Reeksen[k].AfwezigeTeamsZat.Add(p);
+                        Reeksen[k].DagTornooi = true;
+                    }
+                }
+            }
+
+
+
+
+
+
+
         }
 
 
@@ -539,17 +584,126 @@ namespace TournamentCalculation
         private List<Wedstrijd> CalculateRoundGames(Reeks r, int ronde)
         {
             List<Wedstrijd> RoundGames = new List<Wedstrijd>();
+            
+            
 
             //Als alle wedstrijden gespeeld zijn in reeks ==> Geen scheidsrechters meer afleveren
-            if (r.TimeScheduleHulp.Count == 0) { r.FreeTeams = null; }
+            if (r.TimeScheduleHulp.Count == 0) { r.FreeTeams = null; }        
+
+            //afhangend van het feit of er ploegen zijn die enkel zaterdag/zondag meedoen
+            //Worden wedstrijden anders berekend
+            if (r.DagTornooi)
+            {
+                    if (ronde < r.WedstrijdDefinition.AantalrondesZaterdag)
+                    {
+                        //Bepaal het aantal terreinen als er ploegen minder zijn 
+                        int NrT = reCalculateNrTerrains(r, ronde);
+
+                        //Verwijder de ploegen uit de mogelijke ploegen en zet hun status op afwezig
+                        foreach (Ploeg p in r.AfwezigeTeamsZat)
+                        {
+                            p.StatusList.Add(Status.NietAanwezig);
+                            r.FreeTeams.Remove(p);
+                        }
+
+                        //Bereken de wedstrijden in 1 ronde.
+                        RoundGames.AddRange(CalculateNormalGames(r, ronde, NrT));
+
+                        //Check of de wedstrijden nog kunnen gespeeld worden...
+                        RemoveImpossibleGames(r, ronde);
+
+                    }
+                    else
+                    {
+                        //Reset de ploegencounters ("na elkaar") indien nieuwe tornooidag
+                        if (ronde == r.WedstrijdDefinition.AantalrondesZaterdag)
+                        {
+                            resetPloegCountersForSunday(r);
+                            int maxPlayed = 0;
+                            foreach (Ploeg p in r.Ploegen)
+                            {
+                                maxPlayed = Math.Max(maxPlayed, p.AantalxGespeeld);
+                            }
+                            PlayedFirstDay = (r.Ploegen.Count - 1) - maxPlayed;
+
+
+                            /*
+                            foreach (Ploeg p in r.AfwezigeTeamsZat)
+                            {
+                                List<Wedstrijd> _wedstrijdenN = new List<Wedstrijd>();
+                                _wedstrijdenN = r.TimeScheduleHulp.Where(w => w.Home == p || w.Away == p).ToList();
+
+                                for (int i = 0; i <= max; i++)
+                                {
+                                    if (i < _wedstrijdenN.Count)
+                                    {
+                                        r.TimeScheduleHulp.Remove(_wedstrijdenN[i]);
+                                    }
+                                }
+                            }*/
+                        }
+
+                        //Check of de afwezige ploegen al genoeg wedstrijden hebben gespeeld als de andere
+                        foreach (Ploeg p in r.AfwezigeTeamsZat)
+                        {
+                            List<Wedstrijd> _wedstrijdenN = new List<Wedstrijd>();
+                            _wedstrijdenN = r.TimeScheduleHulp.Where(w => w.Home == p || w.Away == p).ToList();
+
+                            if (p.AantalxGespeeld >= PlayedFirstDay)
+                            {
+                                for (int i = 0; i <= _wedstrijdenN.Count; i++)
+                                {
+                                    if (i < _wedstrijdenN.Count)
+                                    {
+                                        r.TimeScheduleHulp.Remove(_wedstrijdenN[i]);
+                                    }
+                                }
+
+                            }
+                        }
+                        
+
+                        //Bepaal het aantal terreinen als er ploegen minder zijn 
+                        int NrT = reCalculateNrTerrains(r, ronde);
+
+                        //Verwijder de ploegen uit de mogelijke ploegen en zet hun status op afwezig
+                        foreach (Ploeg p in r.AfwezigeTeamsZon)
+                        {
+                            p.StatusList.Add(Status.NietAanwezig);
+                            r.FreeTeams.Remove(p);
+                        }
+                        //Bereken de wedstrijden in 1 ronde.
+                        RoundGames.AddRange(CalculateNormalGames(r, ronde, NrT));
+
+                        //Check of de wedstrijden nog kunnen gespeeld worden...
+                        RemoveImpossibleGames(r, ronde);
+                    }
+            }
+            else
+            {
+                if (ronde == r.WedstrijdDefinition.AantalrondesZaterdag)
+                {
+                    resetPloegCountersForSunday(r);
+                }
+                RoundGames.AddRange(CalculateNormalGames(r, ronde, r.Terreinen.Count));
+            }
+
+            //Geef de teams terug die eventueel scheidsrechter kunnen zijn.
+            return RoundGames;
+        }
+
+        private List<Wedstrijd> CalculateNormalGames(Reeks r, int ronde, int NrT)
+        {
+            List<Wedstrijd> RoundGames = new List<Wedstrijd>();
 
             //Bereken de wedstrijden in 1 ronde.
-            for (int t = 0; t < r.Terreinen.Count; t++)
+            for (int t = 0; t < NrT; t++)
             {
                 //Bereken wedstrijden 
                 if (r.TimeScheduleHulp.Count > 0)
                 {
                     Wedstrijd NextGame = FindOptimalGame(r);
+
                     if (NextGame != null)
                     {
                         //Remove Home & Away from FreeTeams
@@ -578,10 +732,47 @@ namespace TournamentCalculation
                     }
                 }
             }
-
-            //Geef de teams terug die eventueel scheidsrechter kunnen zijn.
             return RoundGames;
         }
+
+        private void RemoveImpossibleGames(Reeks r, int ronde)
+        {
+            if (ronde < r.WedstrijdDefinition.AantalrondesZaterdag)
+            {
+                //Check of de wedstrijden nog kunnen gespeeld worden...
+                int Onmogelijk = 0;
+                foreach (Wedstrijd w in r.TimeScheduleHulp)
+                {
+                    if (w.Home.OnlyOnSunday || w.Away.OnlyOnSunday)
+                    {
+                        Onmogelijk++;
+                    }
+                }
+                if (Onmogelijk == r.TimeScheduleHulp.Count)
+                {
+                    r.TimeScheduleHulp.Clear();
+                }
+            }
+            else
+            {
+                //Check of de wedstrijden nog kunnen gespeeld worden...
+                int Onmogelijk = 0;
+                foreach (Wedstrijd w in r.TimeScheduleHulp)
+                {
+                    if (w.Home.OnlyOnSaterday || w.Away.OnlyOnSaterday)
+                    {
+                        Onmogelijk++;
+                    }
+                }
+                if (Onmogelijk == r.TimeScheduleHulp.Count)
+                {
+                    r.TimeScheduleHulp.Clear();
+                }
+            }
+
+
+        }
+
 
         //Vind best passende wedstrijden
         private Wedstrijd FindOptimalGame(Reeks r)
@@ -608,7 +799,8 @@ namespace TournamentCalculation
             //Check of er mogelijke wedstrijden zijn en sorteer op beste manier
             if (MogelijkeWedstrijden.Count > 0)
             {
-                MogelijkeWedstrijden = MogelijkeWedstrijden.OrderByDescending(w => w.Home.AantalxNaElkaarRust)
+                MogelijkeWedstrijden = MogelijkeWedstrijden
+                    .OrderByDescending(w => w.Home.AantalxNaElkaarRust)
                     .ThenByDescending(w => w.Away.AantalxNaElkaarRust)
                     .ThenByDescending(w => w.Home.AantalxNaElkaarScheids)
                     .ThenByDescending(w => w.Away.AantalxNaElkaarScheids)
@@ -655,6 +847,48 @@ namespace TournamentCalculation
                 terreinen.Add(new Terrein() { TerreinNr = t, ReeksNaam = r.ReeksNaam });
             }
             return terreinen;
+        }
+
+        public int reCalculateNrTerrains(Reeks r, int ronde)
+        {
+            int aanT = 0;
+
+            if (ronde < r.WedstrijdDefinition.AantalrondesZaterdag)
+            {
+                int nrTeams = r.Ploegen.Count() - r.AfwezigeTeamsZat.Count;
+                if (nrTeams > 2)
+                {
+                    aanT = (int)Math.Floor(Convert.ToDouble(nrTeams) / 3);
+                }
+                else
+                {
+                    aanT = 1;
+                }
+
+            }
+            else if (ronde >= r.WedstrijdDefinition.AantalrondesZaterdag)
+            {
+                int nrTeams = r.Ploegen.Count() - r.AfwezigeTeamsZon.Count;
+                if (nrTeams > 2)
+                {
+                    aanT = (int)Math.Floor(Convert.ToDouble(nrTeams) / 3);
+                }
+                else
+                {
+                    aanT = 1;
+                }
+
+            }
+
+
+            //Check of het aantal terreinen niet groter is dan het aantal voorziene terreinen
+            if (aanT > r.Terreinen.Count)
+            {
+                aanT = r.Terreinen.Count;
+            }
+
+
+            return aanT;
         }
 
         //Geef zelf een aantal terreinen in
@@ -820,31 +1054,6 @@ namespace TournamentCalculation
 
 #endregion
 
-        #region Calculate Post RoundRobin Games
-
-
-        public void CalculateFinalGames(List<Reeks> Reeksen)
-        {
-
-
-
-
-            for (int i = 0; i < Reeksen.Count; i++)
-            {
-
-            }
-        }
-
-
-
-
-
-
-        #endregion
-
-        #region Calculate Rankings
-
-        #endregion
 
         #region Tournament optimization
 

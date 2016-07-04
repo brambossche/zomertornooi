@@ -70,3 +70,5 @@ C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.Final_Rounds.UC_All
 C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.Final_Rounds.UC_Brackets.resources
 C:\proj\Zomertornooi\zomertornooi\obj\Debug\structures.Views.ServerSelection.F_ServerSelection.resources
 C:\proj\Zomertornooi\zomertornooi\obj\Debug\structures.Views.FinalRoundsViewer.resources
+C:\proj\Zomertornooi\zomertornooi\obj\Debug\structures.Views._Splashscreen.resources
+C:\proj\zomertornooi\zomertornooi\obj\Debug\structures.Views.UC_FinalRoundsViewer.resources

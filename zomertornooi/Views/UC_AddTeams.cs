@@ -25,7 +25,6 @@ namespace structures.Views
             _PersoonList.ListChanged += _PersoonList_ListChanged;
             InitializeComponent();
             UpdateComboboxes();
-            cmb_category.SelectedIndex = 0;
         }
 
         void _PersoonList_ListChanged(object sender, ListChangedEventArgs e)
@@ -50,6 +49,8 @@ namespace structures.Views
                 cmb_ContactPersoon.Items.Add(p);
             }
 
+            cmb_category.SelectedIndex = 0;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,7 +65,22 @@ namespace structures.Views
                 p = null;
             }
 
-            Category c = (Category)cmb_category.SelectedItem; 
+            Category c = (Category)cmb_category.SelectedItem;
+
+            bool zat = false;
+            bool zon = false;
+            if (cmb_TornooiFormule.Text == "Enkel Zaterdag")
+            {
+                zat = true;
+            }
+            else if (cmb_TornooiFormule.Text == "Enkel Zondag")
+            {
+                zon = true;
+            }
+
+
+
+
             
             Ploeg pl = new Ploeg()
             {
@@ -72,7 +88,9 @@ namespace structures.Views
                 Betaald = chb_Betaald.Checked,
                 Contactpersoon = p,
                 SubscribedCategory = c,
-                Category = c
+                Category = c,
+                OnlyOnSaterday = zat,
+                OnlyOnSunday = zon
             };
 
             _PloegList.Add(pl);

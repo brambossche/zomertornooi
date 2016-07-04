@@ -112,7 +112,7 @@
             // 
             this.btn_calculateRoundRobin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_calculateRoundRobin.Location = new System.Drawing.Point(0, 714);
-            this.btn_calculateRoundRobin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_calculateRoundRobin.Margin = new System.Windows.Forms.Padding(4);
             this.btn_calculateRoundRobin.Name = "btn_calculateRoundRobin";
             this.btn_calculateRoundRobin.Size = new System.Drawing.Size(1761, 26);
             this.btn_calculateRoundRobin.TabIndex = 9;
@@ -133,7 +133,7 @@
             // btn_OptimizeTerrein
             // 
             this.btn_OptimizeTerrein.Location = new System.Drawing.Point(149, 373);
-            this.btn_OptimizeTerrein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_OptimizeTerrein.Margin = new System.Windows.Forms.Padding(4);
             this.btn_OptimizeTerrein.Name = "btn_OptimizeTerrein";
             this.btn_OptimizeTerrein.Size = new System.Drawing.Size(100, 26);
             this.btn_OptimizeTerrein.TabIndex = 12;
@@ -374,6 +374,7 @@
             this.button2.TabIndex = 28;
             this.button2.Text = "Delete from Database";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -384,6 +385,7 @@
             this.button1.TabIndex = 27;
             this.button1.Text = "Store to Database";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dtv_Terreinen
             // 
@@ -423,7 +425,7 @@
             // 
             this.btn_DeleteAll.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_DeleteAll.Location = new System.Drawing.Point(0, 740);
-            this.btn_DeleteAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_DeleteAll.Margin = new System.Windows.Forms.Padding(4);
             this.btn_DeleteAll.Name = "btn_DeleteAll";
             this.btn_DeleteAll.Size = new System.Drawing.Size(1761, 30);
             this.btn_DeleteAll.TabIndex = 29;
@@ -438,7 +440,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btn_calculateRoundRobin);
             this.Controls.Add(this.btn_DeleteAll);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UC_RoundRobinSetup";
             this.Size = new System.Drawing.Size(1761, 770);
             this.Load += new System.EventHandler(this.UC_RoundRobinSetup_Load);

@@ -124,7 +124,7 @@ namespace structures.Views
 
             if (_TerreinList.Count > 0 & _TerreinList != null)
             {
-                UpdateTerreinColors();
+               // UpdateTerreinColors();
             }
 
             
@@ -767,26 +767,31 @@ namespace structures.Views
                 _BindingListRefreshTerrein.RefreshList();
             }
             UpdateAllDataGrids();
+            UpdateWedstrijdColors();
+            UpdateTerreinColors();
         }
 
         private void UC_TornooiAdministratie_Enter(object sender, EventArgs e)
         {
-            CurrencyManager TerreinManager = (CurrencyManager)dgv_Terreinen.BindingContext[dgv_Terreinen.DataSource];
-            TerreinManager.SuspendBinding();
-            for (int i = 0; i < _TerreinList.Count; i++)
+            RefreshList();
+            if (dgv_Terreinen.DataSource != null)
             {
-                if (_TerreinList[i].ReeksNaam == cmb_ReeksNaam.Text)
+                CurrencyManager TerreinManager = (CurrencyManager)dgv_Terreinen.BindingContext[dgv_Terreinen.DataSource];
+                TerreinManager.SuspendBinding();
+                for (int i = 0; i < _TerreinList.Count; i++)
                 {
-                    dgv_Terreinen.Rows[i].Visible = true;
+                    if (_TerreinList[i].ReeksNaam == cmb_ReeksNaam.Text)
+                    {
+                        dgv_Terreinen.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dgv_Terreinen.Rows[i].Visible = false;
+                    }
                 }
-                else
-                {
-                    dgv_Terreinen.Rows[i].Visible = false;
-                }
+                TerreinManager.ResumeBinding();
+
             }
-            TerreinManager.ResumeBinding();
-
-
 
             if (_BindingListRefreshWedstrijd != null)
             {
@@ -842,6 +847,7 @@ namespace structures.Views
             if (e.ColumnIndex >= 12)
             {
                 dgv_Wedstrijden.EndEdit();
+                //RefreshList();
             }
 
         }

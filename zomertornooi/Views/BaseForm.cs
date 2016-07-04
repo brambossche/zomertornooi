@@ -14,6 +14,7 @@ using structures.structures;
 using NhibernateIntf;
 using structures.Views.ServerSelection;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Views
 {
@@ -63,11 +64,16 @@ namespace Views
 
         private void BaseForm_Load(object sender, EventArgs e)
         {
-            _Splashscreen _Splash = new _Splashscreen();
-            _Splash.Show();
+            
+            /*_Splashscreen _Splash = new _Splashscreen();
+            Thread SplashThread = new Thread(() =>
+            {
+                _Splash.ShowDialog();
+            });
+            SplashThread.Start();
+            */
             try
             {
-
                 //connect to the database and get the Factory session
                 _NHibernateSessionManager = new NHibernateSessionManager<BaseForm>(Databaseconfig.DB_UnitHibernateTest);
                 //setup the structures of the program
@@ -92,8 +98,9 @@ namespace Views
                     Userview<Wedstrijd> _WedstrijdViewer = new Userview<Wedstrijd>(_WedstrijdList, false) { Name = "Wedstrijden" };
                     Userview<Terrein> _terreinview = new Userview<Terrein>(_TerreinList, false) { Name = "Terreinen" };
                     UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_WedstrijdList, _TerreinList);
-                    UC_FinalRounds _FinalRounds = new UC_FinalRounds(_WedstrijdList, _PloegList, _TerreinList);
+                    UC_FinalRounds _FinalRounds = new UC_FinalRounds(_WedstrijdList, _TerreinList);
                     UC_Reader _Reader = new UC_Reader(_WedstrijdList);
+                    UC_FinalRoundsViewer _FinalRoundsViewer = new UC_FinalRoundsViewer(_WedstrijdList);
 
                     CreateDockContent(_Personen, MainDocking);
                     CreateDockContent(_PloegOverView, MainDocking);
@@ -104,6 +111,7 @@ namespace Views
                     CreateDockContent(_TornooiAdministratie, MainDocking);
                     CreateDockContent(_Reader, MainDocking);
                     CreateDockContent(_FinalRounds, MainDocking);
+                    CreateDockContent(_FinalRoundsViewer, MainDocking);
                     
 
                 }
@@ -122,9 +130,8 @@ namespace Views
             {                                
                 logger.Error(this.Name + " Database loading error", ee);
             }
-
-            _Splash.Dispose();
             this.WindowState = FormWindowState.Maximized;
+            //_Splash.Dispose();
         }
 
 
@@ -216,6 +223,12 @@ namespace Views
         private void selectServerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new F_ServerSelection().ShowDialog();
+        }
+
+        private void tournamentAdministrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_TornooiAdministratie _TornooiAdministratie = new UC_TornooiAdministratie(_WedstrijdList, _TerreinList);
+            CreateDockContent(_TornooiAdministratie, MainDocking);
         }
     }
 }

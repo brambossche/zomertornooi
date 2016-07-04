@@ -270,6 +270,8 @@ namespace structures.Views
 
         private void UC_PloegOverView_Load(object sender, EventArgs e)
         {
+            if (_ploegview.extendDataGridView1.CurrentCell != null)
+            {
             splitContainer1.Panel2Collapsed = true;
             splitContainer1.Panel2.Controls.Clear();
             _PropertiesPersoon.SelectedObject = _ploeglist[_ploegview.extendDataGridView1.CurrentCell.RowIndex].Contactpersoon;
@@ -279,7 +281,7 @@ namespace structures.Views
             //_UC_categoryChanges.Dock = DockStyle.Fill;
             //splitContainer1.SplitterDistance = splitContainer1.Width - _UC_categoryChanges.Width;
             splitContainer1.Panel2Collapsed = false;
-
+            }
 
         }
 

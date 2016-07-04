@@ -115,7 +115,6 @@ namespace Factory
 
                     case ListChangedType.ItemChanged:
                         {
-                            
                             _DataAccessLayer.Save<T>(this[(int)e.OldIndex], _BindingSession);
                         }break;
                     case ListChangedType.ItemDeleted:

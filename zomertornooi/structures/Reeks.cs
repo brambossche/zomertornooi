@@ -156,6 +156,33 @@ namespace structures
             set { _Terreinen = value; }
 
         }
+
+
+        private bool _DagTornooi = false;
+
+        public bool DagTornooi
+        {
+            get { return _DagTornooi; }
+            set { _DagTornooi = value; }
+        }
+
+        List<Ploeg> _AfwezigeTeamsZat = new List<Ploeg>();
+
+        public List<Ploeg> AfwezigeTeamsZat
+        {
+            get { return _AfwezigeTeamsZat; }
+            set { _AfwezigeTeamsZat = value; }
+        }
+        List<Ploeg> _AfwezigeTeamsZon = new List<Ploeg>();
+
+        public List<Ploeg> AfwezigeTeamsZon
+        {
+            get { return _AfwezigeTeamsZon; }
+            set { _AfwezigeTeamsZon = value; }
+        }
+
+
+
     }
 
     public class ReeksMapping : ClassMap<Reeks>

@@ -440,6 +440,10 @@ namespace structures.Views
             {
                 e.CellStyle.BackColor = Color.Yellow;
             }
+            else if (e.Value.Equals("NietAanwezig"))
+            {
+                e.CellStyle.BackColor = Color.Red;
+            }
             
 
 
@@ -471,6 +475,63 @@ namespace structures.Views
 
             //_DataAccessLayer.CleanUpTable<Wedstrijd>();
             //_DataAccessLayer.CleanUpTable<Terrein>();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Calculate timeschedule from selected reeks
+            List<Reeks> listOfReeksen = new List<Reeks>();
+            _ReeksList[comboBxReeksen.SelectedIndex].RoundRobin = rrg.CalculateRoundRobinGames(_ReeksList[comboBxReeksen.SelectedIndex]);
+            listOfReeksen.Add(_ReeksList[comboBxReeksen.SelectedIndex]);
+            rrg.CalculateTimeSchedule(listOfReeksen);
+
+            //Add only this timeschedule to database
+            foreach (Terrein t in _ReeksList[comboBxReeksen.SelectedIndex].Terreinen)
+            {
+                _Terreinlist.Add(t);
+            }
+
+            foreach (Wedstrijd w in _ReeksList[comboBxReeksen.SelectedIndex].TimeSchedule)
+            {
+                _wedstrijdlist.Add(w);
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<Wedstrijd> _GamesToDelete = new List<Wedstrijd>();
+            List<Terrein> _terreinenToDelete = new List<Terrein>();
+            foreach (Wedstrijd w in _wedstrijdlist)
+            {
+                if (w.ReeksNaam == comboBxReeksen.Text)
+                {
+                    _GamesToDelete.Add(w);
+                }
+
+                if (w.Terrein.ReeksNaam == comboBxReeksen.Text && !_terreinenToDelete.Contains(w.Terrein))
+                {
+                    _terreinenToDelete.Add(w.Terrein);
+                }
+
+            }
+
+            foreach (Wedstrijd w in _GamesToDelete)
+            {
+                _wedstrijdlist.Remove(w);
+            }
+
+            foreach (Terrein t in _terreinenToDelete)
+            {
+                for (int i = 0; i < _Terreinlist.Count; i++)
+                {
+                    if (_Terreinlist[i].ReeksNaam == t.ReeksNaam)
+                    {
+                        _Terreinlist.Remove(_Terreinlist[i]);
+                    }
+                }
+            }
 
         }
 

@@ -11,27 +11,35 @@ using Factory;
 using TournamentCalculation;
 using structures.Views.Final_Rounds;
 using structures.TournamentCalculation;
+using structures.Views.ListRefreshEngine;
 
 namespace structures.Views
 {
     public partial class UC_FinalRounds : UserControl
     {
-        private ActiveBindingList<Wedstrijd> _wedstrijdlist;
-        private ActiveBindingList<Ploeg> _ploegList;
-        private ActiveBindingList<Terrein> _terreinList;
+        private ActiveBindingList<Wedstrijd> _WedstrijdList;
+        private ActiveBindingList<Terrein> _TerreinList;
         private List<AdministratieReeks> _ReeksList = new List<AdministratieReeks>();
         private List<ComboBox> _ComboBoxes = new List<ComboBox>();
         private RoundRobinGenerator rrg = new RoundRobinGenerator();
         private List<Wedstrijd> _FinaleWedstrijden = new List<Wedstrijd>();
 
+        //Bindinglists for update
+        protected BindingListRefresh<Wedstrijd> _BindingListRefreshWedstrijd;
+        protected BindingListRefresh<Terrein> _BindingListRefreshTerrein;
 
-        public UC_FinalRounds(ActiveBindingList<Wedstrijd> wedstrijdlist, ActiveBindingList<Ploeg> ploegList, ActiveBindingList<Terrein> terreinList)
+
+        public UC_FinalRounds(ActiveBindingList<Wedstrijd> wedstrijdlist, ActiveBindingList<Terrein> terreinList)
         {
-            _wedstrijdlist = wedstrijdlist;
-            _ploegList = ploegList;
-            _terreinList = terreinList;
+            //Input lists
+            _WedstrijdList = wedstrijdlist;
+            _TerreinList = terreinList;
 
-            _wedstrijdlist.ListChanged += _wedstrijdlist_ListChanged;
+            //Refresh lists
+            _BindingListRefreshWedstrijd = new BindingListRefresh<Wedstrijd>(_WedstrijdList);
+            _BindingListRefreshTerrein = new BindingListRefresh<Terrein>(_TerreinList);
+
+            _WedstrijdList.ListChanged += _wedstrijdlist_ListChanged;
             InitializeComponent();
             GetReeksen();
             PopulateCombo();
@@ -40,6 +48,21 @@ namespace structures.Views
             _ComboBoxes.Add(cmb_Reeks2);
             _ComboBoxes.Add(cmb_Reeks3);
             _ComboBoxes.Add(cmb_Reeks4);
+        }
+
+        private void RefreshList()
+        {
+            if (_BindingListRefreshWedstrijd != null)
+            {
+                _BindingListRefreshWedstrijd.RefreshList();
+            }
+
+            if (_BindingListRefreshTerrein != null)
+            {
+                _BindingListRefreshTerrein.RefreshList();
+            }
+            GetReeksen();
+            PopulateCombo();
         }
 
         private void PopulateCombo()
@@ -58,6 +81,7 @@ namespace structures.Views
         void _wedstrijdlist_ListChanged(object sender, ListChangedEventArgs e)
         {
             CreateReeksList();
+            PopulateCombo();
         }
 
         private void nc_aantalReeksen_ValueChanged(object sender, EventArgs e)
@@ -101,7 +125,7 @@ namespace structures.Views
             PanelWedstrijden.Controls.Clear();
         //CalculateFinalGames(_ReeksList, _terreinList);
             //PanelWedstrijden.Controls.Add(new UC_AllBrackets(2, 8) { Dock = DockStyle.Fill});
-            FinalGamesGenerator fgr = new FinalGamesGenerator(_ReeksList,_terreinList,dtp_Finals.Value, (int)nc_WedstrijdDuur.Value, txt_reeksnaam.Text);
+            FinalGamesGenerator fgr = new FinalGamesGenerator(_ReeksList,_TerreinList,dtp_Finals.Value, (int)nc_WedstrijdDuur.Value, txt_reeksnaam.Text);
             _FinaleWedstrijden = fgr.CalculateFinalGames();
             dgv_wedstrijden.DataSource = _FinaleWedstrijden;
             UC_AllBrackets FinalBrackets = new UC_AllBrackets(1, _FinaleWedstrijden.Count);
@@ -233,10 +257,11 @@ namespace structures.Views
         {
             
             List<string> _ReeksListString = new List<string>();
+            _ReeksList.Clear();
             _ReeksListString.Clear();
-            foreach (Wedstrijd w in _wedstrijdlist)
+            foreach (Wedstrijd w in _WedstrijdList)
             {
-                if (!_ReeksListString.Contains(w.ReeksNaam))
+                if (!_ReeksListString.Contains(w.ReeksNaam) && w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.RoundRobin)
                 {
                     _ReeksListString.Add(w.ReeksNaam);
                 }
@@ -244,7 +269,7 @@ namespace structures.Views
 
             foreach (string s in _ReeksListString)
             {
-                AdministratieReeks adr = new AdministratieReeks(s, _wedstrijdlist);
+                AdministratieReeks adr = new AdministratieReeks(s, _WedstrijdList);
                 adr.CalculateRankings();
                 _ReeksList.Add(adr);
             }
@@ -257,7 +282,7 @@ namespace structures.Views
             {
                 if (_ComboBoxes[i].SelectedIndex >= 0)
                 {
-                    AdministratieReeks adr = new AdministratieReeks(_ComboBoxes[i].Text, _wedstrijdlist);
+                    AdministratieReeks adr = new AdministratieReeks(_ComboBoxes[i].Text, _WedstrijdList);
                     adr.CalculateRankings();
                     _ReeksList.Add(adr);
                 }
@@ -289,9 +314,17 @@ namespace structures.Views
         {
             foreach (Wedstrijd w in _FinaleWedstrijden)
             {
-                _wedstrijdlist.Add(w);
+                _WedstrijdList.Add(w);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RefreshList();
+        }
+
+
+
 
 
 
