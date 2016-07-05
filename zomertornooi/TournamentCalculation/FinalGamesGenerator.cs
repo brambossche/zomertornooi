@@ -39,7 +39,7 @@ namespace structures.TournamentCalculation
                     CalculateGames();
                     break;
                 case 2:
-                    _WedstrijdFormule = WedstrijdFormule.CrossFinals;
+                    _WedstrijdFormule = WedstrijdFormule.PlacementGames;
                     CalculateGames();
                     break;
                 case 3:

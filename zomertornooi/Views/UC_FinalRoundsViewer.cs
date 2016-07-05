@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Factory;
 using structures.Views.ListRefreshEngine;
 using Marb.Extender.Datgridview;
+using structures.Views.Final_Rounds;
 
 namespace structures.Views
 {
@@ -17,6 +18,8 @@ namespace structures.Views
     {
         //Inputlist
         private ActiveBindingList<Wedstrijd> _WedstrijdList;
+
+        private UC_AllBrackets _FinalBrackets = new UC_AllBrackets();
 
         //Bindinglists for update
         protected BindingListRefresh<Wedstrijd> _BindingListRefreshWedstrijd;
@@ -26,9 +29,16 @@ namespace structures.Views
         {
             InitializeComponent();
             _WedstrijdList = wedstrijdlist;
+            _WedstrijdList.ListChanged += _WedstrijdList_ListChanged;
             dgv_wedstrijden.DoubleBuffered(true);
             dgv_wedstrijden.DataSource = _WedstrijdList;
         }
+
+        void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            UpdateBrackets();
+        }
+
 
 
         private void PopulateReeksCombobox()
@@ -94,28 +104,85 @@ namespace structures.Views
             WedstrijdManager.ResumeBinding();
 
             //Update Brackets
-            UpdateBrackets();
+            CreateBrackets();
 
         }
 
-        private void UpdateBrackets()
+        private void CreateBrackets()
         {
+            int count = _WedstrijdList.Where(w => (w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.CrossFinals ||
+                    w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.PlacementGames)
+                    && w.ReeksNaam == cmb_ReeksNaam.Text).ToList().Count;
+
+            if(_WedstrijdList.Where(w => (w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.CrossFinals ||
+                    w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.PlacementGames)
+                    && w.ReeksNaam == cmb_ReeksNaam.Text).ToList()[0].WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.PlacementGames)
+            {
+                //Generate brackets
+                _FinalBrackets = new UC_AllBrackets(1, count);
+            }
+            else if(_WedstrijdList.Where(w => (w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.CrossFinals ||
+                    w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.PlacementGames)
+                    && w.ReeksNaam == cmb_ReeksNaam.Text).ToList()[0].WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.CrossFinals)
+            {
+                //Generate brackets
+                _FinalBrackets = new UC_AllBrackets(2, count);
+            }
+
+
+
+            int index = 0;
             foreach (Wedstrijd w in _WedstrijdList)
             {
                 if ((w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.CrossFinals ||
                     w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.PlacementGames)
                     && w.ReeksNaam == cmb_ReeksNaam.Text)
                 {
-                    
+                    _FinalBrackets.FinalGames[index].Lbl_Home.DataBindings.Add("Text", w.Home, "Ploegnaam");
+                    _FinalBrackets.FinalGames[index].Lbl_Away.DataBindings.Add("Text", w.Away, "Ploegnaam");
+                    _FinalBrackets.FinalGames[index].Lbl_Winner.DataBindings.Add("Text", w, "Winner");
 
+                    //_FinalBrackets.FinalGames[index].Lbl_Home.Text = w.Home.Ploegnaam;
+                    //_FinalBrackets.FinalGames[index].Lbl_Away.Text = w.Away.Ploegnaam;
+                    index++;
                 }
             }
-
-
+            panel1.Controls.Add(_FinalBrackets);
 
 
 
         }
+
+        private void UpdateBrackets()
+        {
+            int index = 0;
+            foreach (Wedstrijd w in _WedstrijdList)
+            {
+                if ((w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.CrossFinals ||
+                    w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.PlacementGames)
+                    && w.ReeksNaam == cmb_ReeksNaam.Text)
+                {
+                    //_FinalBrackets.FinalGames[index].Lbl_Home.DataBindings.Add("Text", w.Home, "Ploegnaam");
+                    //_FinalBrackets.FinalGames[index].Lbl_Away.DataBindings.Add("Text", w.Away, "Ploegnaam");
+                    //_FinalBrackets.FinalGames[index].Lbl_Winner.DataBindings.Add("Text", w, "Winner");
+
+                    _FinalBrackets.FinalGames[index].Lbl_Home.Text = w.Home.Ploegnaam;
+                    _FinalBrackets.FinalGames[index].Lbl_Away.Text = w.Away.Ploegnaam;
+                    _FinalBrackets.FinalGames[index].Lbl_Winner.Text = w.Winner;
+
+                    index++;
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
 
 
     }

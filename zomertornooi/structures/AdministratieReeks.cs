@@ -128,7 +128,7 @@ namespace structures
                     int PuntenA = 0;
 
                     //Indien thuisploeg
-                    if (Wedstrijden[i].Home.Equals(ploeg))
+                    if (Wedstrijden[i].Home.Equals(ploeg) && Wedstrijden[i].WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.RoundRobin)
                     {
                         
                         if (Wedstrijden[i].Set1Home != 0 || Wedstrijden[i].Set1Away != 0)
@@ -207,7 +207,7 @@ namespace structures
                     }
 
                     //Indien uitploeg
-                    if (Wedstrijden[i].Away.Equals(ploeg))
+                    if (Wedstrijden[i].Away.Equals(ploeg) && Wedstrijden[i].WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.RoundRobin)
                     {
 
                         if (Wedstrijden[i].Set1Home != 0 || Wedstrijden[i].Set1Away != 0)

@@ -23,7 +23,7 @@ namespace structures
         public virtual DateTime Aanvangsuur
         {
             get { return _Aanvangsuur; }
-            set { _Aanvangsuur = value; this.NotifyPropertyChanged(ID); }
+            set { _Aanvangsuur = value; this.NotifyPropertyChanged(ID);}
         }
         
         private Ploeg _Home = new Ploeg();
@@ -85,7 +85,7 @@ namespace structures
         public virtual int Set1Home
         {
             get { return _Set1Home; }
-            set { _Set1Home = value; this.NotifyPropertyChanged(ID); }
+            set { _Set1Home = value; CheckWinner(); this.NotifyPropertyChanged(ID); }
         }
 
         private int _Set1Away = 0;
@@ -93,7 +93,7 @@ namespace structures
         public virtual int Set1Away
         {
             get { return _Set1Away; }
-            set { _Set1Away = value; this.NotifyPropertyChanged(ID); }
+            set { _Set1Away = value; CheckWinner(); this.NotifyPropertyChanged(ID); }
         }
 
         private int _Set2Home = 0;
@@ -101,7 +101,7 @@ namespace structures
         public virtual int Set2Home
         {
             get { return _Set2Home; }
-            set { _Set2Home = value; this.NotifyPropertyChanged(ID); }
+            set { _Set2Home = value; CheckWinner(); this.NotifyPropertyChanged(ID); }
         }
 
         private int _Set2Away = 0;
@@ -109,7 +109,7 @@ namespace structures
         public int Set2Away
         {
             get { return _Set2Away; }
-            set { _Set2Away = value; this.NotifyPropertyChanged(ID); }
+            set { _Set2Away = value; CheckWinner(); this.NotifyPropertyChanged(ID); }
         }
 
         private int _Set3Home = 0;
@@ -117,7 +117,7 @@ namespace structures
         public virtual int Set3Home
         {
             get { return _Set3Home; }
-            set { _Set3Home = value; this.NotifyPropertyChanged(ID); }
+            set { _Set3Home = value; CheckWinner(); this.NotifyPropertyChanged(ID); }
         }
 
 
@@ -126,7 +126,7 @@ namespace structures
         public int Set3Away
         {
             get { return _Set3Away; }
-            set { _Set3Away = value; this.NotifyPropertyChanged(ID); }
+            set { _Set3Away = value; CheckWinner(); this.NotifyPropertyChanged(ID); }
         }
 
 
@@ -163,6 +163,97 @@ namespace structures
         }
 
 
+        private string _winner = "";
+
+        public string Winner
+        {
+            get { return _winner; }
+            set { _winner = value; this.NotifyPropertyChanged(ID); }
+        }
+
+
+
+        private void CheckWinner()
+        {
+            int setGH = 0;
+            int setVH = 0;
+
+            int setGA = 0;
+            int setVA = 0;
+
+
+            if (Set1Home != 0 && Set1Away != 0)
+            {
+                if (Set1Home > Set1Away)
+                {
+                    setGH++;
+                    setVA++;
+                }
+                else
+                {
+                    setVH++;
+                    setGA++;
+                }
+            }
+
+            if (Set2Home != 0 && Set2Away != 0)
+            {
+                if (Set2Home > Set2Away)
+                {
+                    setGH++;
+                    setVA++;
+                }
+                else
+                {
+                    setVH++;
+                    setGA++;
+                }
+            }
+
+            if (Set3Home != 0 && Set3Away != 0)
+            {
+                if (Set3Home > Set3Away)
+                {
+                    setGH++;
+                    setVA++;
+                }
+                else
+                {
+                    setVH++;
+                    setGA++;
+                }
+            }
+
+
+            if (setGH > setGA)
+            {
+                Winner = Home.Ploegnaam;
+            }
+            else if (setGH < setGA)
+            {
+                Winner = Away.Ploegnaam;
+            }
+            else if (Set1Home + Set2Home + Set3Home > Set1Away + Set2Away + Set3Away)
+            {
+                Winner = Home.Ploegnaam;
+            }
+            else if (Set1Home + Set2Home + Set3Home < Set1Away + Set2Away + Set3Away)
+            {
+                Winner = Away.Ploegnaam;
+            }
+            else
+            {
+                Winner = "";
+            }
+
+
+
+
+        }
+
+
+
+
     }
 
     /*
@@ -197,6 +288,7 @@ namespace structures
             Map(x => x.ReeksNaam);
             Map(x => x.Aanvangsuur);
             Map(x => x.WedstrijdFormule);
+            Map(x => x.Winner);
             References(x => x.Away).Not.LazyLoad();
             References(x => x.Home).Not.LazyLoad();
             //References(x => x.Terrein).Cascade.SaveUpdate();

@@ -26,6 +26,7 @@ namespace structures
                 PropertyChanged(this, new PropertyChangedEventArgs(id.ToString()));
             }
         }
+
     }
 
 

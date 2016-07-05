@@ -31,9 +31,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cmb_ReeksNaam = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_wedstrijden = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_wedstrijden)).BeginInit();
@@ -64,7 +64,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1032, 31);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1032, 30);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // cmb_ReeksNaam
@@ -76,12 +76,22 @@
             this.cmb_ReeksNaam.TabIndex = 0;
             this.cmb_ReeksNaam.SelectedIndexChanged += new System.EventHandler(this.cmb_ReeksNaam_SelectedIndexChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(207, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 40);
+            this.panel1.Location = new System.Drawing.Point(3, 39);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1032, 361);
+            this.panel1.Size = new System.Drawing.Size(1032, 362);
             this.panel1.TabIndex = 1;
             // 
             // dgv_wedstrijden
@@ -94,15 +104,6 @@
             this.dgv_wedstrijden.RowTemplate.Height = 24;
             this.dgv_wedstrijden.Size = new System.Drawing.Size(1032, 152);
             this.dgv_wedstrijden.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(207, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // UC_FinalRoundsViewer
             // 

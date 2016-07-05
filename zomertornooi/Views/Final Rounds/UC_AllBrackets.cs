@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Factory;
 
 namespace structures.Views.Final_Rounds
 {
     public partial class UC_AllBrackets : UserControl
     {
         private List<UC_Brackets> _FinalGames = new List<UC_Brackets>();
+        private ActiveBindingList<Wedstrijd> _WedstrijdList;
 
         public List<UC_Brackets> FinalGames
         {
@@ -63,13 +65,6 @@ namespace structures.Views.Final_Rounds
                 }
             }
         }
-
-
-
-
-
-
-
 
     }
 }
