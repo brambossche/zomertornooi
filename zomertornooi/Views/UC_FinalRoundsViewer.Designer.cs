@@ -104,6 +104,7 @@
             this.dgv_wedstrijden.RowTemplate.Height = 24;
             this.dgv_wedstrijden.Size = new System.Drawing.Size(1032, 152);
             this.dgv_wedstrijden.TabIndex = 2;
+            this.dgv_wedstrijden.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_wedstrijden_CellValueChanged);
             // 
             // UC_FinalRoundsViewer
             // 
@@ -113,6 +114,7 @@
             this.Name = "UC_FinalRoundsViewer";
             this.Size = new System.Drawing.Size(1038, 562);
             this.Load += new System.EventHandler(this.UC_FinalRoundsViewer_Load);
+            this.Enter += new System.EventHandler(this.UC_FinalRoundsViewer_Enter);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

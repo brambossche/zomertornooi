@@ -26,8 +26,7 @@ namespace structures.Views
         //Bindinglists for update
         protected BindingListRefresh<Wedstrijd> _BindingListRefreshWedstrijd;
         protected BindingListRefresh<Terrein> _BindingListRefreshTerrein;
- 
-        //BindingLists for comboboxes
+
 
         //Reeks (ploegen + terreinen)
         private AdministratieReeks Reeks;
@@ -53,8 +52,8 @@ namespace structures.Views
             _TerreinList.ListChanged += _TerreinList_ListChanged;
 
             //Refreshlist events
-            _BindingListRefreshWedstrijd.ListRefreshed += _BindingListRefreshWedstrijd_ListRefreshed;
-            _BindingListRefreshTerrein.ListRefreshed += _BindingListRefreshTerrein_ListRefreshed;
+            //_BindingListRefreshWedstrijd.ListRefreshed += _BindingListRefreshWedstrijd_ListRefreshed;
+            //_BindingListRefreshTerrein.ListRefreshed += _BindingListRefreshTerrein_ListRefreshed;
 
             if (_WedstrijdList.Count > 0 && _TerreinList.Count > 0)
             {
@@ -211,6 +210,7 @@ namespace structures.Views
 
         void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)
         {
+
             if (_WedstrijdList.Count > 0 & _WedstrijdList != null && _TerreinList.Count !=0 && _TerreinList != null)
             {                
                 if (e.ListChangedType == ListChangedType.ItemChanged)

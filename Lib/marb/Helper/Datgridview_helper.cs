@@ -18,5 +18,21 @@ namespace Marb.Extender.Datgridview
             pi.SetValue(dgv, setting, null);
         }
 
+
+        public static void DoubleBuffered(this Panel dgv, bool setting)
+        {
+            Type dgvType = dgv.GetType();
+            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+            pi.SetValue(dgv, setting, null);
+        }
+
+        public static void DoubleBuffered(this UserControl dgv, bool setting)
+        {
+            Type dgvType = dgv.GetType();
+            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+            pi.SetValue(dgv, setting, null);
+        }
+
+
     }
 }

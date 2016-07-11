@@ -312,6 +312,22 @@ namespace structures.Views
 
         private void btn_AddFinals_Click(object sender, EventArgs e)
         {
+            PanelWedstrijden.Controls.Clear();
+            //CalculateFinalGames(_ReeksList, _terreinList);
+            //PanelWedstrijden.Controls.Add(new UC_AllBrackets(2, 8) { Dock = DockStyle.Fill});
+            FinalGamesGenerator fgr = new FinalGamesGenerator(_ReeksList, _TerreinList, dtp_Finals.Value, (int)nc_WedstrijdDuur.Value, txt_reeksnaam.Text);
+            _FinaleWedstrijden = fgr.CalculateFinalGames();
+            dgv_wedstrijden.DataSource = _FinaleWedstrijden;
+            UC_AllBrackets FinalBrackets = new UC_AllBrackets(1, _FinaleWedstrijden.Count);
+            PanelWedstrijden.Controls.Add(FinalBrackets);
+            for (int i = 0; i < _FinaleWedstrijden.Count; i++)
+            {
+                FinalBrackets.FinalGames[i].Lbl_Home.Text = _FinaleWedstrijden[i].Home.ToString();
+                FinalBrackets.FinalGames[i].Lbl_Away.Text = _FinaleWedstrijden[i].Away.ToString();
+                FinalBrackets.FinalGames[i].Lbl_Winner.Text = "";
+
+            }
+
             foreach (Wedstrijd w in _FinaleWedstrijden)
             {
                 _WedstrijdList.Add(w);

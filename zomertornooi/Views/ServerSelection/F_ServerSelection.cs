@@ -48,7 +48,7 @@ namespace structures.Views.ServerSelection
             }
             else
             {
-                Databaseconfig.DB_UnitHibernateTest = MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=" + cmb_server.Text + "\\SQLEXPRESS,2016;Initial Catalog=ZomerTornooi2016;Integrated Security=True");
+                Databaseconfig.DB_UnitHibernateTest = MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=" + cmb_server.Text + "\\SQLEXPRESS,2016;Initial Catalog=ZomerTornooi2016;User ID=TornooiUser;Password=Zomertornooi2016");
                 this.Dispose();
                 BaseForm Tornooi = new BaseForm((UserLevel)cmb_UserType.SelectedItem);
                 Tornooi.ShowDialog();

@@ -24,6 +24,9 @@ namespace structures.Views
         //Bindinglists for update
         protected BindingListRefresh<Wedstrijd> _BindingListRefreshWedstrijd;
 
+        //Private bool Listchanged
+        private bool Listchanged = false;
+
 
         public UC_FinalRoundsViewer(ActiveBindingList<Wedstrijd> wedstrijdlist)
         {
@@ -32,11 +35,13 @@ namespace structures.Views
             _WedstrijdList.ListChanged += _WedstrijdList_ListChanged;
             dgv_wedstrijden.DoubleBuffered(true);
             dgv_wedstrijden.DataSource = _WedstrijdList;
+            
+            
         }
 
         void _WedstrijdList_ListChanged(object sender, ListChangedEventArgs e)
         {
-            UpdateBrackets();
+            Listchanged = true;
         }
 
 
@@ -60,6 +65,23 @@ namespace structures.Views
             if (Reeksen.Count > 0)
             {
                 cmb_ReeksNaam.SelectedIndex = 0;
+            }
+            else
+            {
+                CurrencyManager WedstrijdManager = (CurrencyManager)dgv_wedstrijden.BindingContext[dgv_wedstrijden.DataSource];
+                WedstrijdManager.SuspendBinding();
+                for (int i = 0; i < _WedstrijdList.Count; i++)
+                {
+                    if (_WedstrijdList[i].ReeksNaam == cmb_ReeksNaam.Text)
+                    {
+                        dgv_wedstrijden.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dgv_wedstrijden.Rows[i].Visible = false;
+                    }
+                }
+                WedstrijdManager.ResumeBinding();
             }
             
         }
@@ -110,6 +132,7 @@ namespace structures.Views
 
         private void CreateBrackets()
         {
+            panel1.Controls.Clear();
             int count = _WedstrijdList.Where(w => (w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.CrossFinals ||
                     w.WedstrijdFormule == ProgramDefinitions.WedstrijdFormule.PlacementGames)
                     && w.ReeksNaam == cmb_ReeksNaam.Text).ToList().Count;
@@ -169,7 +192,6 @@ namespace structures.Views
                     _FinalBrackets.FinalGames[index].Lbl_Home.Text = w.Home.Ploegnaam;
                     _FinalBrackets.FinalGames[index].Lbl_Away.Text = w.Away.Ploegnaam;
                     _FinalBrackets.FinalGames[index].Lbl_Winner.Text = w.Winner;
-
                     index++;
                 }
             }
@@ -178,6 +200,21 @@ namespace structures.Views
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UC_FinalRoundsViewer_Enter(object sender, EventArgs e)
+        {
+            if (Listchanged)
+            {
+                Listchanged = false;
+                PopulateReeksCombobox();
+                UpdateBrackets();
+            }
+        }
+
+        private void dgv_wedstrijden_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateBrackets();
         }
 
 
