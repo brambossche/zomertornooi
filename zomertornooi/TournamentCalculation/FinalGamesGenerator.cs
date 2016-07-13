@@ -21,6 +21,14 @@ namespace structures.TournamentCalculation
         private WedstrijdFormule _WedstrijdFormule = WedstrijdFormule.PlacementGames;
         private string _ReeksNaam;
 
+        public FinalGamesGenerator(DateTime Aanvangsuur, int Interval, string Reeksnaam)
+        {
+            _Aanvangsuur = Aanvangsuur;
+            _Interval = Interval;
+            _ReeksNaam = Reeksnaam;
+        }
+
+
         public FinalGamesGenerator(List<AdministratieReeks> reeksen, ActiveBindingList<Terrein> terreinen, DateTime Aanvangsuur, int Interval, string Reeksnaam)
         {
             _Reeksen = reeksen;
@@ -58,6 +66,84 @@ namespace structures.TournamentCalculation
             //_wedstrijden.Reverse();
             return _wedstrijden;
         }
+
+
+
+
+
+        public List<Wedstrijd> CalculateNextRound(List<Ploeg> Freeteams, List<Terrein> TerreinList)
+        {
+            //Get ploegen from rankings, put them in the correct order in the list
+            List<Ploeg> _Freeteams = Freeteams;
+
+            //Teams are already in correct orer so 
+            _ploegen = _Freeteams.ToList();
+
+            //Bepaal het aantal terreinen
+            List<Terrein> _TerreinList = TerreinList;
+
+            //Bereken de wedstrijden (zonder scheids, terrein)
+            List<Wedstrijd> _WedstrijdList = CalculatePlacementGames();
+
+            //Bepaal scheidsrechter, terrein en aanvangsuur
+            int currentRound = 0;
+
+
+            while (_WedstrijdList.Count > 0)
+            {
+                // haal de volgende wedstrijden op en zet ploegen op 'bezet'
+                List<Wedstrijd> _NextGames = GetNextGames(_WedstrijdList, _TerreinList, _Freeteams, currentRound);
+
+                //Vind scheidsrechters
+                Findreferees(_NextGames, _Freeteams);
+
+                //Zet alle ploegen terug op vrije status
+                _Freeteams = _ploegen.ToList();
+
+                //Voeg wedstrijden toe aan lijst 
+                _wedstrijden.AddRange(_NextGames);
+
+                //Update counter of the current round being calculated
+                currentRound++;
+            }
+
+
+
+            return _wedstrijden;
+
+
+
+
+
+        }
+
+        public List<Ploeg> ArrangeWinnersLosers(List<Ploeg> winnaars, List<Ploeg> verliezers)
+        {
+            List<Ploeg> teams = new List<Ploeg>();
+
+            //remove last teams if number of teams is odd
+            if (winnaars.Count % 2 != 0)
+            {
+                winnaars.Remove(winnaars.First());
+                verliezers.Remove(verliezers.First());
+            }
+
+            //Arrange teams
+            for (int i = 0; i < winnaars.Count; i+=2)
+            {
+                teams.Add(verliezers[i]);
+                teams.Add(verliezers[i + 1]);
+                teams.Add(winnaars[i]);
+                teams.Add(winnaars[i + 1]);
+            }
+
+            return teams;
+
+
+
+        }
+
+
 
 
         private void CalculateGames()
@@ -102,10 +188,10 @@ namespace structures.TournamentCalculation
         {
             List<Ploeg> Scheidsrechters = _Freeteams.ToList();
             //Sorteer de vrije teams naar aantal keer scheidsrechter 
-            Scheidsrechters = Scheidsrechters.Where(ploeg => ploeg.AantalxNaElkaarScheids < 1).ToList();
+            //Scheidsrechters = Scheidsrechters.Where(ploeg => ploeg.AantalxNaElkaarScheids < 1).ToList();
             //Scheidsrechters = Scheidsrechters.Where(ploeg => ploeg.AantalxNaElkaarRust < 1).ToList();
 
-            Scheidsrechters = Scheidsrechters.OrderBy(p => p.AantalxScheids).ThenBy(p => p.AantalxRust).ToList();
+            //Scheidsrechters = Scheidsrechters.OrderBy(p => p.AantalxScheids).ThenBy(p => p.AantalxRust).ToList();
             Scheidsrechters = Scheidsrechters.Concat(Scheidsrechters).ToList();
 
             //Scheidsrechters toekennen
@@ -295,12 +381,6 @@ namespace structures.TournamentCalculation
                 _ploegen.Add(ph.Ploeg);
                 _FreeTeams.Add(ph.Ploeg);
             }
-
-
-
-
-
-
 
             return _FreeTeams;
         }

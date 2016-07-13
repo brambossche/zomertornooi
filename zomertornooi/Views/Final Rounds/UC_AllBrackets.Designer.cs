@@ -49,9 +49,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.Controls.Add(this.tbl_Brackets);
             this.Name = "UC_AllBrackets";
             this.Size = new System.Drawing.Size(845, 553);
+            this.Load += new System.EventHandler(this.UC_AllBrackets_Load);
             this.ResumeLayout(false);
 
         }

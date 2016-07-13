@@ -33,10 +33,10 @@
             this.cmb_ReeksNaam = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgv_wedstrijden = new System.Windows.Forms.DataGridView();
+            this.dgv_Wedstrijden = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_wedstrijden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Wedstrijden)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -45,7 +45,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dgv_wedstrijden, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dgv_Wedstrijden, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -78,33 +78,35 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(207, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(136, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "Volgende Ronde";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 39);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1032, 362);
             this.panel1.TabIndex = 1;
             // 
-            // dgv_wedstrijden
+            // dgv_Wedstrijden
             // 
-            this.dgv_wedstrijden.AllowUserToAddRows = false;
-            this.dgv_wedstrijden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_wedstrijden.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_wedstrijden.Location = new System.Drawing.Point(3, 407);
-            this.dgv_wedstrijden.Name = "dgv_wedstrijden";
-            this.dgv_wedstrijden.RowTemplate.Height = 24;
-            this.dgv_wedstrijden.Size = new System.Drawing.Size(1032, 152);
-            this.dgv_wedstrijden.TabIndex = 2;
-            this.dgv_wedstrijden.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_wedstrijden_CellValueChanged);
+            this.dgv_Wedstrijden.AllowUserToAddRows = false;
+            this.dgv_Wedstrijden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Wedstrijden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Wedstrijden.Location = new System.Drawing.Point(3, 407);
+            this.dgv_Wedstrijden.Name = "dgv_Wedstrijden";
+            this.dgv_Wedstrijden.RowTemplate.Height = 24;
+            this.dgv_Wedstrijden.Size = new System.Drawing.Size(1032, 152);
+            this.dgv_Wedstrijden.TabIndex = 2;
+            this.dgv_Wedstrijden.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_wedstrijden_CellValueChanged);
             // 
             // UC_FinalRoundsViewer
             // 
@@ -118,7 +120,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_wedstrijden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Wedstrijden)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -130,6 +132,6 @@
         private System.Windows.Forms.ComboBox cmb_ReeksNaam;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgv_wedstrijden;
+        private System.Windows.Forms.DataGridView dgv_Wedstrijden;
     }
 }

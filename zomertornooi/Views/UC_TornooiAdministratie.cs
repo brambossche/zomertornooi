@@ -52,8 +52,8 @@ namespace structures.Views
             _TerreinList.ListChanged += _TerreinList_ListChanged;
 
             //Refreshlist events
-            //_BindingListRefreshWedstrijd.ListRefreshed += _BindingListRefreshWedstrijd_ListRefreshed;
-            //_BindingListRefreshTerrein.ListRefreshed += _BindingListRefreshTerrein_ListRefreshed;
+            _BindingListRefreshWedstrijd.ListRefreshed += _BindingListRefreshWedstrijd_ListRefreshed;
+            _BindingListRefreshTerrein.ListRefreshed += _BindingListRefreshTerrein_ListRefreshed;
 
             if (_WedstrijdList.Count > 0 && _TerreinList.Count > 0)
             {
@@ -773,6 +773,7 @@ namespace structures.Views
 
         private void UC_TornooiAdministratie_Enter(object sender, EventArgs e)
         {
+            
             RefreshList();
             if (dgv_Terreinen.DataSource != null)
             {

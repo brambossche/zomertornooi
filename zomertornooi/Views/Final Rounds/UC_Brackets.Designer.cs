@@ -32,6 +32,7 @@
             this.lbl_Home = new System.Windows.Forms.Label();
             this.lbl_Away = new System.Windows.Forms.Label();
             this.lbl_Winner = new System.Windows.Forms.Label();
+            this.lbl_Place = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lbl_Home, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbl_Away, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbl_Winner, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_Place, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -64,9 +66,8 @@
             this.lbl_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_Home.Location = new System.Drawing.Point(3, 0);
             this.lbl_Home.Name = "lbl_Home";
-            this.lbl_Home.Size = new System.Drawing.Size(498, 108);
+            this.lbl_Home.Size = new System.Drawing.Size(498, 109);
             this.lbl_Home.TabIndex = 0;
-            this.lbl_Home.Text = "label1";
             this.lbl_Home.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_Away
@@ -74,11 +75,10 @@
             this.lbl_Away.AutoSize = true;
             this.lbl_Away.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Away.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_Away.Location = new System.Drawing.Point(3, 216);
+            this.lbl_Away.Location = new System.Drawing.Point(3, 218);
             this.lbl_Away.Name = "lbl_Away";
-            this.lbl_Away.Size = new System.Drawing.Size(498, 111);
+            this.lbl_Away.Size = new System.Drawing.Size(498, 109);
             this.lbl_Away.TabIndex = 1;
-            this.lbl_Away.Text = "label2";
             this.lbl_Away.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_Winner
@@ -86,12 +86,22 @@
             this.lbl_Winner.AutoSize = true;
             this.lbl_Winner.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Winner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_Winner.Location = new System.Drawing.Point(633, 108);
+            this.lbl_Winner.Location = new System.Drawing.Point(633, 109);
             this.lbl_Winner.Name = "lbl_Winner";
-            this.lbl_Winner.Size = new System.Drawing.Size(500, 108);
+            this.lbl_Winner.Size = new System.Drawing.Size(500, 109);
             this.lbl_Winner.TabIndex = 2;
-            this.lbl_Winner.Text = "label3";
             this.lbl_Winner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_Place
+            // 
+            this.lbl_Place.AutoSize = true;
+            this.lbl_Place.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Place.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Place.Location = new System.Drawing.Point(3, 109);
+            this.lbl_Place.Name = "lbl_Place";
+            this.lbl_Place.Size = new System.Drawing.Size(498, 109);
+            this.lbl_Place.TabIndex = 3;
+            this.lbl_Place.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UC_Brackets
             // 
@@ -133,6 +143,7 @@
             set { lbl_Winner = value; }
         }
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.Label lbl_Place;
 
     }
 }

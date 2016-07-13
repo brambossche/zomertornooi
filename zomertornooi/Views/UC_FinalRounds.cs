@@ -63,17 +63,22 @@ namespace structures.Views
             }
             GetReeksen();
             PopulateCombo();
+            nc_aantalReeksen.Value = 1;
         }
 
         private void PopulateCombo()
         {
             cmb_Reeks1.Items.Clear();
+            cmb_Reeks1.Text = "";
             cmb_Reeks1.Items.AddRange(_ReeksList.ToArray());
             cmb_Reeks2.Items.Clear();
+            cmb_Reeks2.Text = "";
             cmb_Reeks2.Items.AddRange(_ReeksList.ToArray());
             cmb_Reeks3.Items.Clear();
+            cmb_Reeks3.Text = "";
             cmb_Reeks3.Items.AddRange(_ReeksList.ToArray());
             cmb_Reeks4.Items.Clear();
+            cmb_Reeks4.Text = "";
             cmb_Reeks4.Items.AddRange(_ReeksList.ToArray());
         }
 

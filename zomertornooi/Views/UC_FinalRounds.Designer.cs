@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_reeksnaam = new System.Windows.Forms.TextBox();
             this.btn_AddFinals = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.cmb_Reeks1 = new System.Windows.Forms.ComboBox();
             this.dgv_wedstrijden = new System.Windows.Forms.DataGridView();
             this.PanelWedstrijden = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nc_WedstrijdDuur)).BeginInit();
@@ -104,6 +104,16 @@
             this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
             this.panel1.Size = new System.Drawing.Size(243, 567);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 537);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(235, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Haal laatste status";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label8
             // 
@@ -310,21 +320,12 @@
             // 
             // PanelWedstrijden
             // 
+            this.PanelWedstrijden.AutoScroll = true;
             this.PanelWedstrijden.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelWedstrijden.Location = new System.Drawing.Point(252, 3);
             this.PanelWedstrijden.Name = "PanelWedstrijden";
             this.PanelWedstrijden.Size = new System.Drawing.Size(955, 395);
             this.PanelWedstrijden.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 537);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Haal laatste status";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UC_FinalRounds
             // 

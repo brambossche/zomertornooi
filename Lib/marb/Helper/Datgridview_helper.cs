@@ -26,7 +26,7 @@ namespace Marb.Extender.Datgridview
             pi.SetValue(dgv, setting, null);
         }
 
-        public static void DoubleBuffered(this UserControl dgv, bool setting)
+        public static void DoubleBuffered(this TableLayoutPanel dgv, bool setting)
         {
             Type dgvType = dgv.GetType();
             PropertyInfo pi = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
